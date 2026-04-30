@@ -1,64 +1,146 @@
+/* =========================
+   GLOBAL STYLE (PREMIUM UI)
+========================= */
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Arial", sans-serif;
   color: white;
-  background: url("https://images.unsplash.com/photo-1677442136019-21780ecad995") no-repeat center center/cover;
-  height: 100vh;
+  min-height: 100vh;
   overflow-x: hidden;
+
+  /* 🔥 AI ROBOT PREMIUM BACKGROUND */
+  background: url("https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1800&q=80")
+    no-repeat center center fixed;
+  background-size: cover;
 }
 
+/* 🌑 DARK OVERLAY (biar elegant & mahal look) */
 .overlay {
   position: fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: rgba(0,0,0,0.75);
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.88)
+  );
+  z-index: 1;
 }
+
+/* =========================
+   CONTAINER
+========================= */
 
 .container {
   position: relative;
+  z-index: 2;
   text-align: center;
-  padding: 50px;
+  padding: 40px 20px;
+  max-width: 100%;
 }
 
+/* =========================
+   TITLE
+========================= */
+
 h1 {
-  font-size: 40px;
+  font-size: 42px;
+  font-weight: 700;
   color: #00ffcc;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
 }
 
 .tagline {
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-size: 16px;
+  opacity: 0.85;
+  margin-bottom: 25px;
 }
+
+/* =========================
+   PRICE BOX (LIVE MARKET)
+========================= */
 
 .price-box {
-  background: rgba(255,255,255,0.1);
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 255, 204, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 18px;
   margin: 20px auto;
-  width: 300px;
-  border-radius: 10px;
+  width: 320px;
+  max-width: 90%;
+  border-radius: 14px;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.08);
 }
 
-.groups, .pricing {
-  margin-top: 20px;
+/* =========================
+   SECTIONS
+========================= */
+
+.groups,
+.pricing {
+  margin-top: 25px;
+  opacity: 0.95;
 }
+
+.groups h2,
+.pricing h2 {
+  color: #00ffcc;
+  font-size: 20px;
+}
+
+/* =========================
+   BUTTON (TELEGRAM CTA)
+========================= */
 
 .btn {
   display: inline-block;
-  padding: 15px 30px;
-  background: #00ffcc;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #00ffcc, #00bfa6);
   color: black;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 10px;
   text-decoration: none;
-  margin-top: 20px;
+  margin-top: 25px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.25);
 }
 
 .btn:hover {
-  background: #00ccaa;
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #00e6b8, #009e88);
 }
 
+/* =========================
+   FOOTER
+========================= */
+
 .footer {
-  margin-top: 30px;
+  margin-top: 35px;
   font-size: 12px;
-  opacity: 0.7;
+  opacity: 0.6;
+}
+
+/* =========================
+   MOBILE OPTIMIZATION 📱
+========================= */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  .tagline {
+    font-size: 13px;
+  }
+
+  .price-box {
+    padding: 15px;
+    width: 90%;
+  }
+
+  .btn {
+    width: 90%;
+    font-size: 16px;
+  }
 }
