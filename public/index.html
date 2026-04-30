@@ -2,85 +2,196 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-
-  <!-- 📱 MOBILE RESPONSIVE FIX -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>AI Signal Trading - One Percent FX</title>
+  <title>One Percent FX - AI Trading Signal</title>
 
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0f1a;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+
+    .price-box {
+      background: #111827;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      font-size: 18px;
+    }
+
+    .info-box {
+      background: #0f172a;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .highlight {
+      color: #00ff99;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    ul {
+      text-align: left;
+    }
+
+    .pricing {
+      margin-top: 20px;
+      background: #111827;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 15px 25px;
+      background: #00ff99;
+      color: black;
+      font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- 🌑 DARK OVERLAY -->
-  <div class="overlay"></div>
-
-  <!-- =========================
-       HERO SECTION
-  ========================= -->
   <div class="container">
 
-    <h1>🤖 AI Trading Signal</h1>
+    <h1>🤖 AI Trading Signal Engine</h1>
 
     <p class="tagline">
-      Analisa AI market XAUUSD • BTCUSD • News Impact
+      Smart Money Concept (SMC) • News Impact • Institutional Flow Analysis
     </p>
 
-    <!-- 💰 LIVE PRICE CARD -->
+    <!-- 💰 PRICE -->
     <div class="price-box">
-      <div>💰 XAUUSD: <span id="gold">Loading...</span></div>
-      <div>₿ BTCUSD: <span id="btc">Loading...</span></div>
+      💰 XAUUSD: <span id="gold">Loading...</span><br>
+      ₿ BTCUSD: <span id="btc">Loading...</span>
     </div>
 
-    <!-- 📊 SIGNAL SECTION -->
-    <div class="groups">
-      <h2>📊 Grup Signal</h2>
+    <!-- 🧠 INFO -->
+    <div class="info-box">
+
+      <h2>📊 Sistem Analisa</h2>
+
       <ul>
-        <li>🔥 Signal AI XAUUSD</li>
-        <li>₿ Signal AI BTCUSD</li>
-        <li>📰 Berita Dampak USD & Emas</li>
+        <li>📈 Smart Money Concept (Liquidity, BOS, CHOCH)</li>
+        <li>🏦 Order Block & Market Structure</li>
+        <li>📰 News Impact & Fundamental Bias</li>
+        <li>⚡ Institutional Flow Detection</li>
       </ul>
+
+      <p class="highlight">
+        🔥 Signal keluar setiap 1 jam sekali untuk menjaga akurasi & menghindari noise market
+      </p>
+
+    </div>
+
+    <!-- 📊 GROUP -->
+    <div class="info-box">
+
+      <h2>📊 Premium Signal</h2>
+
+      <ul>
+        <li>🔥 XAUUSD Smart Money Signal</li>
+        <li>₿ BTCUSD AI Signal Engine</li>
+        <li>📰 News Based Entry & Bias Market</li>
+      </ul>
+
     </div>
 
     <!-- 💰 PRICING -->
     <div class="pricing">
+
       <h2>💰 Paket Langganan</h2>
-      <p>Mingguan — 49K</p>
-      <p>Bulanan — 99K</p>
-      <p>Tahunan — 999K</p>
+
+      <p>⚡ Mingguan — 49K</p>
+      <p>🚀 Bulanan — 99K</p>
+      <p>👑 Tahunan — 999K</p>
+
     </div>
 
-    <!-- 🚀 CTA BUTTON -->
+    <!-- 🚀 BUTTON -->
     <a class="btn" href="https://t.me/ADMOnePercentsFX" target="_blank">
-      🚀 Gabung Telegram
+      💎 Langganan Sekarang
     </a>
 
     <p class="footer">
-      AI trading system • High accuracy signal engine
+      ⚡ AI Institutional Trading System • High Probability Setup Only
     </p>
 
   </div>
 
   <!-- =========================
-       ANIMATION LAYER (CLEAN SEPARATE)
-       (INI BUKAN DI BODY UTAMA BIAR TIDAK RUSAK LAYOUT)
+       FINNHUB LIVE PRICE SCRIPT
   ========================= -->
 
-  <!-- 🤖 ROBOT -->
-  <img class="robot"
-       src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif"
-       alt="AI Robot" />
+  <script>
 
-  <!-- 📊 CANDLE ANIMATION -->
-  <div class="candle-container">
-    <div class="candle up"></div>
-    <div class="candle down"></div>
-    <div class="candle up"></div>
-    <div class="candle down"></div>
-    <div class="candle up"></div>
-  </div>
+    const API_KEY = "d3ndrd9r01qo7510lisgd3ndrd9r01qo7510lit0";
 
-  <script src="app.js"></script>
+    async function getPrice(symbol) {
+      try {
+        const res = await fetch(
+          `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${API_KEY}`
+        );
+
+        const data = await res.json();
+        return data.c;
+
+      } catch (e) {
+        console.log("error", e);
+        return null;
+      }
+    }
+
+    async function update() {
+
+      const gold = await getPrice("OANDA:XAUUSD");
+      const btc = await getPrice("BINANCE:BTCUSDT");
+
+      document.getElementById("gold").innerText =
+        gold ? gold.toFixed(2) : "N/A";
+
+      document.getElementById("btc").innerText =
+        btc ? btc.toFixed(2) : "N/A";
+    }
+
+    // update tiap 10 detik (aman untuk GitHub Pages + API limit)
+    update();
+    setInterval(update, 10000);
+
+  </script>
+
 </body>
 </html>
