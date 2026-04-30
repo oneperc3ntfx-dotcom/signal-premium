@@ -1,30 +1,57 @@
+
 /* =========================
-   GLOBAL STYLE (PREMIUM UI)
+   GLOBAL STYLE (PREMIUM AI TRADING UI)
 ========================= */
 
 body {
   margin: 0;
   font-family: "Arial", sans-serif;
   color: white;
+
   min-height: 100vh;
   overflow-x: hidden;
 
-  /* 🔥 AI ROBOT PREMIUM BACKGROUND */
-  background: url("https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1800&q=80")
+  /* 🔥 AI FUTURISTIC BACKGROUND */
+  background: url("https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=2000&q=80")
     no-repeat center center fixed;
+
   background-size: cover;
 }
 
-/* 🌑 DARK OVERLAY (biar elegant & mahal look) */
+/* 🌑 DARK OVERLAY PREMIUM */
 .overlay {
   position: fixed;
   inset: 0;
   background: radial-gradient(
     circle at center,
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.88)
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.92)
   );
   z-index: 1;
+}
+
+/* 🤖 ANIMATED AI LAYER (floating glow effect) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: url("https://i.ibb.co/2YgFf3r/ai-robot-pattern.png");
+  background-size: 350px;
+
+  opacity: 0.06;
+  animation: floatBg 25s linear infinite;
+
+  z-index: 1;
+}
+
+@keyframes floatBg {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-50px, -50px);
+  }
 }
 
 /* =========================
@@ -34,8 +61,11 @@ body {
 .container {
   position: relative;
   z-index: 2;
+
   text-align: center;
-  padding: 40px 20px;
+
+  /* 🔥 IMPORTANT: MOBILE FRIENDLY */
+  padding: 25px 15px;
   max-width: 100%;
 }
 
@@ -44,17 +74,25 @@ body {
 ========================= */
 
 h1 {
-  font-size: 42px;
-  font-weight: 700;
+  font-size: 40px;
+  font-weight: 800;
   color: #00ffcc;
+
   margin-bottom: 10px;
   letter-spacing: 1px;
+
+  text-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
 }
 
+/* =========================
+   TAGLINE
+========================= */
+
 .tagline {
-  font-size: 16px;
+  font-size: 15px;
   opacity: 0.85;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  line-height: 1.4;
 }
 
 /* =========================
@@ -63,51 +101,83 @@ h1 {
 
 .price-box {
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(0, 255, 204, 0.2);
+  border: 1px solid rgba(0, 255, 204, 0.25);
+
   backdrop-filter: blur(10px);
+
   padding: 18px;
   margin: 20px auto;
-  width: 320px;
-  max-width: 90%;
+
+  width: 100%;
+  max-width: 340px;
+
   border-radius: 14px;
-  box-shadow: 0 0 20px rgba(0, 255, 204, 0.08);
+
+  box-shadow: 0 0 25px rgba(0, 255, 204, 0.1);
 }
 
 /* =========================
-   SECTIONS
+   GROUPS & PRICING
 ========================= */
 
 .groups,
 .pricing {
-  margin-top: 25px;
+  margin-top: 20px;
   opacity: 0.95;
 }
 
 .groups h2,
 .pricing h2 {
   color: #00ffcc;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 /* =========================
-   BUTTON (TELEGRAM CTA)
+   LIST STYLE
+========================= */
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+ul li {
+  margin: 8px 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* =========================
+   BUTTON (HIGH CONVERSION CTA)
 ========================= */
 
 .btn {
-  display: inline-block;
-  padding: 14px 28px;
-  background: linear-gradient(135deg, #00ffcc, #00bfa6);
-  color: black;
+  display: block;
+
+  width: 100%;
+  max-width: 340px;
+
+  margin: 25px auto;
+
+  padding: 16px;
+
+  font-size: 16px;
   font-weight: bold;
-  border-radius: 10px;
+
+  color: black;
+
+  background: linear-gradient(135deg, #00ffcc, #00bfa6);
+
+  border-radius: 12px;
   text-decoration: none;
-  margin-top: 25px;
-  transition: 0.3s ease;
-  box-shadow: 0 0 15px rgba(0, 255, 204, 0.25);
+
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.25);
+
+  transition: 0.25s ease;
 }
 
 .btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
   background: linear-gradient(135deg, #00e6b8, #009e88);
 }
 
@@ -116,18 +186,18 @@ h1 {
 ========================= */
 
 .footer {
-  margin-top: 35px;
-  font-size: 12px;
+  margin-top: 30px;
+  font-size: 11px;
   opacity: 0.6;
 }
 
 /* =========================
-   MOBILE OPTIMIZATION 📱
+   MOBILE OPTIMIZATION (IMPORTANT)
 ========================= */
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 28px;
+    font-size: 30px;
   }
 
   .tagline {
@@ -136,11 +206,19 @@ h1 {
 
   .price-box {
     padding: 15px;
-    width: 90%;
   }
 
   .btn {
-    width: 90%;
-    font-size: 16px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 26px;
+  }
+
+  .tagline {
+    font-size: 12px;
   }
 }
