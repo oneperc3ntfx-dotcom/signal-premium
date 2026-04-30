@@ -1,58 +1,42 @@
 
 /* =========================
-   GLOBAL STYLE - DARK AI TRADING PRO
+   BASE RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BODY - SINGLE CLEAN BACKGROUND
 ========================= */
 
 body {
-  margin: 0;
   font-family: "Arial", sans-serif;
   color: white;
 
   min-height: 100vh;
   overflow-x: hidden;
 
-  /* 🔥 DARK TRADING BACKGROUND */
-  background: url("https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=2200&q=80")
+  /* ✅ 1 BACKGROUND SAJA (NO LAYER CONFLICT) */
+  background: url("https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=2200&q=80")
     no-repeat center center fixed;
 
   background-size: cover;
+  position: relative;
 }
 
-/* 🌑 ULTRA DARK OVERLAY (PRO LOOK) */
+/* =========================
+   DARK OVERLAY (SINGLE LAYER)
+========================= */
+
 .overlay {
   position: fixed;
   inset: 0;
-  background: radial-gradient(
-    circle at center,
-    rgba(0, 255, 204, 0.05),
-    rgba(0, 0, 0, 0.92),
-    rgba(0, 0, 0, 1)
-  );
+  background: rgba(0, 0, 0, 0.78);
   z-index: 1;
-}
-
-/* 🤖 AI FLOATING BACKGROUND EFFECT */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-
-  background: url("https://i.ibb.co/2YgFf3r/ai-robot-pattern.png");
-  background-size: 300px;
-
-  opacity: 0.05;
-  animation: floatBg 30s linear infinite;
-
-  z-index: 1;
-}
-
-@keyframes floatBg {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(-60px, -60px);
-  }
 }
 
 /* =========================
@@ -65,26 +49,22 @@ body::before {
 
   text-align: center;
 
-  padding: 30px 15px;
+  padding: 25px 15px;
   max-width: 100%;
 }
 
 /* =========================
-   TITLE (BIGGER + PREMIUM)
+   TITLE
 ========================= */
 
 h1 {
-  font-size: 44px;
+  font-size: 42px;
   font-weight: 900;
   color: #00ffcc;
 
   margin-bottom: 10px;
 
-  letter-spacing: 1px;
-
-  text-shadow:
-    0 0 10px rgba(0, 255, 204, 0.5),
-    0 0 20px rgba(0, 255, 204, 0.2);
+  text-shadow: 0 0 12px rgba(0, 255, 204, 0.4);
 }
 
 /* =========================
@@ -92,104 +72,91 @@ h1 {
 ========================= */
 
 .tagline {
-  font-size: 16px;
+  font-size: 15px;
   opacity: 0.85;
-
   margin-bottom: 20px;
-
-  line-height: 1.5;
 }
 
 /* =========================
-   PRICE BOX (TRADING CARD STYLE)
+   PRICE BOX (PRO CARD)
 ========================= */
 
 .price-box {
   background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 255, 204, 0.25);
 
-  border: 1px solid rgba(0, 255, 204, 0.3);
+  backdrop-filter: blur(10px);
 
-  backdrop-filter: blur(12px);
-
-  padding: 20px;
+  padding: 18px;
   margin: 20px auto;
 
   width: 100%;
   max-width: 360px;
 
-  border-radius: 16px;
+  border-radius: 14px;
 
-  box-shadow:
-    0 0 20px rgba(0, 255, 204, 0.08),
-    inset 0 0 10px rgba(0, 255, 204, 0.05);
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
 }
 
 /* =========================
-   SECTION TEXT
+   SECTION
 ========================= */
 
 .groups,
 .pricing {
-  margin-top: 22px;
-  opacity: 0.95;
+  margin-top: 20px;
 }
 
 .groups h2,
 .pricing h2 {
   color: #00ffcc;
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 10px;
 }
 
 /* =========================
-   LIST STYLE
+   LIST
 ========================= */
 
 ul {
-  padding: 0;
   list-style: none;
 }
 
 ul li {
   margin: 8px 0;
-  font-size: 15px;
+  font-size: 14px;
   opacity: 0.9;
 }
 
 /* =========================
-   BUTTON (HIGH CONVERSION)
+   BUTTON (CONVERSION STYLE)
 ========================= */
 
 .btn {
   display: block;
-
   width: 100%;
   max-width: 360px;
 
   margin: 25px auto;
-
   padding: 16px;
 
-  font-size: 17px;
+  font-size: 16px;
   font-weight: bold;
 
   color: black;
 
   background: linear-gradient(135deg, #00ffcc, #00bfa6);
 
-  border-radius: 14px;
-
+  border-radius: 12px;
   text-decoration: none;
 
-  box-shadow:
-    0 0 25px rgba(0, 255, 204, 0.25);
+  box-shadow: 0 0 25px rgba(0, 255, 204, 0.25);
 
-  transition: 0.25s ease;
+  transition: 0.2s ease;
 }
 
 .btn:hover {
   transform: scale(1.05);
-  background: linear-gradient(135deg, #00e6b8, #009e88);
 }
 
 /* =========================
@@ -197,21 +164,21 @@ ul li {
 ========================= */
 
 .footer {
-  margin-top: 30px;
+  margin-top: 25px;
   font-size: 12px;
   opacity: 0.6;
 }
 
 /* =========================
-   ROBOT FIX (kalau kamu pakai HTML robot)
+   ROBOT (CLEAN FLOAT)
 ========================= */
 
 .robot {
   position: fixed;
   bottom: 10px;
   right: 10px;
-  width: 130px;
-  opacity: 0.6;
+  width: 110px;
+  opacity: 0.7;
   z-index: 2;
 
   animation: floatRobot 3s ease-in-out infinite;
@@ -222,28 +189,28 @@ ul li {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-10px);
   }
 }
 
 /* =========================
-   CANDLE ANIMATION (kalau dipakai)
+   CANDLE MINI ANIMATION
 ========================= */
 
 .candle-container {
   position: fixed;
-  top: 20px;
+  top: 15px;
   left: 10px;
 
   display: flex;
-  gap: 6px;
+  gap: 5px;
 
   z-index: 2;
 }
 
 .candle {
-  width: 6px;
-  height: 40px;
+  width: 5px;
+  height: 35px;
   border-radius: 3px;
 
   animation: candleMove 1s infinite alternate;
@@ -259,22 +226,22 @@ ul li {
 
 @keyframes candleMove {
   0% {
-    transform: scaleY(0.5);
+    transform: scaleY(0.6);
     opacity: 0.6;
   }
   100% {
-    transform: scaleY(1.4);
+    transform: scaleY(1.3);
     opacity: 1;
   }
 }
 
 /* =========================
-   MOBILE FIRST OPTIMIZATION
+   MOBILE FIX (IMPORTANT)
 ========================= */
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .tagline {
@@ -282,7 +249,7 @@ ul li {
   }
 
   .price-box {
-    padding: 16px;
+    padding: 15px;
   }
 
   .btn {
