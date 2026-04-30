@@ -1,34 +1,41 @@
-const FINNHUB_API = "d3ndrd9r01qo7510lisgd3ndrd9r01qo7510lit0";
+const API_KEY = "af23649e02da42aab3e78cf343513325";
 
-// XAUUSD (Gold)
-async function getGold() {
+// Twelve Data symbols
+const GOLD = "XAU/USD";
+const BTC = "BTC/USD";
+
+async function getPrice(symbol, elementId, label) {
   try {
-    const res = await fetch(`https://finnhub.io/api/v1/quote?symbol=XAUUSD&token=${FINNHUB_API}`);
+    const url = `https://api.twelvedata.com/price?symbol=${symbol}&apikey=${API_KEY}`;
+
+    const res = await fetch(url);
     const data = await res.json();
 
-    document.getElementById("gold").innerText = data.c;
-  } catch (e) {
-    document.getElementById("gold").innerText = "Error";
+    // debug safety
+    if (!data || !data.price) {
+      document.getElementById(elementId).innerText = "--";
+      return;
+    }
+
+    const price = parseFloat(data.price).toFixed(2);
+
+    document.getElementById(elementId).innerText =
+      `${label} $${price}`;
+
+  } catch (err) {
+    document.getElementById(elementId).innerText = "ERR";
   }
 }
 
-// BTCUSD
-async function getBTC() {
-  try {
-    const res = await fetch(`https://finnhub.io/api/v1/quote?symbol=BTCUSD&token=${FINNHUB_API}`);
-    const data = await res.json();
+// AUTO UPDATE SYSTEM
+function startLivePrice() {
+  getPrice(GOLD, "gold", "XAUUSD");
+  getPrice(BTC, "btc", "BTCUSD");
 
-    document.getElementById("btc").innerText = data.c;
-  } catch (e) {
-    document.getElementById("btc").innerText = "Error";
-  }
+  setInterval(() => {
+    getPrice(GOLD, "gold", "XAUUSD");
+    getPrice(BTC, "btc", "BTCUSD");
+  }, 5000); // update tiap 5 detik
 }
 
-// update tiap 30 detik
-getGold();
-getBTC();
-
-setInterval(() => {
-  getGold();
-  getBTC();
-}, 30000);
+startLivePrice();
