@@ -1,41 +1,57 @@
 const API_KEY = "af23649e02da42aab3e78cf343513325";
 
-// Twelve Data symbols
-const GOLD = "XAU/USD";
+// gunakan format exchange rate
+const GOLD_FROM = "XAU";
+const GOLD_TO = "USD";
+
 const BTC = "BTC/USD";
 
-async function getPrice(symbol, elementId, label) {
+async function getGold() {
   try {
-    const url = `https://api.twelvedata.com/price?symbol=${symbol}&apikey=${API_KEY}`;
+    const url = `https://api.twelvedata.com/exchange_rate?symbol=${GOLD_FROM}/${GOLD_TO}&apikey=${API_KEY}`;
 
     const res = await fetch(url);
     const data = await res.json();
 
-    // debug safety
-    if (!data || !data.price) {
-      document.getElementById(elementId).innerText = "--";
-      return;
+    if (data && data.rate) {
+      document.getElementById("gold").innerText =
+        `XAUUSD $${parseFloat(data.rate).toFixed(2)}`;
+    } else {
+      document.getElementById("gold").innerText = "N/A";
     }
 
-    const price = parseFloat(data.price).toFixed(2);
-
-    document.getElementById(elementId).innerText =
-      `${label} $${price}`;
-
-  } catch (err) {
-    document.getElementById(elementId).innerText = "ERR";
+  } catch (e) {
+    document.getElementById("gold").innerText = "ERR";
   }
 }
 
-// AUTO UPDATE SYSTEM
-function startLivePrice() {
-  getPrice(GOLD, "gold", "XAUUSD");
-  getPrice(BTC, "btc", "BTCUSD");
+async function getBTC() {
+  try {
+    const url = `https://api.twelvedata.com/price?symbol=${BTC}&apikey=${API_KEY}`;
 
-  setInterval(() => {
-    getPrice(GOLD, "gold", "XAUUSD");
-    getPrice(BTC, "btc", "BTCUSD");
-  }, 5000); // update tiap 5 detik
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (data && data.price) {
+      document.getElementById("btc").innerText =
+        `BTCUSD $${parseFloat(data.price).toFixed(2)}`;
+    } else {
+      document.getElementById("btc").innerText = "N/A";
+    }
+
+  } catch (e) {
+    document.getElementById("btc").innerText = "ERR";
+  }
 }
 
-startLivePrice();
+function start() {
+  getGold();
+  getBTC();
+
+  setInterval(() => {
+    getGold();
+    getBTC();
+  }, 5000);
+}
+
+start();
