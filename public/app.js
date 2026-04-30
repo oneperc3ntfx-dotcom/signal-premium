@@ -1,21 +1,21 @@
 const API_KEY = "af23649e02da42aab3e78cf343513325";
 
-// gunakan format exchange rate
-const GOLD_FROM = "XAU";
-const GOLD_TO = "USD";
+// gunakan format ini (tanpa slash)
+const GOLD_SYMBOL = "XAUUSD";
+const BTC_SYMBOL = "BTC/USD";
 
-const BTC = "BTC/USD";
-
-async function getGold() {
+async function getXAU() {
   try {
-    const url = `https://api.twelvedata.com/exchange_rate?symbol=${GOLD_FROM}/${GOLD_TO}&apikey=${API_KEY}`;
+    const url = `https://api.twelvedata.com/price?symbol=${GOLD_SYMBOL}&apikey=${API_KEY}`;
 
     const res = await fetch(url);
     const data = await res.json();
 
-    if (data && data.rate) {
+    console.log("XAU RESPONSE:", data);
+
+    if (data && data.price) {
       document.getElementById("gold").innerText =
-        `XAUUSD $${parseFloat(data.rate).toFixed(2)}`;
+        `XAUUSD $${parseFloat(data.price).toFixed(2)}`;
     } else {
       document.getElementById("gold").innerText = "N/A";
     }
@@ -27,7 +27,7 @@ async function getGold() {
 
 async function getBTC() {
   try {
-    const url = `https://api.twelvedata.com/price?symbol=${BTC}&apikey=${API_KEY}`;
+    const url = `https://api.twelvedata.com/price?symbol=${BTC_SYMBOL}&apikey=${API_KEY}`;
 
     const res = await fetch(url);
     const data = await res.json();
@@ -45,11 +45,11 @@ async function getBTC() {
 }
 
 function start() {
-  getGold();
+  getXAU();
   getBTC();
 
   setInterval(() => {
-    getGold();
+    getXAU();
     getBTC();
   }, 5000);
 }
