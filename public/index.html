@@ -7,191 +7,454 @@
   <title>One Percent FX - AI Trading Signal</title>
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0f1a;
-      color: white;
-      text-align: center;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    .container {
-      padding: 30px;
-      max-width: 900px;
-      margin: auto;
+    body{
+      font-family:Arial,sans-serif;
+      background:
+      linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.82)),
+      url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=2200&q=80');
+
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+
+      color:white;
+      min-height:100vh;
     }
 
-    h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
+    .container{
+      width:100%;
+      max-width:1000px;
+      margin:auto;
+      padding:25px;
     }
 
-    .tagline {
-      color: #aaa;
-      margin-bottom: 20px;
+    h1{
+      font-size:48px;
+      text-align:center;
+      color:#00ffae;
+      margin-top:20px;
+      margin-bottom:10px;
+
+      text-shadow:0 0 15px rgba(0,255,174,0.5);
     }
 
-    .price-box {
-      background: #111827;
-      padding: 20px;
-      border-radius: 12px;
-      margin: 20px 0;
-      font-size: 18px;
+    .tagline{
+      text-align:center;
+      color:#cfcfcf;
+      font-size:18px;
+      margin-bottom:30px;
     }
 
-    .info-box {
-      background: #0f172a;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: left;
-      margin-top: 20px;
+    .price-box{
+      background:rgba(17,24,39,0.88);
+      border:1px solid rgba(0,255,174,0.2);
+
+      backdrop-filter:blur(10px);
+
+      padding:25px;
+      border-radius:18px;
+
+      font-size:24px;
+      font-weight:bold;
+
+      text-align:center;
+
+      margin-bottom:30px;
+
+      box-shadow:0 0 25px rgba(0,255,174,0.08);
     }
 
-    .highlight {
-      color: #00ff99;
-      font-weight: bold;
-      margin-top: 10px;
+    .live{
+      color:#00ff99;
     }
 
-    ul {
-      text-align: left;
+    .info-box{
+      background:rgba(15,23,42,0.92);
+
+      border-radius:20px;
+
+      padding:35px;
+
+      margin-top:25px;
+
+      box-shadow:0 0 20px rgba(0,0,0,0.4);
     }
 
-    .pricing {
-      margin-top: 20px;
-      background: #111827;
-      padding: 20px;
-      border-radius: 12px;
+    .info-box h2{
+      color:white;
+      margin-bottom:20px;
+      font-size:34px;
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 15px 25px;
-      background: #00ff99;
-      color: black;
-      font-weight: bold;
-      border-radius: 10px;
-      text-decoration: none;
+    ul{
+      margin-left:20px;
+      line-height:2;
+      font-size:20px;
     }
 
-    .footer {
-      margin-top: 30px;
-      font-size: 12px;
-      color: #666;
+    .highlight{
+      margin-top:25px;
+      color:#00ff99;
+      font-size:20px;
+      font-weight:bold;
+      line-height:1.8;
     }
+
+    .pricing{
+      background:rgba(17,24,39,0.92);
+
+      border-radius:20px;
+
+      padding:40px;
+
+      margin-top:30px;
+
+      text-align:center;
+
+      box-shadow:0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .pricing h2{
+      font-size:40px;
+      margin-bottom:25px;
+      color:#ffd700;
+    }
+
+    .pricing-card{
+      background:rgba(255,255,255,0.04);
+
+      border:1px solid rgba(255,255,255,0.06);
+
+      border-radius:15px;
+
+      padding:20px;
+
+      margin-top:15px;
+
+      font-size:24px;
+
+      transition:0.3s;
+    }
+
+    .pricing-card:hover{
+      transform:scale(1.02);
+      border-color:#00ff99;
+    }
+
+    .price{
+      color:#00ff99;
+      font-weight:bold;
+      margin-top:10px;
+      font-size:30px;
+    }
+
+    .bonus{
+      margin-top:25px;
+      color:#00ff99;
+      font-size:18px;
+      font-weight:bold;
+      line-height:1.8;
+    }
+
+    .btn{
+      display:block;
+
+      width:100%;
+      max-width:450px;
+
+      margin:40px auto;
+
+      padding:22px;
+
+      text-align:center;
+
+      background:linear-gradient(135deg,#00ff99,#00d084);
+
+      color:black;
+
+      font-size:24px;
+      font-weight:bold;
+
+      border-radius:16px;
+
+      text-decoration:none;
+
+      box-shadow:0 0 30px rgba(0,255,153,0.35);
+
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:scale(1.03);
+    }
+
+    .footer{
+      text-align:center;
+      margin-top:40px;
+      margin-bottom:20px;
+
+      color:#bdbdbd;
+      font-size:15px;
+      line-height:1.8;
+    }
+
+    .pulse{
+      animation:pulse 1.5s infinite;
+    }
+
+    @keyframes pulse{
+      0%{
+        opacity:1;
+      }
+      50%{
+        opacity:0.5;
+      }
+      100%{
+        opacity:1;
+      }
+    }
+
+    @media(max-width:768px){
+
+      .container{
+        padding:15px;
+      }
+
+      h1{
+        font-size:34px;
+      }
+
+      .tagline{
+        font-size:15px;
+      }
+
+      .price-box{
+        font-size:20px;
+      }
+
+      .info-box{
+        padding:25px;
+      }
+
+      .info-box h2{
+        font-size:28px;
+      }
+
+      ul{
+        font-size:17px;
+      }
+
+      .highlight{
+        font-size:17px;
+      }
+
+      .pricing h2{
+        font-size:32px;
+      }
+
+      .pricing-card{
+        font-size:20px;
+      }
+
+      .price{
+        font-size:26px;
+      }
+
+      .btn{
+        font-size:21px;
+        padding:18px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <h1>🤖 AI Trading Signal Engine</h1>
+  <h1>🤖 AI Trading Signal Engine</h1>
 
-    <p class="tagline">
-      Smart Money Concept (SMC) • News Impact • Institutional Flow Analysis
-    </p>
+  <p class="tagline">
+    Smart Money Concept (SMC) • Institutional Flow • News Impact Analysis
+  </p>
 
-    <!-- 💰 PRICE -->
-    <div class="price-box">
-      💰 XAUUSD: <span id="gold">Loading...</span><br>
-      ₿ BTCUSD: <span id="btc">Loading...</span>
+  <!-- LIVE PRICE -->
+  <div class="price-box">
+
+    <div class="pulse">
+      💰 XAUUSD:
+      <span class="live" id="gold">Loading...</span>
     </div>
 
-    <!-- 🧠 INFO -->
-    <div class="info-box">
+    <br>
 
-      <h2>📊 Sistem Analisa</h2>
-
-      <ul>
-        <li>📈 Smart Money Concept (Liquidity, BOS, CHOCH)</li>
-        <li>🏦 Order Block & Market Structure</li>
-        <li>📰 News Impact & Fundamental Bias</li>
-        <li>⚡ Institutional Flow Detection</li>
-      </ul>
-
-      <p class="highlight">
-        🔥 Signal keluar setiap 1 jam sekali untuk menjaga akurasi & menghindari noise market
-      </p>
-
+    <div class="pulse">
+      ₿ BTCUSD:
+      <span class="live" id="btc">Loading...</span>
     </div>
 
-    <!-- 📊 GROUP -->
-    <div class="info-box">
+  </div>
 
-      <h2>📊 Premium Signal</h2>
+  <!-- INFO -->
+  <div class="info-box">
 
-      <ul>
-        <li>🔥 XAUUSD Smart Money Signal</li>
-        <li>₿ BTCUSD AI Signal Engine</li>
-        <li>📰 News Based Entry & Bias Market</li>
-      </ul>
+    <h2>📊 Sistem Analisa Profesional</h2>
 
-    </div>
+    <ul>
+      <li>📈 Smart Money Concept (Liquidity, BOS, CHOCH)</li>
+      <li>🏦 Institutional Order Block Detection</li>
+      <li>⚡ Liquidity Sweep & Market Structure</li>
+      <li>📰 Fundamental News Impact & Bias</li>
+      <li>🔥 AI Institutional Flow Analysis</li>
+    </ul>
 
-    <!-- 💰 PRICING -->
-    <div class="pricing">
-
-      <h2>💰 Paket Langganan</h2>
-
-      <p>⚡ Mingguan — 49K</p>
-      <p>🚀 Bulanan — 99K</p>
-      <p>👑 Tahunan — 999K</p>
-
-    </div>
-
-    <!-- 🚀 BUTTON -->
-    <a class="btn" href="https://t.me/ADMOnePercentsFX" target="_blank">
-      💎 Langganan Sekarang
-    </a>
-
-    <p class="footer">
-      ⚡ AI Institutional Trading System • High Probability Setup Only
+    <p class="highlight">
+      🔥 Signal profesional keluar setiap 1 jam sekali untuk menjaga akurasi & menghindari noise market.
+      <br><br>
+      ✅ Fokus pada high probability setup & smart money entry.
     </p>
 
   </div>
 
-  <!-- =========================
-       FINNHUB LIVE PRICE SCRIPT
-  ========================= -->
+  <!-- PREMIUM -->
+  <div class="info-box">
 
-  <script>
+    <h2>💎 Premium Signal Features</h2>
 
-    const API_KEY = "d3ndrd9r01qo7510lisgd3ndrd9r01qo7510lit0";
+    <ul>
+      <li>🔥 XAUUSD Smart Money Signal</li>
+      <li>₿ BTCUSD Institutional Setup</li>
+      <li>📊 BOS • CHOCH • OB • Liquidity Sweep</li>
+      <li>📰 News Based Entry Recommendation</li>
+      <li>⚡ Market Bias & Direction Analysis</li>
+    </ul>
 
-    async function getPrice(symbol) {
-      try {
-        const res = await fetch(
-          `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${API_KEY}`
-        );
+  </div>
 
-        const data = await res.json();
-        return data.c;
+  <!-- PRICING -->
+  <div class="pricing">
 
-      } catch (e) {
-        console.log("error", e);
-        return null;
-      }
-    }
+    <h2>💰 Paket Langganan Premium</h2>
 
-    async function update() {
+    <div class="pricing-card">
+      ⚡ 1 Hari
+      <div class="price">25K</div>
+    </div>
 
-      const gold = await getPrice("OANDA:XAUUSD");
-      const btc = await getPrice("BINANCE:BTCUSDT");
+    <div class="pricing-card">
+      🔥 7 Hari
+      <div class="price">49K</div>
+    </div>
 
-      document.getElementById("gold").innerText =
-        gold ? gold.toFixed(2) : "N/A";
+    <div class="pricing-card">
+      🚀 1 Bulan
+      <div class="price">99K</div>
+    </div>
 
-      document.getElementById("btc").innerText =
-        btc ? btc.toFixed(2) : "N/A";
-    }
+    <div class="pricing-card">
+      👑 1 Tahun VIP
+      <div class="price">999K</div>
+    </div>
 
-    // update tiap 10 detik (aman untuk GitHub Pages + API limit)
-    update();
-    setInterval(update, 10000);
+    <div class="bonus">
+      ✅ Full akses AI Signal <br>
+      ✅ Institutional Analysis <br>
+      ✅ News Bias & Entry Recommendation <br>
+      ✅ Private Premium Community
+    </div>
 
-  </script>
+  </div>
+
+  <!-- BUTTON -->
+  <a
+    class="btn"
+    href="https://t.me/ADMOnePercentsFX"
+    target="_blank"
+  >
+    💎 Langganan Sekarang
+  </a>
+
+  <div class="footer">
+    ⚡ One Percent FX — AI Institutional Trading System
+    <br>
+    High Probability Setup Only • Professional Smart Money Analysis
+  </div>
+
+</div>
+
+<!-- =========================
+     LIVE PRICE SCRIPT
+========================= -->
+
+<script>
+
+const API_KEY = "af23649e02da42aab3e78cf343513325";
+
+async function getGoldPrice() {
+
+  try {
+
+    const res = await fetch(
+      `https://api.twelvedata.com/price?symbol=XAU/USD&apikey=${API_KEY}`
+    );
+
+    const data = await res.json();
+
+    return parseFloat(data.price);
+
+  } catch(e) {
+
+    console.log("XAU ERROR", e);
+    return null;
+
+  }
+}
+
+async function getBTCPrice() {
+
+  try {
+
+    const res = await fetch(
+      `https://api.twelvedata.com/price?symbol=BTC/USD&apikey=${API_KEY}`
+    );
+
+    const data = await res.json();
+
+    return parseFloat(data.price);
+
+  } catch(e) {
+
+    console.log("BTC ERROR", e);
+    return null;
+
+  }
+}
+
+async function updatePrice() {
+
+  const gold = await getGoldPrice();
+  const btc = await getBTCPrice();
+
+  document.getElementById("gold").innerText =
+    gold ? gold.toFixed(2) : "N/A";
+
+  document.getElementById("btc").innerText =
+    btc ? btc.toFixed(2) : "N/A";
+}
+
+updatePrice();
+
+setInterval(updatePrice, 10000);
+
+</script>
 
 </body>
 </html>
