@@ -31,321 +31,182 @@ body{
 }
 
 .container{
-
   width:100%;
   max-width:1000px;
-
   margin:auto;
   padding:20px;
 }
 
 h1{
-
   text-align:center;
-
   font-size:46px;
-
   color:#00ffae;
-
   margin-top:20px;
-
   text-shadow:0 0 15px rgba(0,255,174,0.4);
 }
 
 .brand{
-
   text-align:center;
-
   color:white;
-
   font-size:24px;
-
   font-weight:bold;
-
   margin-top:10px;
 }
 
 .tagline{
-
   text-align:center;
-
   color:#cfcfcf;
-
   margin-top:10px;
-
   font-size:17px;
-
   margin-bottom:30px;
 }
 
 .member-box{
-
   background:rgba(15,23,42,0.92);
-
   border:1px solid rgba(0,255,174,0.15);
-
   border-radius:18px;
-
   padding:18px;
-
   text-align:center;
-
   margin-bottom:25px;
-
   font-size:20px;
-
   font-weight:bold;
-
   color:#00ff99;
 }
 
 .price-box{
-
   background:rgba(17,24,39,0.92);
-
   border:1px solid rgba(0,255,174,0.15);
-
   border-radius:18px;
-
   padding:25px;
-
   text-align:center;
-
   font-size:24px;
-
   font-weight:bold;
-
   margin-bottom:30px;
 }
 
-.live{
-  color:#00ff99;
-}
+.live{ color:#00ff99; }
 
 .pricing{
-
   background:rgba(17,24,39,0.92);
-
   border-radius:20px;
-
   padding:30px;
-
   margin-top:30px;
-
   text-align:center;
 }
 
 .pricing h2{
-
   font-size:36px;
-
   margin-bottom:25px;
-
   color:#ffd700;
 }
 
 .price-grid{
-
   display:grid;
-
   grid-template-columns:repeat(4,1fr);
-
   gap:15px;
 }
 
 .pricing-card{
-
   background:rgba(255,255,255,0.05);
-
   border:1px solid rgba(255,255,255,0.08);
-
   border-radius:16px;
-
   padding:20px 10px;
-
   transition:0.3s;
 }
 
 .pricing-card:hover{
-
   transform:translateY(-3px);
-
   border-color:#00ff99;
 }
 
 .pricing-title{
-
   font-size:18px;
-
   margin-bottom:10px;
-
   font-weight:bold;
 }
 
 .price{
-
   font-size:28px;
-
   color:#00ff99;
-
   font-weight:bold;
 }
 
 .broker-card{
-
   display:flex;
-
   align-items:center;
-
   gap:15px;
-
   background:rgba(255,255,255,0.04);
-
   border:1px solid rgba(255,255,255,0.08);
-
   border-radius:18px;
-
   padding:18px;
-
   margin-top:18px;
-
   text-decoration:none;
-
   color:white;
-
   transition:0.3s;
 }
 
 .broker-card:hover{
-
   transform:scale(1.01);
-
   border-color:#00ff99;
 }
 
 .broker-logo{
-
   width:55px;
-
   min-width:55px;
-
   height:55px;
-
   background:white;
-
   border-radius:12px;
-
   display:flex;
-
   justify-content:center;
-
   align-items:center;
-
-  overflow:hidden;
 }
 
 .broker-title{
-
   font-size:22px;
-
   font-weight:bold;
-
   margin-bottom:5px;
 }
 
 .broker-desc{
-
   color:#cfcfcf;
-
   font-size:15px;
 }
 
 .btn{
-
   display:block;
-
   width:100%;
-
   max-width:420px;
-
   margin:30px auto;
-
   padding:20px;
-
   border-radius:16px;
-
   text-align:center;
-
   text-decoration:none;
-
   font-size:22px;
-
   font-weight:bold;
-
-  transition:0.3s;
 }
 
 .btn-paid{
-
   background:linear-gradient(135deg,#00ff99,#00d084);
-
   color:black;
-
-  box-shadow:0 0 25px rgba(0,255,153,0.3);
 }
 
 .btn-free{
-
   background:linear-gradient(135deg,#ffd700,#ffb300);
-
   color:black;
-
-  box-shadow:0 0 25px rgba(255,215,0,0.3);
-}
-
-.btn:hover{
-  transform:scale(1.02);
 }
 
 .footer{
-
   text-align:center;
-
   margin-top:40px;
-
   margin-bottom:20px;
-
   color:#bdbdbd;
-
   font-size:14px;
-
-  line-height:1.8;
 }
 
+/* mobile */
 @media(max-width:768px){
-
-  h1{ font-size:34px; }
-  .brand{ font-size:20px; }
-  .tagline{ font-size:14px; }
-
-  .price-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .pricing-card{ padding:18px 10px; }
-  .pricing-title{ font-size:16px; }
-  .price{ font-size:24px; }
-
-  .broker-title{ font-size:18px; }
-  .broker-desc{ font-size:13px; }
-
-  .broker-logo{
-    width:48px;
-    height:48px;
-    min-width:48px;
-  }
-
-  .btn{ font-size:19px; }
+  h1{font-size:34px;}
+  .price-grid{grid-template-columns:repeat(2,1fr);}
 }
 
 </style>
@@ -368,14 +229,18 @@ h1{
   </div>
 
   <div class="price-box">
-
-    💰 XAUUSD:
-    <span class="live" id="gold">Loading...</span>
-
+    💰 XAUUSD: <span class="live" id="gold">Loading...</span>
     <br><br>
+    ₿ BTCUSD: <span class="live" id="btc">Loading...</span>
+  </div>
 
-    ₿ BTCUSD:
-    <span class="live" id="btc">Loading...</span>
+  <!-- ================= TAMBAHAN TATA CARA JOIN ================= -->
+  <div style="font-size:14px; text-align:center; color:#cfcfcf; line-height:1.6; margin-top:10px;">
+
+    untuk join berbayar, silahkan klik tombol join berbayar dan akan diarahkan ke telegram<br><br>
+
+    untuk join gratis / gabung mitra, silahkan daftar sesuai broker yang ingin kamu gunakan di bawah.<br>
+    jika sudah memiliki ketiga broker di bawah, silahkan klik join gratis untuk pindah mitra dan akan diarahkan ke telegram
 
   </div>
 
@@ -384,30 +249,13 @@ h1{
     <h2>💎 Join Komunitas Berbayar</h2>
 
     <div class="price-grid">
-
-      <div class="pricing-card">
-        <div class="pricing-title">⚡ 1 Hari</div>
-        <div class="price">25K</div>
-      </div>
-
-      <div class="pricing-card">
-        <div class="pricing-title">🔥 7 Hari</div>
-        <div class="price">49K</div>
-      </div>
-
-      <div class="pricing-card">
-        <div class="pricing-title">🚀 1 Bulan</div>
-        <div class="price">99K</div>
-      </div>
-
-      <div class="pricing-card">
-        <div class="pricing-title">👑 1 Tahun</div>
-        <div class="price">999K</div>
-      </div>
-
+      <div class="pricing-card"><div class="pricing-title">1 Hari</div><div class="price">25K</div></div>
+      <div class="pricing-card"><div class="pricing-title">7 Hari</div><div class="price">49K</div></div>
+      <div class="pricing-card"><div class="pricing-title">1 Bulan</div><div class="price">99K</div></div>
+      <div class="pricing-card"><div class="pricing-title">1 Tahun</div><div class="price">999K</div></div>
     </div>
 
-    <a class="btn btn-paid" href="https://t.me/TESTIOPX_bot?start=join" target="_blank">
+    <a class="btn btn-paid" href="https://t.me/TESTIOPX_bot?start=join">
       💎 KLIK DISINI UNTUK JOIN BERBAYAR
     </a>
 
@@ -415,92 +263,48 @@ h1{
 
   <div class="pricing">
 
+    <!-- ================= TAMBAHAN TEKS ================= -->
+    <div style="text-align:center; font-size:14px; color:#cfcfcf; margin-bottom:5px;">
+      join komunitas gratis (gabung mitra)
+    </div>
+
     <h2>🏦 Broker yang Kami Pakai</h2>
 
-    <a href="https://register.hfmtrade-ind.com/sv/en/new-live-account/?refid=333604&acid=s2x4c6usld" target="_blank" class="broker-card">
-
+    <a href="#" class="broker-card">
       <div class="broker-logo">HFM</div>
-
       <div>
         <div class="broker-title">HFM Broker</div>
-        <div class="broker-desc">Klik disini untuk daftar broker HFM</div>
+        <div class="broker-desc">Klik untuk daftar HFM</div>
       </div>
-
     </a>
 
-    <a href="https://one.exnessonelink.com/a/iyxcd2u617?source=app" target="_blank" class="broker-card">
-
+    <a href="#" class="broker-card">
       <div class="broker-logo">EX</div>
-
       <div>
         <div class="broker-title">Exness Broker</div>
-        <div class="broker-desc">Klik disini untuk daftar broker Exness</div>
+        <div class="broker-desc">Klik untuk daftar Exness</div>
       </div>
-
     </a>
 
-    <a href="https://ma.valetax.com/p/6970464" target="_blank" class="broker-card">
-
+    <a href="#" class="broker-card">
       <div class="broker-logo">VT</div>
-
       <div>
         <div class="broker-title">Valetax Broker</div>
-        <div class="broker-desc">Klik disini untuk daftar broker Valetax</div>
+        <div class="broker-desc">Klik untuk daftar Valetax</div>
       </div>
-
     </a>
 
-    <!-- UPDATED FREE JOIN BUTTON -->
-    <a
-      class="btn btn-free"
-      href="https://t.me/OnePercentWeeklyBot?start=start"
-      target="_blank"
-    >
+    <a class="btn btn-free" href="https://t.me/OnePercentWeeklyBot?start=start">
       🤝 KLIK DISINI UNTUK JOIN GRATIS
     </a>
 
   </div>
 
   <div class="footer">
-
-    ⚡ One Percent FX — AI Institutional Trading System
-    <br>
-    High Probability Setup Only • Professional Smart Money Analysis
-
+    One Percent FX • Smart Money Institutional System
   </div>
 
 </div>
-
-<script>
-const API_KEY = "YOUR_API_KEY";
-
-async function getGoldPrice(){
-  try{
-    const res = await fetch(`https://api.twelvedata.com/price?symbol=XAU/USD&apikey=${API_KEY}`);
-    const data = await res.json();
-    return parseFloat(data.price);
-  }catch(e){ return null; }
-}
-
-async function getBTCPrice(){
-  try{
-    const res = await fetch(`https://api.twelvedata.com/price?symbol=BTC/USD&apikey=${API_KEY}`);
-    const data = await res.json();
-    return parseFloat(data.price);
-  }catch(e){ return null; }
-}
-
-async function updatePrice(){
-  const gold = await getGoldPrice();
-  const btc = await getBTCPrice();
-
-  document.getElementById("gold").innerText = gold ? gold.toFixed(2) : "N/A";
-  document.getElementById("btc").innerText = btc ? btc.toFixed(2) : "N/A";
-}
-
-updatePrice();
-setInterval(updatePrice,10000);
-</script>
 
 </body>
 </html>
