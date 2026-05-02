@@ -1,384 +1,435 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>One Percent FX - AI Trading Signal</title>
+<title>One Percent FX - AI Trading Signal</title>
 
-  <style>
+<style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    body{
-      font-family:Arial,sans-serif;
+body{
 
-      background:
-      linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.84)),
-      url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=2200&q=80');
+  font-family:Arial,sans-serif;
 
-      background-size:cover;
-      background-position:center;
-      background-attachment:fixed;
+  background:
+  linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.88)),
+  url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=2200&q=80');
 
-      color:white;
-      min-height:100vh;
-    }
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
 
-    .container{
-      width:100%;
-      max-width:1000px;
-      margin:auto;
-      padding:25px;
-    }
+  color:white;
+  min-height:100vh;
+}
 
-    h1{
-      font-size:52px;
-      text-align:center;
-      color:#00ffae;
+.container{
 
-      margin-top:20px;
-      margin-bottom:5px;
+  width:100%;
+  max-width:1000px;
 
-      text-shadow:0 0 18px rgba(0,255,174,0.45);
-    }
+  margin:auto;
+  padding:20px;
+}
 
-    .brand{
-      text-align:center;
-      font-size:22px;
-      color:#ffffff;
-      font-weight:bold;
+h1{
 
-      margin-bottom:12px;
+  text-align:center;
 
-      letter-spacing:2px;
-    }
+  font-size:46px;
 
-    .tagline{
-      text-align:center;
-      color:#d6d6d6;
-      font-size:18px;
-      margin-bottom:30px;
-    }
+  color:#00ffae;
 
-    .member-box{
-      background:rgba(17,24,39,0.88);
+  margin-top:20px;
 
-      border:1px solid rgba(0,255,174,0.2);
+  text-shadow:0 0 15px rgba(0,255,174,0.4);
+}
 
-      backdrop-filter:blur(10px);
+.brand{
 
-      padding:22px;
+  text-align:center;
 
-      border-radius:18px;
+  color:white;
 
-      text-align:center;
+  font-size:24px;
 
-      margin-bottom:25px;
+  font-weight:bold;
 
-      box-shadow:0 0 25px rgba(0,255,174,0.08);
-    }
+  margin-top:10px;
+}
 
-    .member-count{
-      font-size:34px;
-      color:#00ff99;
-      font-weight:bold;
-      margin-top:10px;
-    }
+.tagline{
 
-    .price-box{
-      background:rgba(17,24,39,0.88);
+  text-align:center;
 
-      border:1px solid rgba(0,255,174,0.2);
+  color:#cfcfcf;
 
-      backdrop-filter:blur(10px);
+  margin-top:10px;
 
-      padding:25px;
-      border-radius:18px;
+  font-size:17px;
 
-      font-size:24px;
-      font-weight:bold;
+  margin-bottom:30px;
+}
 
-      text-align:center;
+.member-box{
 
-      margin-bottom:30px;
+  background:rgba(15,23,42,0.92);
 
-      box-shadow:0 0 25px rgba(0,255,174,0.08);
-    }
+  border:1px solid rgba(0,255,174,0.15);
 
-    .live{
-      color:#00ff99;
-    }
+  border-radius:18px;
 
-    .info-box{
-      background:rgba(15,23,42,0.92);
+  padding:18px;
 
-      border-radius:20px;
+  text-align:center;
 
-      padding:35px;
+  margin-bottom:25px;
 
-      margin-top:25px;
+  font-size:20px;
 
-      box-shadow:0 0 20px rgba(0,0,0,0.4);
-    }
+  font-weight:bold;
 
-    .info-box h2{
-      color:white;
-      margin-bottom:20px;
-      font-size:34px;
-    }
+  color:#00ff99;
+}
 
-    ul{
-      margin-left:20px;
-      line-height:2;
-      font-size:20px;
-    }
+.price-box{
 
-    .pricing{
-      background:rgba(17,24,39,0.92);
+  background:rgba(17,24,39,0.92);
 
-      border-radius:20px;
+  border:1px solid rgba(0,255,174,0.15);
 
-      padding:40px;
+  border-radius:18px;
 
-      margin-top:30px;
+  padding:25px;
 
-      text-align:center;
+  text-align:center;
 
-      box-shadow:0 0 20px rgba(0,0,0,0.4);
-    }
+  font-size:24px;
 
-    .pricing h2{
-      font-size:40px;
-      margin-bottom:25px;
-      color:#ffd700;
-    }
+  font-weight:bold;
 
-    .pricing-card{
-      background:rgba(255,255,255,0.04);
+  margin-bottom:30px;
+}
 
-      border:1px solid rgba(255,255,255,0.06);
+.live{
+  color:#00ff99;
+}
 
-      border-radius:15px;
+.info-box{
 
-      padding:20px;
+  background:rgba(15,23,42,0.92);
 
-      margin-top:15px;
+  border-radius:20px;
 
-      font-size:24px;
+  padding:30px;
 
-      transition:0.3s;
-    }
+  margin-top:25px;
+}
 
-    .pricing-card:hover{
-      transform:scale(1.02);
-      border-color:#00ff99;
-    }
+.info-box h2{
 
-    .price{
-      color:#00ff99;
-      font-weight:bold;
-      margin-top:10px;
-      font-size:30px;
-    }
+  margin-bottom:20px;
 
-    .bonus{
-      margin-top:25px;
-      color:#00ff99;
-      font-size:18px;
-      font-weight:bold;
-      line-height:1.8;
-    }
+  font-size:34px;
+}
 
-    .broker-section{
-      margin-top:35px;
-    }
+ul{
 
-    .broker-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:20px;
-      margin-top:25px;
-    }
+  margin-left:20px;
 
-    .broker-card{
-      background:rgba(255,255,255,0.04);
+  line-height:2;
 
-      border:1px solid rgba(255,255,255,0.08);
+  font-size:19px;
+}
 
-      border-radius:18px;
+.highlight{
 
-      padding:25px;
+  margin-top:25px;
 
-      text-align:center;
+  color:#00ff99;
 
-      transition:0.3s;
-    }
+  line-height:1.8;
 
-    .broker-card:hover{
-      transform:translateY(-5px);
-      border-color:#00ff99;
-    }
+  font-weight:bold;
 
-    .broker-logo{
-      width:50px;
-      height:50px;
-      object-fit:contain;
-      margin-bottom:15px;
-    }
+  font-size:18px;
+}
 
-    .broker-name{
-      font-size:26px;
-      font-weight:bold;
-      margin-bottom:10px;
-    }
+/* =========================
+   PRICING
+========================= */
 
-    .broker-desc{
-      color:#d5d5d5;
-      line-height:1.7;
-      font-size:15px;
-    }
+.pricing{
 
-    .broker-btn{
-      display:inline-block;
+  background:rgba(17,24,39,0.92);
 
-      margin-top:20px;
+  border-radius:20px;
 
-      padding:12px 20px;
+  padding:30px;
 
-      border-radius:12px;
+  margin-top:30px;
 
-      background:#00ff99;
+  text-align:center;
+}
 
-      color:black;
+.pricing h2{
 
-      font-weight:bold;
+  font-size:36px;
 
-      text-decoration:none;
-    }
+  margin-bottom:25px;
 
-    .button-wrap{
-      display:flex;
-      gap:20px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top:40px;
-    }
+  color:#ffd700;
+}
 
-    .btn{
-      display:inline-block;
+.price-grid{
 
-      width:100%;
-      max-width:400px;
+  display:grid;
 
-      padding:22px;
+  grid-template-columns:repeat(4,1fr);
 
-      text-align:center;
+  gap:15px;
+}
 
-      color:black;
+.pricing-card{
 
-      font-size:24px;
-      font-weight:bold;
+  background:rgba(255,255,255,0.05);
 
-      border-radius:16px;
+  border:1px solid rgba(255,255,255,0.08);
 
-      text-decoration:none;
+  border-radius:16px;
 
-      transition:0.3s;
-    }
+  padding:20px 10px;
 
-    .btn:hover{
-      transform:scale(1.03);
-    }
+  transition:0.3s;
+}
 
-    .premium-btn{
-      background:linear-gradient(135deg,#00ff99,#00d084);
-      box-shadow:0 0 30px rgba(0,255,153,0.35);
-    }
+.pricing-card:hover{
 
-    .free-btn{
-      background:linear-gradient(135deg,#00bfff,#008cff);
-      box-shadow:0 0 30px rgba(0,140,255,0.35);
-      color:white;
-    }
+  transform:translateY(-3px);
 
-    .footer{
-      text-align:center;
+  border-color:#00ff99;
+}
 
-      margin-top:40px;
-      margin-bottom:20px;
+.pricing-title{
 
-      color:#bdbdbd;
-      font-size:15px;
-      line-height:1.8;
-    }
+  font-size:18px;
 
-    .pulse{
-      animation:pulse 1.5s infinite;
-    }
+  margin-bottom:10px;
 
-    @keyframes pulse{
-      0%{opacity:1;}
-      50%{opacity:0.5;}
-      100%{opacity:1;}
-    }
+  font-weight:bold;
+}
 
-    @media(max-width:768px){
+.price{
 
-      .container{
-        padding:15px;
-      }
+  font-size:28px;
 
-      h1{
-        font-size:34px;
-      }
+  color:#00ff99;
 
-      .brand{
-        font-size:18px;
-      }
+  font-weight:bold;
+}
 
-      .tagline{
-        font-size:15px;
-      }
+/* =========================
+   BROKER
+========================= */
 
-      .price-box{
-        font-size:20px;
-      }
+.broker-card{
 
-      .info-box{
-        padding:25px;
-      }
+  display:flex;
 
-      .info-box h2{
-        font-size:28px;
-      }
+  align-items:center;
 
-      ul{
-        font-size:17px;
-      }
+  gap:15px;
 
-      .pricing h2{
-        font-size:32px;
-      }
+  background:rgba(255,255,255,0.04);
 
-      .pricing-card{
-        font-size:20px;
-      }
+  border:1px solid rgba(255,255,255,0.08);
 
-      .price{
-        font-size:26px;
-      }
+  border-radius:18px;
 
-      .btn{
-        font-size:20px;
-      }
-    }
+  padding:18px;
 
-  </style>
+  margin-top:18px;
+
+  text-decoration:none;
+
+  color:white;
+
+  transition:0.3s;
+}
+
+.broker-card:hover{
+
+  transform:scale(1.01);
+
+  border-color:#00ff99;
+}
+
+.broker-logo{
+
+  width:55px;
+
+  min-width:55px;
+
+  height:55px;
+
+  background:white;
+
+  border-radius:12px;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  overflow:hidden;
+}
+
+.broker-title{
+
+  font-size:22px;
+
+  font-weight:bold;
+
+  margin-bottom:5px;
+}
+
+.broker-desc{
+
+  color:#cfcfcf;
+
+  font-size:15px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn{
+
+  display:block;
+
+  width:100%;
+
+  max-width:420px;
+
+  margin:30px auto;
+
+  padding:20px;
+
+  border-radius:16px;
+
+  text-align:center;
+
+  text-decoration:none;
+
+  font-size:22px;
+
+  font-weight:bold;
+
+  transition:0.3s;
+}
+
+.btn-paid{
+
+  background:linear-gradient(135deg,#00ff99,#00d084);
+
+  color:black;
+
+  box-shadow:0 0 25px rgba(0,255,153,0.3);
+}
+
+.btn-free{
+
+  background:linear-gradient(135deg,#ffd700,#ffb300);
+
+  color:black;
+
+  box-shadow:0 0 25px rgba(255,215,0,0.3);
+}
+
+.btn:hover{
+  transform:scale(1.02);
+}
+
+.footer{
+
+  text-align:center;
+
+  margin-top:40px;
+
+  margin-bottom:20px;
+
+  color:#bdbdbd;
+
+  font-size:14px;
+
+  line-height:1.8;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+  h1{
+    font-size:34px;
+  }
+
+  .brand{
+    font-size:20px;
+  }
+
+  .tagline{
+    font-size:14px;
+  }
+
+  .price-grid{
+
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .pricing-card{
+    padding:18px 10px;
+  }
+
+  .pricing-title{
+    font-size:16px;
+  }
+
+  .price{
+    font-size:24px;
+  }
+
+  .broker-title{
+    font-size:18px;
+  }
+
+  .broker-desc{
+    font-size:13px;
+  }
+
+  .broker-logo{
+
+    width:48px;
+    height:48px;
+    min-width:48px;
+  }
+
+  .btn{
+    font-size:19px;
+  }
+}
+
+</style>
 </head>
 
 <body>
@@ -397,212 +448,211 @@
 
   <!-- MEMBER -->
   <div class="member-box">
-
-    👥 TOTAL MEMBER KOMUNITAS
-
-    <div class="member-count" id="memberCount">
-      Loading...
-    </div>
-
+    👥 Total Member Komunitas: 200++ Traders
   </div>
 
   <!-- LIVE PRICE -->
   <div class="price-box">
 
-    <div class="pulse">
-      💰 XAUUSD:
-      <span class="live" id="gold">Loading...</span>
-    </div>
+    💰 XAUUSD:
+    <span class="live" id="gold">Loading...</span>
 
-    <br>
+    <br><br>
 
-    <div class="pulse">
-      ₿ BTCUSD:
-      <span class="live" id="btc">Loading...</span>
-    </div>
+    ₿ BTCUSD:
+    <span class="live" id="btc">Loading...</span>
 
   </div>
 
   <!-- PREMIUM -->
-  <div class="info-box">
+  <div class="pricing">
 
-    <h2>💎 Premium Signal Features</h2>
+    <h2>💎 Join Komunitas Berbayar</h2>
 
-    <ul>
-      <li>🔥 XAUUSD Smart Money Signal</li>
-      <li>₿ BTCUSD Institutional Setup</li>
-      <li>📊 BOS • CHOCH • OB • Liquidity Sweep</li>
-      <li>📰 News Based Entry Recommendation</li>
-      <li>⚡ Market Bias & Direction Analysis</li>
-    </ul>
+    <div class="price-grid">
+
+      <div class="pricing-card">
+        <div class="pricing-title">⚡ 1 Hari</div>
+        <div class="price">25K</div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-title">🔥 7 Hari</div>
+        <div class="price">49K</div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-title">🚀 1 Bulan</div>
+        <div class="price">99K</div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-title">👑 1 Tahun</div>
+        <div class="price">999K</div>
+      </div>
+
+    </div>
+
+    <a
+      class="btn btn-paid"
+      href="https://t.me/TESTIOPX_bot?start=join"
+      target="_blank"
+    >
+      💎 JOIN BERBAYAR DISINI
+    </a>
 
   </div>
 
   <!-- BROKER -->
-  <div class="info-box broker-section">
-
-    <h2>🏦 Broker Mitra Komunitas</h2>
-
-    <div class="broker-grid">
-
-      <!-- HFM -->
-      <div class="broker-card">
-
-        <img
-          class="broker-logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/7/7b/HFM_logo.png"
-        >
-
-        <div class="broker-name">
-          HFM
-        </div>
-
-        <div class="broker-desc">
-          Join komunitas trading menggunakan broker HFM bersama member One Percent FX.
-        </div>
-
-        <a
-          class="broker-btn"
-          href="https://register.hfmtrade-ind.com/sv/en/new-live-account/?refid=333604&acid=s2x4c6usld"
-          target="_blank"
-        >
-          JOIN HFM
-        </a>
-
-      </div>
-
-      <!-- EXNESS -->
-      <div class="broker-card">
-
-        <img
-          class="broker-logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/7/75/Exness_Logo.png"
-        >
-
-        <div class="broker-name">
-          Exness
-        </div>
-
-        <div class="broker-desc">
-          Trading forex & gold bersama komunitas menggunakan broker Exness.
-        </div>
-
-        <a
-          class="broker-btn"
-          href="https://one.exnessonelink.com/a/iyxcd2u617?source=app"
-          target="_blank"
-        >
-          JOIN EXNESS
-        </a>
-
-      </div>
-
-      <!-- VALETAX -->
-      <div class="broker-card">
-
-        <img
-          class="broker-logo"
-          src="https://valetax.com/wp-content/uploads/2023/09/logo-valetax.png"
-        >
-
-        <div class="broker-name">
-          Valetax
-        </div>
-
-        <div class="broker-desc">
-          Bergabung bersama komunitas trading forex menggunakan broker Valetax.
-        </div>
-
-        <a
-          class="broker-btn"
-          href="https://ma.valetax.com/p/6970464"
-          target="_blank"
-        >
-          JOIN VALETAX
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- PRICING -->
   <div class="pricing">
 
-    <h2>💰 Paket Langganan Premium</h2>
+    <h2>🤝 Join Gratis Bersama Mitra Broker</h2>
 
-    <div class="pricing-card">
-      ⚡ 1 Hari
-      <div class="price">25K</div>
-    </div>
-
-    <div class="pricing-card">
-      🔥 7 Hari
-      <div class="price">49K</div>
-    </div>
-
-    <div class="pricing-card">
-      🚀 1 Bulan
-      <div class="price">99K</div>
-    </div>
-
-    <div class="pricing-card">
-      👑 1 Tahun VIP
-      <div class="price">999K</div>
-    </div>
-
-    <div class="bonus">
-      ✅ Full akses AI Signal <br>
-      ✅ Institutional Analysis <br>
-      ✅ News Bias & Entry Recommendation <br>
-      ✅ Private Premium Community
-    </div>
-
-  </div>
-
-  <!-- BUTTONS -->
-  <div class="button-wrap">
-
-    <!-- PREMIUM -->
+    <!-- HFM -->
     <a
-      class="btn premium-btn"
-      href="https://t.me/TESTIOPX_bot?start=join"
+      href="https://register.hfmtrade-ind.com/sv/en/new-live-account/?refid=333604&acid=s2x4c6usld"
       target="_blank"
+      class="broker-card"
     >
-      💎 LANGGANAN SEKARANG
+
+      <div class="broker-logo">
+
+        <svg width="38" height="38" viewBox="0 0 320 120">
+
+          <text x="0" y="80" fill="#cfcfcf" font-size="80" font-weight="700">H</text>
+
+          <text x="70" y="80" fill="#cfcfcf" font-size="80" font-weight="700">F</text>
+
+          <polygon points="
+            150,80
+            150,0
+            190,40
+            230,0
+            230,80
+            210,80
+            210,35
+            190,60
+            170,35
+            170,80
+          " fill="#e60000"/>
+
+        </svg>
+
+      </div>
+
+      <div>
+        <div class="broker-title">HFM Broker</div>
+
+        <div class="broker-desc">
+          Join komunitas trading HFM bersama member kami
+        </div>
+      </div>
+
     </a>
 
-    <!-- FREE -->
+    <!-- EXNESS -->
     <a
-      class="btn free-btn"
+      href="https://one.exnessonelink.com/a/iyxcd2u617?source=app"
+      target="_blank"
+      class="broker-card"
+    >
+
+      <div class="broker-logo">
+
+        <svg width="38" height="38" viewBox="0 0 260 200">
+
+          <path d="
+            M60 100
+            a40 40 0 1 1 0 -1
+            M40 100
+            h60
+          "
+          fill="none"
+          stroke="#0b1b2b"
+          stroke-width="18"
+          stroke-linecap="round"/>
+
+          <line x1="150" y1="60" x2="220" y2="140"
+          stroke="#0b1b2b"
+          stroke-width="18"
+          stroke-linecap="round"/>
+
+          <line x1="220" y1="60" x2="150" y2="140"
+          stroke="#0b1b2b"
+          stroke-width="18"
+          stroke-linecap="round"/>
+
+        </svg>
+
+      </div>
+
+      <div>
+        <div class="broker-title">Exness Broker</div>
+
+        <div class="broker-desc">
+          Trading forex & gold bersama komunitas Exness
+        </div>
+      </div>
+
+    </a>
+
+    <!-- VALETAX -->
+    <a
+      href="https://ma.valetax.com/p/6970464"
+      target="_blank"
+      class="broker-card"
+    >
+
+      <div class="broker-logo">
+
+        <svg width="42" height="42" viewBox="0 0 700 200">
+
+          <polygon points="60,40 100,40 160,140 120,180" fill="#e6e6e6"/>
+          <polygon points="160,40 200,40 140,140 100,180" fill="#e6e6e6"/>
+          <polygon points="120,40 150,40 230,180 200,180" fill="#2ecc71"/>
+          <polygon points="210,60 240,40 270,40 230,90" fill="#e6e6e6"/>
+
+        </svg>
+
+      </div>
+
+      <div>
+        <div class="broker-title">Valetax Broker</div>
+
+        <div class="broker-desc">
+          Join broker partner komunitas One Percent FX
+        </div>
+      </div>
+
+    </a>
+
+    <a
+      class="btn btn-free"
       href="https://t.me/USERNAMEBOTGRATIS"
       target="_blank"
     >
-      🚀 JOIN GRATIS KOMUNITAS
+      🤝 JOIN GRATIS
     </a>
 
   </div>
 
   <div class="footer">
+
     ⚡ One Percent FX — AI Institutional Trading System
     <br>
     High Probability Setup Only • Professional Smart Money Analysis
+
   </div>
 
 </div>
-
-<!-- =========================
-     LIVE PRICE + MEMBER
-========================= -->
 
 <script>
 
 const API_KEY = "YOUR_API_KEY";
 
-async function getGoldPrice() {
+async function getGoldPrice(){
 
-  try {
+  try{
 
     const res = await fetch(
       `https://api.twelvedata.com/price?symbol=XAU/USD&apikey=${API_KEY}`
@@ -612,17 +662,15 @@ async function getGoldPrice() {
 
     return parseFloat(data.price);
 
-  } catch(e) {
+  }catch(e){
 
-    console.log("XAU ERROR", e);
     return null;
-
   }
 }
 
-async function getBTCPrice() {
+async function getBTCPrice(){
 
-  try {
+  try{
 
     const res = await fetch(
       `https://api.twelvedata.com/price?symbol=BTC/USD&apikey=${API_KEY}`
@@ -632,15 +680,13 @@ async function getBTCPrice() {
 
     return parseFloat(data.price);
 
-  } catch(e) {
+  }catch(e){
 
-    console.log("BTC ERROR", e);
     return null;
-
   }
 }
 
-async function updatePrice() {
+async function updatePrice(){
 
   const gold = await getGoldPrice();
   const btc = await getBTCPrice();
@@ -654,49 +700,7 @@ async function updatePrice() {
 
 updatePrice();
 
-setInterval(updatePrice, 10000);
-
-/*
-=========================================
-REALTIME MEMBER TELEGRAM GROUP
-=========================================
-
-ANDA HARUS BUAT API SENDIRI
-
-CONTOH:
-https://yourapi.com/member-count
-
-OUTPUT JSON:
-{
-  "count": 1250
-}
-
-LALU GANTI URL DI BAWAH
-*/
-
-async function updateMemberCount(){
-
-  try{
-
-    // GANTI URL API ANDA
-    const res = await fetch("https://yourapi.com/member-count");
-
-    const data = await res.json();
-
-    document.getElementById("memberCount").innerText =
-      data.count + " MEMBER";
-
-  }catch(e){
-
-    document.getElementById("memberCount").innerText =
-      "PRIVATE GROUP";
-
-  }
-}
-
-updateMemberCount();
-
-setInterval(updateMemberCount, 30000);
+setInterval(updatePrice,10000);
 
 </script>
 
