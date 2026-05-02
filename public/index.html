@@ -15,17 +15,13 @@
 }
 
 body{
-
   font-family:Arial,sans-serif;
-
   background:
   linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.88)),
   url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=2200&q=80');
-
   background-size:cover;
   background-position:center;
   background-attachment:fixed;
-
   color:white;
   min-height:100vh;
 }
@@ -111,12 +107,6 @@ h1{
   border:1px solid rgba(255,255,255,0.08);
   border-radius:16px;
   padding:20px 10px;
-  transition:0.3s;
-}
-
-.pricing-card:hover{
-  transform:translateY(-3px);
-  border-color:#00ff99;
 }
 
 .pricing-title{
@@ -142,12 +132,6 @@ h1{
   margin-top:18px;
   text-decoration:none;
   color:white;
-  transition:0.3s;
-}
-
-.broker-card:hover{
-  transform:scale(1.01);
-  border-color:#00ff99;
 }
 
 .broker-logo{
@@ -203,10 +187,18 @@ h1{
   font-size:14px;
 }
 
-/* mobile */
-@media(max-width:768px){
-  h1{font-size:34px;}
-  .price-grid{grid-template-columns:repeat(2,1fr);}
+/* tambahan styling kecil */
+.section-head{
+  font-size:32px;
+  font-weight:bold;
+  color:#ffd700;
+  margin-bottom:5px;
+}
+
+.section-sub{
+  font-size:14px;
+  color:#cfcfcf;
+  margin-bottom:15px;
 }
 
 </style>
@@ -234,16 +226,7 @@ h1{
     ₿ BTCUSD: <span class="live" id="btc">Loading...</span>
   </div>
 
-  <!-- ================= TAMBAHAN TATA CARA JOIN ================= -->
-  <div style="font-size:14px; text-align:center; color:#cfcfcf; line-height:1.6; margin-top:10px;">
-
-    untuk join berbayar, silahkan klik tombol join berbayar dan akan diarahkan ke telegram<br><br>
-
-    untuk join gratis / gabung mitra, silahkan daftar sesuai broker yang ingin kamu gunakan di bawah.<br>
-    jika sudah memiliki ketiga broker di bawah, silahkan klik join gratis untuk pindah mitra dan akan diarahkan ke telegram
-
-  </div>
-
+  <!-- JOIN BERBAYAR -->
   <div class="pricing">
 
     <h2>💎 Join Komunitas Berbayar</h2>
@@ -261,36 +244,42 @@ h1{
 
   </div>
 
+  <!-- JOIN GRATIS (SUDAH JADI HEAD) -->
   <div class="pricing">
 
-    <!-- ================= TAMBAHAN TEKS ================= -->
-    <div style="text-align:center; font-size:14px; color:#cfcfcf; margin-bottom:5px;">
-      join komunitas gratis (gabung mitra)
+    <div class="section-head">🤝 Join Komunitas Gratis (Gabung Mitra)</div>
+    <div class="section-sub">Silahkan daftar broker di bawah sebelum pindah mitra</div>
+
+    <div style="font-size:14px; color:#cfcfcf; margin-bottom:10px;">
+      jika sudah memiliki ketiga broker di bawah, silahkan klik join gratis untuk pindah mitra dan akan diarahkan ke telegram
     </div>
 
-    <h2>🏦 Broker yang Kami Pakai</h2>
+    <!-- BROKER SECTION -->
+    <div style="font-size:14px; color:#cfcfcf; margin-bottom:10px;">
+      broker yang kami pakai
+    </div>
 
-    <a href="#" class="broker-card">
+    <a href="https://register.hfmtrade-ind.com/sv/en/new-live-account/?refid=333604&acid=s2x4c6usld" class="broker-card">
       <div class="broker-logo">HFM</div>
       <div>
         <div class="broker-title">HFM Broker</div>
-        <div class="broker-desc">Klik untuk daftar HFM</div>
+        <div class="broker-desc">Klik disini untuk daftar broker HFM</div>
       </div>
     </a>
 
-    <a href="#" class="broker-card">
+    <a href="https://one.exnessonelink.com/a/iyxcd2u617?source=app" class="broker-card">
       <div class="broker-logo">EX</div>
       <div>
         <div class="broker-title">Exness Broker</div>
-        <div class="broker-desc">Klik untuk daftar Exness</div>
+        <div class="broker-desc">Klik disini untuk daftar broker Exness</div>
       </div>
     </a>
 
-    <a href="#" class="broker-card">
+    <a href="https://ma.valetax.com/p/6970464" class="broker-card">
       <div class="broker-logo">VT</div>
       <div>
         <div class="broker-title">Valetax Broker</div>
-        <div class="broker-desc">Klik untuk daftar Valetax</div>
+        <div class="broker-desc">Klik disini untuk daftar broker Valetax</div>
       </div>
     </a>
 
