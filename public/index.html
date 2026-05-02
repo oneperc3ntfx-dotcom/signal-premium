@@ -77,11 +77,58 @@ h1{
   text-align:center;
   font-size:24px;
   font-weight:bold;
-  margin-bottom:30px;
+  margin-bottom:15px;
 }
 
 .live{ color:#00ff99; }
 
+/* TATA CARA */
+.tutorial{
+  font-size:13px;
+  color:#cfcfcf;
+  text-align:center;
+  line-height:1.7;
+  margin-bottom:25px;
+}
+
+/* BUTTON ANIMASI */
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow:0 0 10px rgba(0,255,153,0.3); }
+  50% { transform: scale(1.05); box-shadow:0 0 25px rgba(0,255,153,0.6); }
+  100% { transform: scale(1); box-shadow:0 0 10px rgba(0,255,153,0.3); }
+}
+
+.btn{
+  display:block;
+  width:100%;
+  max-width:420px;
+  margin:20px auto;
+  padding:20px;
+  border-radius:16px;
+  text-align:center;
+  text-decoration:none;
+  font-size:22px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.btn-paid{
+  background:linear-gradient(135deg,#00ff99,#00d084);
+  color:black;
+  animation:pulse 1.8s infinite;
+}
+
+.btn-free{
+  background:linear-gradient(135deg,#ffd700,#ffb300);
+  color:black;
+  animation:pulse 2.2s infinite;
+}
+
+.btn:hover{
+  transform:scale(1.03);
+}
+
+/* SECTION */
 .pricing{
   background:rgba(17,24,39,0.92);
   border-radius:20px;
@@ -121,6 +168,7 @@ h1{
   font-weight:bold;
 }
 
+/* BROKER */
 .broker-card{
   display:flex;
   align-items:center;
@@ -156,29 +204,6 @@ h1{
   font-size:15px;
 }
 
-.btn{
-  display:block;
-  width:100%;
-  max-width:420px;
-  margin:30px auto;
-  padding:20px;
-  border-radius:16px;
-  text-align:center;
-  text-decoration:none;
-  font-size:22px;
-  font-weight:bold;
-}
-
-.btn-paid{
-  background:linear-gradient(135deg,#00ff99,#00d084);
-  color:black;
-}
-
-.btn-free{
-  background:linear-gradient(135deg,#ffd700,#ffb300);
-  color:black;
-}
-
 .footer{
   text-align:center;
   margin-top:40px;
@@ -187,18 +212,9 @@ h1{
   font-size:14px;
 }
 
-/* tambahan styling kecil */
-.section-head{
-  font-size:32px;
-  font-weight:bold;
-  color:#ffd700;
-  margin-bottom:5px;
-}
-
-.section-sub{
-  font-size:14px;
-  color:#cfcfcf;
-  margin-bottom:15px;
+@media(max-width:768px){
+  h1{font-size:34px;}
+  .price-grid{grid-template-columns:repeat(2,1fr);}
 }
 
 </style>
@@ -226,6 +242,17 @@ h1{
     ₿ BTCUSD: <span class="live" id="btc">Loading...</span>
   </div>
 
+  <!-- TATA CARA (FINAL FIX) -->
+  <div class="tutorial">
+
+    UNTUK JOIN BERBAYAR, SILAHKAN KALIAN KLIK TOMBOL JOIN BERBAYAR DAN AKAN BERALIH KE TELEGRAM.<br><br>
+
+    UNTUK JOIN GRATIS / GABUNG MITRA, SILAHKAN DAFTAR SESUAI BROKER YANG INGIN KALIAN PAKAI DI BAWAH.<br>
+
+    JIKA KALIAN SUDAH MEMILIKI KETIGA BROKER DI BAWAH, SILAHKAN KLIK JOIN GRATIS DI BAWAH UNTUK PINDAH MITRA DAN AKAN BERALIH KE TELEGRAM.
+
+  </div>
+
   <!-- JOIN BERBAYAR -->
   <div class="pricing">
 
@@ -244,20 +271,14 @@ h1{
 
   </div>
 
-  <!-- JOIN GRATIS (SUDAH JADI HEAD) -->
+  <!-- JOIN GRATIS -->
   <div class="pricing">
 
-    <div class="section-head">🤝 Join Komunitas Gratis (Gabung Mitra)</div>
-    <div class="section-sub">Silahkan daftar broker di bawah sebelum pindah mitra</div>
-
-    <div style="font-size:14px; color:#cfcfcf; margin-bottom:10px;">
-      jika sudah memiliki ketiga broker di bawah, silahkan klik join gratis untuk pindah mitra dan akan diarahkan ke telegram
+    <div style="font-size:14px;color:#cfcfcf;margin-bottom:5px;">
+      join komunitas gratis (gabung mitra)
     </div>
 
-    <!-- BROKER SECTION -->
-    <div style="font-size:14px; color:#cfcfcf; margin-bottom:10px;">
-      broker yang kami pakai
-    </div>
+    <h2>🏦 Broker yang Kami Pakai</h2>
 
     <a href="https://register.hfmtrade-ind.com/sv/en/new-live-account/?refid=333604&acid=s2x4c6usld" class="broker-card">
       <div class="broker-logo">HFM</div>
