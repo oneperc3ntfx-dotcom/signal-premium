@@ -191,10 +191,6 @@ h1{
   font-weight:bold;
 }
 
-/* =========================
-BROKER
-========================= */
-
 .broker-card{
 
   display:flex;
@@ -264,10 +260,6 @@ BROKER
   font-size:15px;
 }
 
-/* =========================
-BUTTON
-========================= */
-
 .btn{
 
   display:block;
@@ -330,58 +322,30 @@ BUTTON
   line-height:1.8;
 }
 
-/* =========================
-MOBILE
-========================= */
-
 @media(max-width:768px){
 
-  h1{
-    font-size:34px;
-  }
-
-  .brand{
-    font-size:20px;
-  }
-
-  .tagline{
-    font-size:14px;
-  }
+  h1{ font-size:34px; }
+  .brand{ font-size:20px; }
+  .tagline{ font-size:14px; }
 
   .price-grid{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .pricing-card{
-    padding:18px 10px;
-  }
+  .pricing-card{ padding:18px 10px; }
+  .pricing-title{ font-size:16px; }
+  .price{ font-size:24px; }
 
-  .pricing-title{
-    font-size:16px;
-  }
-
-  .price{
-    font-size:24px;
-  }
-
-  .broker-title{
-    font-size:18px;
-  }
-
-  .broker-desc{
-    font-size:13px;
-  }
+  .broker-title{ font-size:18px; }
+  .broker-desc{ font-size:13px; }
 
   .broker-logo{
-
     width:48px;
     height:48px;
     min-width:48px;
   }
 
-  .btn{
-    font-size:19px;
-  }
+  .btn{ font-size:19px; }
 }
 
 </style>
@@ -393,20 +357,16 @@ MOBILE
 
   <h1>🤖 AI Trading Signal Engine</h1>
 
-  <div class="brand">
-    ONE PERCENT FX
-  </div>
+  <div class="brand">ONE PERCENT FX</div>
 
   <p class="tagline">
     Smart Money Concept (SMC) • Institutional Flow • News Impact Analysis
   </p>
 
-  <!-- MEMBER -->
   <div class="member-box">
     👥 Total Member Komunitas: 200++ Traders
   </div>
 
-  <!-- LIVE PRICE -->
   <div class="price-box">
 
     💰 XAUUSD:
@@ -419,7 +379,6 @@ MOBILE
 
   </div>
 
-  <!-- PREMIUM -->
   <div class="pricing">
 
     <h2>💎 Join Komunitas Berbayar</h2>
@@ -448,142 +407,53 @@ MOBILE
 
     </div>
 
-    <a
-      class="btn btn-paid"
-      href="https://t.me/TESTIOPX_bot?start=join"
-      target="_blank"
-    >
+    <a class="btn btn-paid" href="https://t.me/TESTIOPX_bot?start=join" target="_blank">
       💎 KLIK DISINI UNTUK JOIN BERBAYAR
     </a>
 
   </div>
 
-  <!-- BROKER -->
   <div class="pricing">
 
     <h2>🏦 Broker yang Kami Pakai</h2>
 
-    <!-- HFM -->
-    <a
-      href="https://register.hfmtrade-ind.com/sv/en/new-live-account/?refid=333604&acid=s2x4c6usld"
-      target="_blank"
-      class="broker-card"
-    >
+    <a href="https://register.hfmtrade-ind.com/sv/en/new-live-account/?refid=333604&acid=s2x4c6usld" target="_blank" class="broker-card">
 
-      <div class="broker-logo">
-
-        <svg width="38" height="38" viewBox="0 0 320 120">
-
-          <text x="0" y="80" fill="#cfcfcf" font-size="80" font-weight="700">H</text>
-
-          <text x="70" y="80" fill="#cfcfcf" font-size="80" font-weight="700">F</text>
-
-          <polygon points="
-            150,80
-            150,0
-            190,40
-            230,0
-            230,80
-            210,80
-            210,35
-            190,60
-            170,35
-            170,80
-          " fill="#e60000"/>
-
-        </svg>
-
-      </div>
+      <div class="broker-logo">HFM</div>
 
       <div>
         <div class="broker-title">HFM Broker</div>
-
-        <div class="broker-desc">
-          Klik disini untuk daftar broker HFM
-        </div>
+        <div class="broker-desc">Klik disini untuk daftar broker HFM</div>
       </div>
 
     </a>
 
-    <!-- EXNESS -->
-    <a
-      href="https://one.exnessonelink.com/a/iyxcd2u617?source=app"
-      target="_blank"
-      class="broker-card"
-    >
+    <a href="https://one.exnessonelink.com/a/iyxcd2u617?source=app" target="_blank" class="broker-card">
 
-      <div class="broker-logo">
-
-        <svg width="38" height="38" viewBox="0 0 260 200">
-
-          <path d="
-            M60 100
-            a40 40 0 1 1 0 -1
-            M40 100
-            h60
-          "
-          fill="none"
-          stroke="#0b1b2b"
-          stroke-width="18"
-          stroke-linecap="round"/>
-
-          <line x1="150" y1="60" x2="220" y2="140"
-          stroke="#0b1b2b"
-          stroke-width="18"
-          stroke-linecap="round"/>
-
-          <line x1="220" y1="60" x2="150" y2="140"
-          stroke="#0b1b2b"
-          stroke-width="18"
-          stroke-linecap="round"/>
-
-        </svg>
-
-      </div>
+      <div class="broker-logo">EX</div>
 
       <div>
         <div class="broker-title">Exness Broker</div>
-
-        <div class="broker-desc">
-          Klik disini untuk daftar broker Exness
-        </div>
+        <div class="broker-desc">Klik disini untuk daftar broker Exness</div>
       </div>
 
     </a>
 
-    <!-- VALETAX -->
-    <a
-      href="https://ma.valetax.com/p/6970464"
-      target="_blank"
-      class="broker-card"
-    >
+    <a href="https://ma.valetax.com/p/6970464" target="_blank" class="broker-card">
 
-      <div class="broker-logo">
-
-        <svg width="42" height="42" viewBox="0 0 700 200">
-
-          <polygon points="60,40 100,40 160,140 120,180" fill="#e6e6e6"/>
-          <polygon points="160,40 200,40 140,140 100,180" fill="#e6e6e6"/>
-          <polygon points="120,40 150,40 230,180 200,180" fill="#2ecc71"/>
-          <polygon points="210,60 240,40 270,40 230,90" fill="#e6e6e6"/>
-
-        </svg>
-
-      </div>
+      <div class="broker-logo">VT</div>
 
       <div>
         <div class="broker-title">Valetax Broker</div>
-
-        <div class="broker-desc">
-          Klik disini untuk daftar broker Valetax
-        </div>
+        <div class="broker-desc">Klik disini untuk daftar broker Valetax</div>
       </div>
 
     </a>
 
+    <!-- UPDATED FREE JOIN BUTTON -->
     <a
       class="btn btn-free"
-      href="https://t.me/USERNAMEBOTGRATIS"
+      href="https://t.me/OnePercentWeeklyBot?start=start"
       target="_blank"
     >
       🤝 KLIK DISINI UNTUK JOIN GRATIS
@@ -602,61 +472,34 @@ MOBILE
 </div>
 
 <script>
-
 const API_KEY = "YOUR_API_KEY";
 
 async function getGoldPrice(){
-
   try{
-
-    const res = await fetch(
-      `https://api.twelvedata.com/price?symbol=XAU/USD&apikey=${API_KEY}`
-    );
-
+    const res = await fetch(`https://api.twelvedata.com/price?symbol=XAU/USD&apikey=${API_KEY}`);
     const data = await res.json();
-
     return parseFloat(data.price);
-
-  }catch(e){
-
-    return null;
-  }
+  }catch(e){ return null; }
 }
 
 async function getBTCPrice(){
-
   try{
-
-    const res = await fetch(
-      `https://api.twelvedata.com/price?symbol=BTC/USD&apikey=${API_KEY}`
-    );
-
+    const res = await fetch(`https://api.twelvedata.com/price?symbol=BTC/USD&apikey=${API_KEY}`);
     const data = await res.json();
-
     return parseFloat(data.price);
-
-  }catch(e){
-
-    return null;
-  }
+  }catch(e){ return null; }
 }
 
 async function updatePrice(){
-
   const gold = await getGoldPrice();
   const btc = await getBTCPrice();
 
-  document.getElementById("gold").innerText =
-    gold ? gold.toFixed(2) : "N/A";
-
-  document.getElementById("btc").innerText =
-    btc ? btc.toFixed(2) : "N/A";
+  document.getElementById("gold").innerText = gold ? gold.toFixed(2) : "N/A";
+  document.getElementById("btc").innerText = btc ? btc.toFixed(2) : "N/A";
 }
 
 updatePrice();
-
 setInterval(updatePrice,10000);
-
 </script>
 
 </body>
