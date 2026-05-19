@@ -80,7 +80,9 @@ h1{
   margin-bottom:15px;
 }
 
-.live{ color:#00ff99; }
+.live{
+  color:#00ff99;
+}
 
 /* TATA CARA */
 .tutorial{
@@ -93,9 +95,20 @@ h1{
 
 /* BUTTON ANIMASI */
 @keyframes pulse {
-  0% { transform: scale(1); box-shadow:0 0 10px rgba(0,255,153,0.3); }
-  50% { transform: scale(1.05); box-shadow:0 0 25px rgba(0,255,153,0.6); }
-  100% { transform: scale(1); box-shadow:0 0 10px rgba(0,255,153,0.3); }
+  0% {
+    transform: scale(1);
+    box-shadow:0 0 10px rgba(0,255,153,0.3);
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow:0 0 25px rgba(0,255,153,0.6);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow:0 0 10px rgba(0,255,153,0.3);
+  }
 }
 
 .btn{
@@ -168,6 +181,39 @@ h1{
   font-weight:bold;
 }
 
+/* HISTORY SIGNAL */
+.history-box{
+  margin-top:25px;
+  padding:25px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+}
+
+.history-title{
+  color:#ffd700;
+  font-size:26px;
+  font-weight:bold;
+  margin-bottom:20px;
+}
+
+.history-btn{
+  display:inline-block;
+  padding:16px 30px;
+  border-radius:14px;
+  text-decoration:none;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  transition:0.3s;
+}
+
+.history-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px rgba(0,114,255,0.5);
+}
+
 /* BROKER */
 .broker-card{
   display:flex;
@@ -191,6 +237,8 @@ h1{
   display:flex;
   justify-content:center;
   align-items:center;
+  color:black;
+  font-weight:bold;
 }
 
 .broker-title{
@@ -213,8 +261,23 @@ h1{
 }
 
 @media(max-width:768px){
-  h1{font-size:34px;}
-  .price-grid{grid-template-columns:repeat(2,1fr);}
+
+  h1{
+    font-size:34px;
+  }
+
+  .price-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .pricing h2{
+    font-size:28px;
+  }
+
+  .history-title{
+    font-size:22px;
+  }
+
 }
 
 </style>
@@ -242,12 +305,14 @@ h1{
     ₿ BTCUSD: <span class="live" id="btc">Loading...</span>
   </div>
 
-  <!-- TATA CARA (FINAL FIX) -->
+  <!-- TATA CARA -->
   <div class="tutorial">
 
-    UNTUK JOIN BERBAYAR, SILAHKAN KALIAN KLIK TOMBOL JOIN BERBAYAR DAN AKAN BERALIH KE TELEGRAM.<br><br>
+    UNTUK JOIN BERBAYAR, SILAHKAN KALIAN KLIK TOMBOL JOIN BERBAYAR DAN AKAN BERALIH KE TELEGRAM.
+    <br><br>
 
-    UNTUK JOIN GRATIS / GABUNG MITRA, SILAHKAN DAFTAR SESUAI BROKER YANG INGIN KALIAN PAKAI DI BAWAH.<br>
+    UNTUK JOIN GRATIS / GABUNG MITRA, SILAHKAN DAFTAR SESUAI BROKER YANG INGIN KALIAN PAKAI DI BAWAH.
+    <br>
 
     JIKA KALIAN SUDAH MEMILIKI KETIGA BROKER DI BAWAH, SILAHKAN KLIK JOIN GRATIS DI BAWAH UNTUK PINDAH MITRA DAN AKAN BERALIH KE TELEGRAM.
 
@@ -259,15 +324,49 @@ h1{
     <h2>💎 Join Komunitas Berbayar</h2>
 
     <div class="price-grid">
-      <div class="pricing-card"><div class="pricing-title">1 Hari</div><div class="price">25K</div></div>
-      <div class="pricing-card"><div class="pricing-title">7 Hari</div><div class="price">49K</div></div>
-      <div class="pricing-card"><div class="pricing-title">1 Bulan</div><div class="price">99K</div></div>
-      <div class="pricing-card"><div class="pricing-title">1 Tahun</div><div class="price">999K</div></div>
+
+      <div class="pricing-card">
+        <div class="pricing-title">1 Hari</div>
+        <div class="price">25K</div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-title">7 Hari</div>
+        <div class="price">49K</div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-title">1 Bulan</div>
+        <div class="price">99K</div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-title">1 Tahun</div>
+        <div class="price">999K</div>
+      </div>
+
     </div>
 
     <a class="btn btn-paid" href="https://t.me/Aiopfx_bot?start=join">
       💎 KLIK DISINI UNTUK JOIN BERBAYAR
     </a>
+
+    <!-- HISTORY SIGNAL -->
+    <div class="history-box">
+
+      <div class="history-title">
+        📊 Challenge History Signal AI One Percent FX 1 BULAN
+      </div>
+
+      <a 
+        class="history-btn"
+        href="https://docs.google.com/spreadsheets/d/1p1jiuCcU6tUxxPEmodkwaQBmCB8u-BLOGa5J7LpETKE/edit?usp=sharing"
+        target="_blank"
+      >
+        📄 KLIK DISINI UNTUK LIHAT
+      </a>
+
+    </div>
 
   </div>
 
@@ -281,27 +380,42 @@ h1{
     <h2>🏦 Join komunitas gratis (gabung mitra)</h2>
 
     <a href="https://register.hfmtrade-ind.com/sv/en/new-live-account/?refid=333604&acid=s2x4c6usld" class="broker-card">
+
       <div class="broker-logo">HFM</div>
+
       <div>
         <div class="broker-title">HFM Broker</div>
-        <div class="broker-desc">Klik disini untuk daftar broker HFM</div>
+        <div class="broker-desc">
+          Klik disini untuk daftar broker HFM
+        </div>
       </div>
+
     </a>
 
     <a href="https://one.exnessonelink.com/a/iyxcd2u617?source=app" class="broker-card">
+
       <div class="broker-logo">EX</div>
+
       <div>
         <div class="broker-title">Exness Broker</div>
-        <div class="broker-desc">Klik disini untuk daftar broker Exness</div>
+        <div class="broker-desc">
+          Klik disini untuk daftar broker Exness
+        </div>
       </div>
+
     </a>
 
     <a href="https://ma.valetax.com/p/6970464" class="broker-card">
+
       <div class="broker-logo">VT</div>
+
       <div>
         <div class="broker-title">Valetax Broker</div>
-        <div class="broker-desc">Klik disini untuk daftar broker Valetax</div>
+        <div class="broker-desc">
+          Klik disini untuk daftar broker Valetax
+        </div>
       </div>
+
     </a>
 
     <a class="btn btn-free" href="https://t.me/MANAGERIB_BOT?start=start">
@@ -315,6 +429,30 @@ h1{
   </div>
 
 </div>
+
+<script>
+
+/* SIMULASI LIVE PRICE */
+
+function randomPrice(base, spread){
+  return (base + (Math.random() * spread - spread/2)).toFixed(2);
+}
+
+function updatePrices(){
+
+  document.getElementById("gold").innerHTML =
+    "$" + randomPrice(2350,20);
+
+  document.getElementById("btc").innerHTML =
+    "$" + randomPrice(65000,1500);
+
+}
+
+updatePrices();
+
+setInterval(updatePrices,3000);
+
+</script>
 
 </body>
 </html>
