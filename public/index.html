@@ -84,7 +84,7 @@ h1{
   color:#00ff99;
 }
 
-/* TATA CARA */
+/* TUTORIAL */
 .tutorial{
   font-size:13px;
   color:#cfcfcf;
@@ -93,22 +93,24 @@ h1{
   margin-bottom:25px;
 }
 
-/* BUTTON ANIMASI */
+/* BUTTON ANIMATION */
 @keyframes pulse {
-  0% {
-    transform: scale(1);
+
+  0%{
+    transform:scale(1);
     box-shadow:0 0 10px rgba(0,255,153,0.3);
   }
 
-  50% {
-    transform: scale(1.05);
+  50%{
+    transform:scale(1.05);
     box-shadow:0 0 25px rgba(0,255,153,0.6);
   }
 
-  100% {
-    transform: scale(1);
+  100%{
+    transform:scale(1);
     box-shadow:0 0 10px rgba(0,255,153,0.3);
   }
+
 }
 
 .btn{
@@ -125,6 +127,10 @@ h1{
   transition:0.3s;
 }
 
+.btn:hover{
+  transform:scale(1.03);
+}
+
 .btn-paid{
   background:linear-gradient(135deg,#00ff99,#00d084);
   color:black;
@@ -135,10 +141,6 @@ h1{
   background:linear-gradient(135deg,#ffd700,#ffb300);
   color:black;
   animation:pulse 2.2s infinite;
-}
-
-.btn:hover{
-  transform:scale(1.03);
 }
 
 /* SECTION */
@@ -181,7 +183,7 @@ h1{
   font-weight:bold;
 }
 
-/* HISTORY SIGNAL */
+/* HISTORY BOX */
 .history-box{
   margin-top:25px;
   padding:25px;
@@ -252,6 +254,31 @@ h1{
   font-size:15px;
 }
 
+/* TELEGRAM */
+.telegram-contact{
+  text-align:center;
+  margin-top:35px;
+}
+
+.telegram-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  background:linear-gradient(135deg,#0088cc,#00aced);
+  color:white;
+  text-decoration:none;
+  padding:18px 28px;
+  border-radius:18px;
+  font-size:20px;
+  font-weight:bold;
+  transition:0.3s;
+  box-shadow:0 0 20px rgba(0,136,204,0.35);
+}
+
+.telegram-btn:hover{
+  transform:scale(1.05);
+}
+
 .footer{
   text-align:center;
   margin-top:40px;
@@ -278,6 +305,11 @@ h1{
     font-size:22px;
   }
 
+  .telegram-btn{
+    font-size:16px;
+    padding:16px 20px;
+  }
+
 }
 
 </style>
@@ -300,12 +332,16 @@ h1{
   </div>
 
   <div class="price-box">
-    💰 XAUUSD: <span class="live" id="gold">Loading...</span>
+    💰 XAUUSD:
+    <span class="live" id="gold">Loading...</span>
+
     <br><br>
-    ₿ BTCUSD: <span class="live" id="btc">Loading...</span>
+
+    ₿ BTCUSD:
+    <span class="live" id="btc">Loading...</span>
   </div>
 
-  <!-- TATA CARA -->
+  <!-- TUTORIAL -->
   <div class="tutorial">
 
     UNTUK JOIN BERBAYAR, SILAHKAN KALIAN KLIK TOMBOL JOIN BERBAYAR DAN AKAN BERALIH KE TELEGRAM.
@@ -358,7 +394,7 @@ h1{
         📊 Challenge History Signal AI One Percent FX 1 BULAN
       </div>
 
-      <a 
+      <a
         class="history-btn"
         href="https://docs.google.com/spreadsheets/d/1p1jiuCcU6tUxxPEmodkwaQBmCB8u-BLOGa5J7LpETKE/edit?usp=sharing"
         target="_blank"
@@ -379,7 +415,10 @@ h1{
 
     <h2>🏦 Join komunitas gratis (gabung mitra)</h2>
 
-    <a href="https://register.hfmtrade-ind.com/sv/en/new-live-account/?refid=333604&acid=s2x4c6usld" class="broker-card">
+    <a
+      href="https://register.hfmtrade-ind.com/sv/en/new-live-account/?refid=333604&acid=s2x4c6usld"
+      class="broker-card"
+    >
 
       <div class="broker-logo">HFM</div>
 
@@ -392,7 +431,10 @@ h1{
 
     </a>
 
-    <a href="https://one.exnessonelink.com/a/iyxcd2u617?source=app" class="broker-card">
+    <a
+      href="https://one.exnessonelink.com/a/iyxcd2u617?source=app"
+      class="broker-card"
+    >
 
       <div class="broker-logo">EX</div>
 
@@ -405,7 +447,10 @@ h1{
 
     </a>
 
-    <a href="https://ma.valetax.com/p/6970464" class="broker-card">
+    <a
+      href="https://ma.valetax.com/p/6970464"
+      class="broker-card"
+    >
 
       <div class="broker-logo">VT</div>
 
@@ -424,6 +469,23 @@ h1{
 
   </div>
 
+  <!-- TELEGRAM CONTACT -->
+  <div class="telegram-contact">
+
+    <a
+      href="https://t.me/ADMOnePercentsFX"
+      target="_blank"
+      class="telegram-btn"
+    >
+
+      <span style="font-size:28px;">📩</span>
+
+      Untuk konsultasi silahkan hubungi kami
+
+    </a>
+
+  </div>
+
   <div class="footer">
     One Percent FX • Smart Money Institutional System
   </div>
@@ -435,16 +497,20 @@ h1{
 /* SIMULASI LIVE PRICE */
 
 function randomPrice(base, spread){
-  return (base + (Math.random() * spread - spread/2)).toFixed(2);
+
+  return (
+    base + (Math.random() * spread - spread / 2)
+  ).toFixed(2);
+
 }
 
 function updatePrices(){
 
   document.getElementById("gold").innerHTML =
-    "$" + randomPrice(2350,20);
+    "$" + randomPrice(4538,20);
 
   document.getElementById("btc").innerHTML =
-    "$" + randomPrice(65000,1500);
+    "$" + randomPrice(76746,1500);
 
 }
 
