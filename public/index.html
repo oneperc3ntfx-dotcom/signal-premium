@@ -1,523 +1,193 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<title>One Percent FX - AI Trading Signal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Percent FX - Komunitas Trader Forex Berbasis AI</title>
 
 <style>
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
-  font-family:Arial,sans-serif;
-  background:
-  linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.88)),
-  url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=2200&q=80');
-  background-size:cover;
-  background-position:center;
-  background-attachment:fixed;
-  color:white;
-  min-height:100vh;
+font-family:Arial,sans-serif;
+background:
+linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.88)),
+url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=2200&q=80');
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+color:white;
+min-height:100vh;
 }
-
-.container{
-  width:100%;
-  max-width:1000px;
-  margin:auto;
-  padding:20px;
-}
-
+.container{max-width:1000px;margin:auto;padding:20px;}
 h1{
-  text-align:center;
-  font-size:46px;
-  color:#00ffae;
-  margin-top:20px;
-  text-shadow:0 0 15px rgba(0,255,174,0.4);
+text-align:center;
+font-size:46px;
+color:#00ffae;
+margin-top:20px;
+text-shadow:0 0 15px rgba(0,255,174,.4);
 }
-
 .brand{
-  text-align:center;
-  color:white;
-  font-size:24px;
-  font-weight:bold;
-  margin-top:10px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+margin-top:10px;
 }
-
 .tagline{
-  text-align:center;
-  color:#cfcfcf;
-  margin-top:10px;
-  font-size:17px;
-  margin-bottom:30px;
+text-align:center;
+color:#cfcfcf;
+margin-top:15px;
+font-size:18px;
+line-height:1.8;
+margin-bottom:30px;
 }
-
+.member-box,.price-box,.section{
+background:rgba(17,24,39,.92);
+border:1px solid rgba(0,255,174,.15);
+border-radius:18px;
+padding:25px;
+margin-bottom:25px;
+text-align:center;
+}
 .member-box{
-  background:rgba(15,23,42,0.92);
-  border:1px solid rgba(0,255,174,0.15);
-  border-radius:18px;
-  padding:18px;
-  text-align:center;
-  margin-bottom:25px;
-  font-size:20px;
-  font-weight:bold;
-  color:#00ff99;
+font-size:20px;
+font-weight:bold;
+color:#00ff99;
 }
-
 .price-box{
-  background:rgba(17,24,39,0.92);
-  border:1px solid rgba(0,255,174,0.15);
-  border-radius:18px;
-  padding:25px;
-  text-align:center;
-  font-size:24px;
-  font-weight:bold;
-  margin-bottom:15px;
+font-size:24px;
+font-weight:bold;
 }
-
-.live{
-  color:#00ff99;
+.live{color:#00ff99;}
+.section h2{
+font-size:34px;
+color:#ffd700;
+margin-bottom:20px;
 }
-
-/* TUTORIAL */
-.tutorial{
-  font-size:13px;
-  color:#cfcfcf;
-  text-align:center;
-  line-height:1.7;
-  margin-bottom:25px;
+.section p{
+color:#cfcfcf;
+font-size:17px;
+line-height:1.8;
 }
-
-/* BUTTON ANIMATION */
-@keyframes pulse {
-
-  0%{
-    transform:scale(1);
-    box-shadow:0 0 10px rgba(0,255,153,0.3);
-  }
-
-  50%{
-    transform:scale(1.05);
-    box-shadow:0 0 25px rgba(0,255,153,0.6);
-  }
-
-  100%{
-    transform:scale(1);
-    box-shadow:0 0 10px rgba(0,255,153,0.3);
-  }
-
-}
-
 .btn{
-  display:block;
-  width:100%;
-  max-width:420px;
-  margin:20px auto;
-  padding:20px;
-  border-radius:16px;
-  text-align:center;
-  text-decoration:none;
-  font-size:22px;
-  font-weight:bold;
-  transition:0.3s;
+display:inline-block;
+margin-top:25px;
+padding:18px 30px;
+border-radius:16px;
+text-decoration:none;
+font-size:20px;
+font-weight:bold;
+transition:.3s;
 }
-
-.btn:hover{
-  transform:scale(1.03);
+.btn:hover{transform:scale(1.05);}
+.admin-btn{
+background:linear-gradient(135deg,#00ff99,#00d084);
+color:black;
 }
-
-.btn-paid{
-  background:linear-gradient(135deg,#00ff99,#00d084);
-  color:black;
-  animation:pulse 1.8s infinite;
+.support-btn{
+background:linear-gradient(135deg,#ffd700,#ffb300);
+color:black;
 }
-
-.btn-free{
-  background:linear-gradient(135deg,#ffd700,#ffb300);
-  color:black;
-  animation:pulse 2.2s infinite;
-}
-
-/* SECTION */
-.pricing{
-  background:rgba(17,24,39,0.92);
-  border-radius:20px;
-  padding:30px;
-  margin-top:30px;
-  text-align:center;
-}
-
-.pricing h2{
-  font-size:36px;
-  margin-bottom:25px;
-  color:#ffd700;
-}
-
-.price-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-}
-
-.pricing-card{
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:16px;
-  padding:20px 10px;
-}
-
-.pricing-title{
-  font-size:18px;
-  margin-bottom:10px;
-  font-weight:bold;
-}
-
-.price{
-  font-size:28px;
-  color:#00ff99;
-  font-weight:bold;
-}
-
-/* HISTORY BOX */
-.history-box{
-  margin-top:25px;
-  padding:25px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:18px;
-}
-
-.history-title{
-  color:#ffd700;
-  font-size:26px;
-  font-weight:bold;
-  margin-bottom:20px;
-}
-
-.history-btn{
-  display:inline-block;
-  padding:16px 30px;
-  border-radius:14px;
-  text-decoration:none;
-  font-size:18px;
-  font-weight:bold;
-  color:white;
-  background:linear-gradient(135deg,#00c6ff,#0072ff);
-  transition:0.3s;
-}
-
-.history-btn:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 20px rgba(0,114,255,0.5);
-}
-
-/* BROKER */
-.broker-card{
-  display:flex;
-  align-items:center;
-  gap:15px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:18px;
-  padding:18px;
-  margin-top:18px;
-  text-decoration:none;
-  color:white;
-}
-
-.broker-logo{
-  width:55px;
-  min-width:55px;
-  height:55px;
-  background:white;
-  border-radius:12px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  color:black;
-  font-weight:bold;
-}
-
-.broker-title{
-  font-size:22px;
-  font-weight:bold;
-  margin-bottom:5px;
-}
-
-.broker-desc{
-  color:#cfcfcf;
-  font-size:15px;
-}
-
-/* TELEGRAM */
 .telegram-contact{
-  text-align:center;
-  margin-top:35px;
+text-align:center;
+margin-top:30px;
 }
-
 .telegram-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
-  background:linear-gradient(135deg,#0088cc,#00aced);
-  color:white;
-  text-decoration:none;
-  padding:18px 28px;
-  border-radius:18px;
-  font-size:20px;
-  font-weight:bold;
-  transition:0.3s;
-  box-shadow:0 0 20px rgba(0,136,204,0.35);
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:18px 28px;
+border-radius:18px;
+text-decoration:none;
+font-size:20px;
+font-weight:bold;
+background:linear-gradient(135deg,#0088cc,#00aced);
+color:white;
 }
-
-.telegram-btn:hover{
-  transform:scale(1.05);
-}
-
 .footer{
-  text-align:center;
-  margin-top:40px;
-  margin-bottom:20px;
-  color:#bdbdbd;
-  font-size:14px;
+text-align:center;
+margin:40px 0 20px;
+color:#bdbdbd;
 }
-
 @media(max-width:768px){
-
-  h1{
-    font-size:34px;
-  }
-
-  .price-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .pricing h2{
-    font-size:28px;
-  }
-
-  .history-title{
-    font-size:22px;
-  }
-
-  .telegram-btn{
-    font-size:16px;
-    padding:16px 20px;
-  }
-
+h1{font-size:34px;}
+.section h2{font-size:28px;}
 }
-
 </style>
 </head>
-
 <body>
 
 <div class="container">
 
-  <h1>🤖 AI Trading Signal Engine</h1>
+<h1>🚀 Komunitas Trader Forex Berbasis AI</h1>
 
-  <div class="brand">ONE PERCENT FX</div>
+<div class="brand">ONE PERCENT FX</div>
 
-  <p class="tagline">
-    Smart Money Concept (SMC) • Institutional Flow • News Impact Analysis
-  </p>
+<p class="tagline">
+Bergabung bersama komunitas trader yang memanfaatkan teknologi Artificial Intelligence (AI)
+untuk analisa market, trading signal, dan pengembangan strategi trading modern.
+</p>
 
-  <div class="member-box">
-    👥 Total Member Komunitas: 200++ Traders
-  </div>
+<div class="member-box">
+👥 Total Member Komunitas: 200++ Traders
+</div>
 
-  <div class="price-box">
-    💰 XAUUSD:
-    <span class="live" id="gold">Loading...</span>
+<div class="price-box">
+💰 XAUUSD:
+<span class="live" id="gold">Loading...</span>
+<br><br>
+₿ BTCUSD:
+<span class="live" id="btc">Loading...</span>
+</div>
 
-    <br><br>
+<div class="section">
+<h2>📈 Bergabung Dengan Komunitas Kami</h2>
 
-    ₿ BTCUSD:
-    <span class="live" id="btc">Loading...</span>
-  </div>
+<p>
+Untuk bergabung ke komunitas trader One Percent FX,
+silahkan hubungi Admin Telegram kami.
+<br><br>
+Admin akan membantu proses pendaftaran dan memberikan informasi lengkap mengenai komunitas,
+sistem trading, serta akses ke channel dan grup komunitas.
+</p>
 
-  <!-- TUTORIAL -->
-  <div class="tutorial">
+<a class="btn admin-btn" href="https://t.me/ADMOnePercentsFX" target="_blank">
+📩 ADMIN TELEGRAM
+</a>
+</div>
 
-    UNTUK JOIN BERBAYAR, SILAHKAN KALIAN KLIK TOMBOL JOIN BERBAYAR DAN AKAN BERALIH KE TELEGRAM.
-    <br><br>
+<div class="section">
+<h2>🏆 Challenge Trading 30 Hari</h2>
 
-    UNTUK JOIN GRATIS / GABUNG MITRA, SILAHKAN DAFTAR SESUAI BROKER YANG INGIN KALIAN PAKAI DI BAWAH.
-    <br>
+<p>
+Support challenge trading 30 hari kami dengan mengikuti signal yang dihasilkan oleh sistem AI.
+<br><br>
+Bergabung ke channel kami untuk mendapatkan update perkembangan challenge,
+hasil trading, dan performa signal secara berkala.
+</p>
 
-    JIKA KALIAN SUDAH MEMILIKI KETIGA BROKER DI BAWAH, SILAHKAN KLIK JOIN GRATIS DI BAWAH UNTUK PINDAH MITRA DAN AKAN BERALIH KE TELEGRAM.
+<a class="btn support-btn" href="https://t.me/OnePercentsFX" target="_blank">
+🚀 SUPPORT KITA
+</a>
+</div>
 
-  </div>
 
-  <!-- JOIN BERBAYAR -->
-  <div class="pricing">
 
-    <h2>💎 Join Komunitas Berbayar</h2>
-
-    <div class="price-grid">
-
-      <div class="pricing-card">
-        <div class="pricing-title">1 Hari</div>
-        <div class="price">25K</div>
-      </div>
-
-      <div class="pricing-card">
-        <div class="pricing-title">7 Hari</div>
-        <div class="price">49K</div>
-      </div>
-
-      <div class="pricing-card">
-        <div class="pricing-title">1 Bulan</div>
-        <div class="price">99K</div>
-      </div>
-
-      <div class="pricing-card">
-        <div class="pricing-title">1 Tahun</div>
-        <div class="price">999K</div>
-      </div>
-
-    </div>
-
-    <a class="btn btn-paid" href="https://t.me/Aiopfx_bot?start=join">
-      💎 KLIK DISINI UNTUK JOIN BERBAYAR
-    </a>
-
-    <!-- HISTORY SIGNAL -->
-    <div class="history-box">
-
-      <div class="history-title">
-        📊 Challenge History Signal AI One Percent FX 1 BULAN
-      </div>
-
-      <a
-        class="history-btn"
-        href="https://docs.google.com/spreadsheets/d/1p1jiuCcU6tUxxPEmodkwaQBmCB8u-BLOGa5J7LpETKE/edit?usp=sharing"
-        target="_blank"
-      >
-        📄 KLIK DISINI UNTUK LIHAT
-      </a>
-
-    </div>
-
-  </div>
-
-  <!-- JOIN GRATIS -->
-  <div class="pricing">
-
-    <div style="font-size:14px;color:#cfcfcf;margin-bottom:5px;">
-      Broker Yang Kami Gunakan
-    </div>
-
-    <h2>🏦 Join komunitas gratis (gabung mitra)</h2>
-
-    <a
-      href="https://register.hfmtrade-ind.com/sv/en/new-live-account/?refid=333604&acid=s2x4c6usld"
-      class="broker-card"
-    >
-
-      <div class="broker-logo">HFM</div>
-
-      <div>
-        <div class="broker-title">HFM Broker</div>
-        <div class="broker-desc">
-          Klik disini untuk daftar broker HFM
-        </div>
-      </div>
-
-    </a>
-
-    <a
-      href="https://one.exnessonelink.com/a/iyxcd2u617?source=app"
-      class="broker-card"
-    >
-
-      <div class="broker-logo">EX</div>
-
-      <div>
-        <div class="broker-title">Exness Broker</div>
-        <div class="broker-desc">
-          Klik disini untuk daftar broker Exness
-        </div>
-      </div>
-
-    </a>
-
-    <a
-      href="https://ma.valetax.com/p/6970464"
-      class="broker-card"
-    >
-
-      <div class="broker-logo">VT</div>
-
-      <div>
-        <div class="broker-title">Valetax Broker</div>
-        <div class="broker-desc">
-          Klik disini untuk daftar broker Valetax
-        </div>
-      </div>
-
-    </a>
-
-    <a class="btn btn-free" href="https://t.me/MANAGERIB_BOT?start=start">
-      🤝 KLIK DISINI UNTUK JOIN GRATIS
-    </a>
-
-  </div>
-
-  <!-- TELEGRAM CONTACT -->
-  <div class="telegram-contact">
-
-    <a
-      href="https://t.me/ADMOnePercentsFX"
-      target="_blank"
-      class="telegram-btn"
-    >
-
-      <span style="font-size:28px;">📩</span>
-
-      Untuk konsultasi silahkan hubungi kami
-
-    </a>
-
-  </div>
-
-  <div class="footer">
-    One Percent FX • Smart Money Institutional System
-  </div>
+<div class="footer">
+One Percent FX • Artificial Intelligence Trading Community
+</div>
 
 </div>
 
 <script>
-
-/* SIMULASI LIVE PRICE */
-
-function randomPrice(base, spread){
-
-  return (
-    base + (Math.random() * spread - spread / 2)
-  ).toFixed(2);
-
+function randomPrice(base,spread){
+return (base + (Math.random()*spread - spread/2)).toFixed(2);
 }
-
 function updatePrices(){
-
-  document.getElementById("gold").innerHTML =
-    "$" + randomPrice(4538,20);
-
-  document.getElementById("btc").innerHTML =
-    "$" + randomPrice(76746,1500);
-
+document.getElementById("gold").innerHTML="$"+randomPrice(4538,20);
+document.getElementById("btc").innerHTML="$"+randomPrice(76746,1500);
 }
-
 updatePrices();
-
 setInterval(updatePrices,3000);
-
 </script>
 
 </body>
