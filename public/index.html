@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -170,7 +171,19 @@ hasil trading, dan performa signal secara berkala.
 </a>
 </div>
 
+<div class="section">
+<h2>🎯 Dapatkan Signal AI</h2>
 
+<p>
+Registrasi klik di bawah ini untuk mendapatkan akses ke Bot Telegram
+dan menerima update signal AI serta informasi trading terbaru dari
+komunitas One Percent FX.
+</p>
+
+<a class="btn admin-btn" href="https://t.me/managerOPFX_bot" target="_blank">
+🤖 REGISTRASI SIGNAL AI
+</a>
+</div>
 
 <div class="footer">
 One Percent FX • Artificial Intelligence Trading Community
@@ -182,13 +195,16 @@ One Percent FX • Artificial Intelligence Trading Community
 function randomPrice(base,spread){
 return (base + (Math.random()*spread - spread/2)).toFixed(2);
 }
+
 function updatePrices(){
 document.getElementById("gold").innerHTML="$"+randomPrice(4538,20);
 document.getElementById("btc").innerHTML="$"+randomPrice(76746,1500);
 }
+
 updatePrices();
 setInterval(updatePrices,3000);
 </script>
 
 </body>
 </html>
+```
