@@ -36,13 +36,33 @@ body::after{
     content:"";
     position:fixed;
     inset:0;
-    background:
-    linear-gradient(
-    180deg,
-    rgba(0,0,0,.15),
-    rgba(0,0,0,.85)
-    );
+    background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.85));
     z-index:-1;
+}
+
+/* LANGUAGE BUTTON */
+.lang{
+    position:fixed;
+    top:20px;
+    right:20px;
+    display:flex;
+    gap:8px;
+    z-index:9999;
+}
+
+.lang button{
+    border:none;
+    padding:8px 12px;
+    border-radius:10px;
+    cursor:pointer;
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    font-weight:600;
+}
+
+.lang button:hover{
+    background:#00ff99;
+    color:#000;
 }
 
 .container{
@@ -92,7 +112,6 @@ body::after{
 h1{
     font-size:36px;
     font-weight:800;
-    line-height:1.2;
     margin-bottom:15px;
 }
 
@@ -122,28 +141,20 @@ h1{
     color:#ffd700;
 }
 
-.card p{
-    color:#d7dce5;
-    line-height:1.8;
-    font-size:15px;
-}
-
 .feature{
     display:flex;
     gap:12px;
     margin-bottom:14px;
-    align-items:flex-start;
 }
 
 .icon{
-    min-width:42px;
+    width:42px;
     height:42px;
     border-radius:12px;
     display:flex;
     align-items:center;
     justify-content:center;
     background:rgba(0,255,153,.15);
-    font-size:18px;
 }
 
 .feature-text{
@@ -159,186 +170,157 @@ h1{
     border:1px solid rgba(255,215,0,.15);
     margin-bottom:12px;
     font-size:14px;
-    line-height:1.7;
 }
 
 .cta-box{
     margin-top:20px;
     padding:25px;
     border-radius:24px;
-    background:linear-gradient(
-    135deg,
-    rgba(0,255,153,.15),
-    rgba(0,191,255,.12)
-    );
-    border:1px solid rgba(255,255,255,.08);
+    background:linear-gradient(135deg,rgba(0,255,153,.15),rgba(0,191,255,.12));
     text-align:center;
-}
-
-.cta-box h3{
-    font-size:24px;
-    margin-bottom:12px;
-}
-
-.cta-box p{
-    color:#d5dce5;
-    line-height:1.8;
-    margin-bottom:20px;
 }
 
 .main-btn{
     display:block;
-    width:100%;
-    text-align:center;
     padding:18px;
     border-radius:18px;
     background:linear-gradient(135deg,#00ff99,#00d084);
     color:#000;
-    font-size:18px;
     font-weight:700;
     text-decoration:none;
-    box-shadow:0 15px 40px rgba(0,255,153,.25);
-    transition:.3s;
-}
-
-.main-btn:hover{
-    transform:translateY(-2px);
 }
 
 .footer{
     text-align:center;
     margin-top:30px;
-    padding-bottom:30px;
     font-size:13px;
     color:#7f8a99;
 }
-
-@media (max-width:480px){
-
-    .container{
-        padding:16px;
-    }
-
-    h1{
-        font-size:30px;
-    }
-
-    .logo{
-        width:80px;
-        height:80px;
-        font-size:38px;
-    }
-
-    .card{
-        padding:18px;
-    }
-}
 </style>
 </head>
+
 <body>
+
+<!-- LANGUAGE -->
+<div class="lang">
+<button onclick="setLang('id')">🇮🇩 ID</button>
+<button onclick="setLang('en')">🇺🇸 EN</button>
+</div>
 
 <div class="container">
 
-    <div class="hero">
+<div class="hero">
+<div class="logo">🤖</div>
 
-        <div class="logo">🤖</div>
+<div class="brand" id="brand">AI TRADING SYSTEM</div>
 
-        <div class="brand">
-            AI TRADING SYSTEM
-        </div>
+<div class="badge" id="badge">AI POWERED XAUUSD SIGNAL</div>
 
-        <div class="badge">
-            AI POWERED XAUUSD SIGNAL
-        </div>
+<h1 id="title">Signal AI For <span class="highlight">XAUUSD</span></h1>
 
-        <h1>
-            Signal AI For
-            <span class="highlight">XAUUSD</span>
-        </h1>
+<p class="subtitle" id="subtitle">
+Dapatkan akses ke Signal AI yang membantu trader memantau peluang market Gold (XAUUSD).
+</p>
+</div>
 
-        <p class="subtitle">
-            Dapatkan akses ke Signal AI yang membantu trader memantau peluang market Gold (XAUUSD) secara lebih cepat, terstruktur, dan mudah dipahami langsung melalui Telegram.
-        </p>
+<div class="card">
+<h2 id="h2_1">📈 Mengapa Signal AI?</h2>
 
-    </div>
+<div class="feature"><div class="icon">⚡</div>
+<div class="feature-text" id="f1">Pemantauan market XAUUSD secara berkala.</div></div>
 
-    <div class="card">
+<div class="feature"><div class="icon">🎯</div>
+<div class="feature-text" id="f2">Entry, TP, SL dikirim via Telegram.</div></div>
 
-        <h2>📈 Mengapa Signal AI?</h2>
+<div class="feature"><div class="icon">📊</div>
+<div class="feature-text" id="f3">Analisis tren dan momentum market.</div></div>
 
-        <div class="feature">
-            <div class="icon">⚡</div>
-            <div class="feature-text">
-                Pemantauan market XAUUSD secara berkala untuk menemukan peluang trading potensial.
-            </div>
-        </div>
+<div class="feature"><div class="icon">🔔</div>
+<div class="feature-text" id="f4">Update signal langsung di Telegram.</div></div>
+</div>
 
-        <div class="feature">
-            <div class="icon">🎯</div>
-            <div class="feature-text">
-                Informasi Entry, Take Profit, dan Stop Loss yang dikirim langsung ke Telegram.
-            </div>
-        </div>
+<div class="card">
+<h2 id="h2_2">📋 Syarat</h2>
 
-        <div class="feature">
-            <div class="icon">📊</div>
-            <div class="feature-text">
-                Menggabungkan analisis tren, momentum, dan pergerakan harga market.
-            </div>
-        </div>
+<div class="requirement" id="r1">Wajib punya Telegram.</div>
+<div class="requirement" id="r2">Signal dikirim via grup Telegram.</div>
+<div class="requirement" id="r3">Akun harus aktif.</div>
+<div class="requirement" id="r4">Klik tombol registrasi.</div>
+</div>
 
-        <div class="feature">
-            <div class="icon">🔔</div>
-            <div class="feature-text">
-                Update signal langsung diterima melalui grup Telegram komunitas.
-            </div>
-        </div>
+<div class="cta-box">
+<h3 id="cta1">🎯 Siap Bergabung?</h3>
 
-    </div>
+<p id="cta2">Daftar sekarang untuk akses signal AI.</p>
 
-    <div class="card">
+<a class="main-btn" id="btn"
+href="https://t.me/managerOPFX_bot?start=Halo_Bot_Mau_Join_Signal_AI_dong">
+🤖 REGISTRASI
+</a>
+</div>
 
-        <h2>📋 Syarat Registrasi</h2>
-
-        <div class="requirement">
-            ✅ Wajib memiliki akun Telegram aktif.
-        </div>
-
-        <div class="requirement">
-            ✅ Semua signal dan informasi SIGNAL dikirim melalui Grup Telegram.
-        </div>
-
-        <div class="requirement">
-            ✅ Pastikan akun Telegram dapat menerima pesan dan bergabung ke grup.
-        </div>
-
-        <div class="requirement">
-            ✅ Setelah memiliki Telegram, silakan lakukan registrasi melalui tombol di bawah.
-        </div>
-
-    </div>
-
-    <div class="cta-box">
-
-        <h3>🎯 Siap Bergabung?</h3>
-
-        <p>
-            Jika Anda sudah memiliki akun Telegram, silakan lakukan registrasi untuk mendapatkan akses ke Signal AI XAUUSD dan bergabung ke grup komunitas.
-        </p>
-
-        <a class="main-btn"
-        href="https://t.me/managerOPFX_bot?start=Halo_Bot_Mau_Join_Signal_AI_dong"
-        target="_blank">
-            🤖 REGISTRASI SIGNAL AI DISINI
-        </a>
-
-    </div>
-
-    <div class="footer">
-        Trading Futures • Artificial Intelligence Trading Community
-    </div>
+<div class="footer" id="footer">
+Trading Futures • AI Community
+</div>
 
 </div>
+
+<script>
+const t = {
+id:{
+brand:"AI TRADING SYSTEM",
+badge:"AI POWERED XAUUSD SIGNAL",
+title:'Signal AI For <span class="highlight">XAUUSD</span>',
+subtitle:"Dapatkan akses ke Signal AI untuk trading Gold (XAUUSD).",
+h2_1:"📈 Mengapa Signal AI?",
+f1:"Pemantauan market XAUUSD.",
+f2:"Entry, TP, SL via Telegram.",
+f3:"Analisis tren market.",
+f4:"Update signal cepat.",
+h2_2:"📋 Syarat",
+r1:"Wajib punya Telegram.",
+r2:"Signal via Telegram.",
+r3:"Akun aktif.",
+r4:"Klik tombol registrasi.",
+cta1:"🎯 Siap Bergabung?",
+cta2:"Daftar sekarang untuk akses signal AI.",
+btn:"🤖 REGISTRASI",
+footer:"Trading Futures • AI Community"
+},
+
+en:{
+brand:"AI TRADING SYSTEM",
+badge:"AI POWERED XAUUSD SIGNAL",
+title:'AI Signal For <span class="highlight">XAUUSD</span>',
+subtitle:"Get AI signals for Gold (XAUUSD) trading.",
+h2_1:"📈 Why AI Signal?",
+f1:"Monitor XAUUSD market.",
+f2:"Entry, TP, SL via Telegram.",
+f3:"Trend analysis.",
+f4:"Instant updates.",
+h2_2:"📋 Requirements",
+r1:"Must have Telegram.",
+r2:"Signals via Telegram group.",
+r3:"Active account.",
+r4:"Click registration button.",
+cta1:"🎯 Ready To Join?",
+cta2:"Register now for AI signals.",
+btn:"🤖 REGISTER",
+footer:"Futures Trading • AI Community"
+}
+};
+
+function setLang(l){
+localStorage.setItem("lang",l);
+
+for(let k in t[l]){
+let el=document.getElementById(k);
+if(el) el.innerHTML=t[l][k];
+}
+}
+
+setLang(localStorage.getItem("lang")||"id");
+</script>
 
 </body>
 </html>
