@@ -10,347 +10,334 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-font-family:'Poppins',sans-serif;
-background:#050816;
-color:#fff;
-overflow-x:hidden;
+    font-family:'Poppins',sans-serif;
+    background:#050816;
+    color:#fff;
+    overflow-x:hidden;
 }
 
 body::before{
-content:"";
-position:fixed;
-inset:0;
-background:
-radial-gradient(circle at top left,#00ff9950,transparent 30%),
-radial-gradient(circle at bottom right,#00bfff40,transparent 30%);
-z-index:-2;
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top left,#00ff9950,transparent 30%),
+    radial-gradient(circle at bottom right,#00bfff40,transparent 30%);
+    z-index:-2;
 }
 
 body::after{
-content:"";
-position:fixed;
-inset:0;
-background:
-linear-gradient(
-180deg,
-rgba(0,0,0,.20),
-rgba(0,0,0,.85)
-);
-z-index:-1;
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    linear-gradient(
+    180deg,
+    rgba(0,0,0,.15),
+    rgba(0,0,0,.85)
+    );
+    z-index:-1;
 }
 
 .container{
-max-width:500px;
-margin:auto;
-padding:20px;
+    max-width:500px;
+    margin:auto;
+    padding:20px;
 }
 
 .hero{
-text-align:center;
-padding-top:20px;
+    text-align:center;
+    padding-top:25px;
 }
 
 .logo{
-width:90px;
-height:90px;
-margin:auto;
-border-radius:24px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:42px;
-background:linear-gradient(135deg,#00ff99,#00d4ff);
-box-shadow:0 0 30px rgba(0,255,153,.4);
-margin-bottom:20px;
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+    background:linear-gradient(135deg,#00ff99,#00d4ff);
+    box-shadow:0 0 30px rgba(0,255,153,.4);
+    margin-bottom:20px;
 }
 
 .brand{
-font-size:15px;
-font-weight:600;
-letter-spacing:3px;
-color:#00ff99;
-margin-bottom:12px;
-}
-
-h1{
-font-size:36px;
-font-weight:800;
-line-height:1.2;
-margin-bottom:15px;
-}
-
-.highlight{
-color:#00ff99;
-}
-
-.subtitle{
-color:#cbd5e1;
-font-size:15px;
-line-height:1.8;
-margin-bottom:30px;
-}
-
-.main-btn{
-display:block;
-width:100%;
-text-align:center;
-padding:18px;
-border-radius:18px;
-background:linear-gradient(135deg,#00ff99,#00d084);
-color:#000;
-font-size:18px;
-font-weight:700;
-text-decoration:none;
-box-shadow:0 15px 40px rgba(0,255,153,.25);
-transition:.3s;
-}
-
-.main-btn:hover{
-transform:translateY(-2px);
-}
-
-.card{
-background:rgba(255,255,255,.05);
-backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,.08);
-border-radius:24px;
-padding:22px;
-margin-top:18px;
-}
-
-.card h2{
-font-size:22px;
-margin-bottom:15px;
-color:#ffd700;
-}
-
-.card p{
-color:#d7dce5;
-line-height:1.8;
-font-size:15px;
-}
-
-.feature{
-display:flex;
-gap:12px;
-margin-bottom:14px;
-align-items:flex-start;
-}
-
-.icon{
-min-width:42px;
-height:42px;
-border-radius:12px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:rgba(0,255,153,.15);
-font-size:18px;
-}
-
-.feature-text{
-font-size:14px;
-line-height:1.7;
-color:#dbe2ea;
-}
-
-.requirement{
-padding:14px;
-border-radius:16px;
-background:rgba(255,215,0,.08);
-border:1px solid rgba(255,215,0,.15);
-margin-bottom:12px;
-font-size:14px;
-line-height:1.7;
-}
-
-.cta-box{
-margin-top:20px;
-padding:25px;
-border-radius:24px;
-background:linear-gradient(
-135deg,
-rgba(0,255,153,.15),
-rgba(0,191,255,.12)
-);
-border:1px solid rgba(255,255,255,.08);
-text-align:center;
-}
-
-.cta-box h3{
-font-size:24px;
-margin-bottom:12px;
-}
-
-.cta-box p{
-color:#d5dce5;
-line-height:1.8;
-margin-bottom:20px;
-}
-
-.footer{
-text-align:center;
-margin-top:30px;
-padding-bottom:30px;
-font-size:13px;
-color:#7f8a99;
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:3px;
+    color:#00ff99;
+    margin-bottom:12px;
 }
 
 .badge{
-display:inline-block;
-padding:8px 14px;
-background:rgba(0,255,153,.12);
-border:1px solid rgba(0,255,153,.20);
-border-radius:999px;
-font-size:13px;
-margin-bottom:15px;
-color:#00ff99;
+    display:inline-block;
+    padding:8px 14px;
+    background:rgba(0,255,153,.12);
+    border:1px solid rgba(0,255,153,.20);
+    border-radius:999px;
+    font-size:13px;
+    margin-bottom:15px;
+    color:#00ff99;
+}
+
+h1{
+    font-size:36px;
+    font-weight:800;
+    line-height:1.2;
+    margin-bottom:15px;
+}
+
+.highlight{
+    color:#00ff99;
+}
+
+.subtitle{
+    color:#cbd5e1;
+    font-size:15px;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.card{
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:22px;
+    margin-top:18px;
+}
+
+.card h2{
+    font-size:22px;
+    margin-bottom:15px;
+    color:#ffd700;
+}
+
+.card p{
+    color:#d7dce5;
+    line-height:1.8;
+    font-size:15px;
+}
+
+.feature{
+    display:flex;
+    gap:12px;
+    margin-bottom:14px;
+    align-items:flex-start;
+}
+
+.icon{
+    min-width:42px;
+    height:42px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,255,153,.15);
+    font-size:18px;
+}
+
+.feature-text{
+    font-size:14px;
+    line-height:1.7;
+    color:#dbe2ea;
+}
+
+.requirement{
+    padding:14px;
+    border-radius:16px;
+    background:rgba(255,215,0,.08);
+    border:1px solid rgba(255,215,0,.15);
+    margin-bottom:12px;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.cta-box{
+    margin-top:20px;
+    padding:25px;
+    border-radius:24px;
+    background:linear-gradient(
+    135deg,
+    rgba(0,255,153,.15),
+    rgba(0,191,255,.12)
+    );
+    border:1px solid rgba(255,255,255,.08);
+    text-align:center;
+}
+
+.cta-box h3{
+    font-size:24px;
+    margin-bottom:12px;
+}
+
+.cta-box p{
+    color:#d5dce5;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.main-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    padding:18px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#00ff99,#00d084);
+    color:#000;
+    font-size:18px;
+    font-weight:700;
+    text-decoration:none;
+    box-shadow:0 15px 40px rgba(0,255,153,.25);
+    transition:.3s;
+}
+
+.main-btn:hover{
+    transform:translateY(-2px);
+}
+
+.footer{
+    text-align:center;
+    margin-top:30px;
+    padding-bottom:30px;
+    font-size:13px;
+    color:#7f8a99;
 }
 
 @media (max-width:480px){
 
-.container{
-padding:16px;
-}
+    .container{
+        padding:16px;
+    }
 
-h1{
-font-size:30px;
-}
+    h1{
+        font-size:30px;
+    }
 
-.logo{
-width:80px;
-height:80px;
-font-size:38px;
-}
+    .logo{
+        width:80px;
+        height:80px;
+        font-size:38px;
+    }
 
-.card{
-padding:18px;
+    .card{
+        padding:18px;
+    }
 }
-
-.main-btn{
-font-size:17px;
-}
-
-}
-
 </style>
 </head>
 <body>
 
 <div class="container">
 
-<div class="hero">
+    <div class="hero">
 
-<div class="logo">🤖</div>
+        <div class="logo">🤖</div>
 
-<div class="brand">
-ONE PERCENT FX
-</div>
+        <div class="brand">
+            ONE PERCENT FX
+        </div>
 
-<div class="badge">
-AI POWERED XAUUSD SIGNAL
-</div>
+        <div class="badge">
+            AI POWERED XAUUSD SIGNAL
+        </div>
 
-<h1>
-Signal AI untuk
-<span class="highlight">XAUUSD</span>
-</h1>
+        <h1>
+            Signal AI untuk
+            <span class="highlight">XAUUSD</span>
+        </h1>
 
-<p class="subtitle">
-Dapatkan akses ke Signal AI yang membantu trader memantau peluang market Gold (XAUUSD) secara lebih cepat, terstruktur, dan mudah dipahami langsung melalui Telegram.
-</p>
+        <p class="subtitle">
+            Dapatkan akses ke Signal AI yang membantu trader memantau peluang market Gold (XAUUSD) secara lebih cepat, terstruktur, dan mudah dipahami langsung melalui Telegram.
+        </p>
 
-<a class="main-btn"
-href="https://t.me/managerOPFX_bot?start=Halo_Bot_Mau_Join_Signal_AI_dong"
-target="_blank">
-🚀 REGISTRASI SIGNAL AI
-</a>
+    </div>
 
-</div>
+    <div class="card">
 
-<div class="card">
+        <h2>📈 Mengapa Signal AI?</h2>
 
-<h2>📈 Mengapa Signal AI?</h2>
+        <div class="feature">
+            <div class="icon">⚡</div>
+            <div class="feature-text">
+                Pemantauan market XAUUSD secara berkala untuk menemukan peluang trading potensial.
+            </div>
+        </div>
 
-<div class="feature">
-<div class="icon">⚡</div>
-<div class="feature-text">
-Pemantauan market XAUUSD secara berkala untuk menemukan peluang trading potensial.
-</div>
-</div>
+        <div class="feature">
+            <div class="icon">🎯</div>
+            <div class="feature-text">
+                Informasi Entry, Take Profit, dan Stop Loss yang dikirim langsung ke Telegram.
+            </div>
+        </div>
 
-<div class="feature">
-<div class="icon">🎯</div>
-<div class="feature-text">
-Informasi Entry, Take Profit, dan Stop Loss yang dikirim langsung ke Telegram.
-</div>
-</div>
+        <div class="feature">
+            <div class="icon">📊</div>
+            <div class="feature-text">
+                Menggabungkan analisis tren, momentum, dan pergerakan harga market.
+            </div>
+        </div>
 
-<div class="feature">
-<div class="icon">📊</div>
-<div class="feature-text">
-Menggabungkan analisis tren, momentum, dan pergerakan harga market.
-</div>
-</div>
+        <div class="feature">
+            <div class="icon">🔔</div>
+            <div class="feature-text">
+                Update signal langsung diterima melalui grup Telegram komunitas.
+            </div>
+        </div>
 
-<div class="feature">
-<div class="icon">🔔</div>
-<div class="feature-text">
-Update signal langsung diterima melalui grup Telegram komunitas.
-</div>
-</div>
+    </div>
 
-</div>
+    <div class="card">
 
-<div class="card">
+        <h2>📋 Syarat Registrasi</h2>
 
-<h2>📋 Syarat Registrasi</h2>
+        <div class="requirement">
+            ✅ Wajib memiliki akun Telegram aktif.
+        </div>
 
-<div class="requirement">
-✅ Wajib memiliki akun Telegram aktif.
-</div>
+        <div class="requirement">
+            ✅ Semua signal dan informasi komunitas dikirim melalui Grup Telegram.
+        </div>
 
-<div class="requirement">
-✅ Semua signal dan informasi komunitas dikirim melalui Grup Telegram.
-</div>
+        <div class="requirement">
+            ✅ Pastikan akun Telegram dapat menerima pesan dan bergabung ke grup.
+        </div>
 
-<div class="requirement">
-✅ Pastikan akun Telegram dapat menerima pesan dan bergabung ke grup.
-</div>
+        <div class="requirement">
+            ✅ Setelah memiliki Telegram, silakan lakukan registrasi melalui tombol di bawah.
+        </div>
 
-<div class="requirement">
-✅ Setelah memiliki Telegram, silakan lakukan registrasi melalui tombol di bawah.
-</div>
+    </div>
 
-</div>
+    <div class="cta-box">
 
-<div class="cta-box">
+        <h3>🎯 Siap Bergabung?</h3>
 
-<h3>🎯 Sudah Punya Telegram?</h3>
+        <p>
+            Jika Anda sudah memiliki akun Telegram, silakan lakukan registrasi untuk mendapatkan akses ke Signal AI XAUUSD dan bergabung ke grup komunitas.
+        </p>
 
-<p>
-Klik tombol registrasi sekarang untuk mendapatkan akses ke Signal AI XAUUSD dan bergabung ke komunitas trader kami.
-</p>
+        <a class="main-btn"
+        href="https://t.me/managerOPFX_bot?start=Halo_Bot_Mau_Join_Signal_AI_dong"
+        target="_blank">
+            🤖 REGISTRASI SIGNAL AI DISINI
+        </a>
 
-<a class="main-btn"
-href="https://t.me/managerOPFX_bot?start=Halo_Bot_Mau_Join_Signal_AI_dong"
-target="_blank">
-🤖 REGISTRASI SEKARANG
-</a>
+    </div>
 
-</div>
-
-<div class="footer">
-One Percent FX • Artificial Intelligence Trading Community
-</div>
+    <div class="footer">
+        One Percent FX • Artificial Intelligence Trading Community
+    </div>
 
 </div>
 
