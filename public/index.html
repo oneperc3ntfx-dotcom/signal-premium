@@ -311,16 +311,31 @@ footer:"Futures Trading • AI Community"
 };
 
 function setLang(l){
-localStorage.setItem("lang",l);
+    localStorage.setItem("lang",l);
 
-for(let k in t[l]){
-let el=document.getElementById(k);
-if(el) el.innerHTML=t[l][k];
-}
+    for(let k in t[l]){
+        let el=document.getElementById(k);
+        if(el) el.innerHTML=t[l][k];
+    }
 }
 
 setLang(localStorage.getItem("lang")||"id");
-</script>
 
-</body>
-</html>
+/* =========================
+   REFERRAL SYSTEM
+   ========================= */
+
+const defaultLink =
+"https://t.me/managerOPFX_bot?start=Halo_Bot_Mau_Join_Signal_AI_dong";
+
+const params = new URLSearchParams(window.location.search);
+const ref = params.get("ref");
+
+if(ref && ref.trim() !== ""){
+    document.getElementById("btn").href =
+    "https://t.me/managerOPFX_bot?start=ref_" +
+    encodeURIComponent(ref.trim());
+}else{
+    document.getElementById("btn").href = defaultLink;
+}
+</script>
