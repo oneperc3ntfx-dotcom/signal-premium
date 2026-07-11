@@ -1,367 +1,1215 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Signal AI XAUUSD | AI TRADING SYSTEM</title>
+<title>XAU AI Intelligence | Professional Trading System</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
+
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:#050816;
-    color:#fff;
-    overflow-x:hidden;
+
+font-family:'Inter',sans-serif;
+
+background:
+radial-gradient(circle at top,#1e293b,#020617 55%);
+
+color:white;
+
+overflow-x:hidden;
+
 }
 
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:
-    radial-gradient(circle at top left,#00ff9950,transparent 30%),
-    radial-gradient(circle at bottom right,#00bfff40,transparent 30%);
-    z-index:-2;
+
+body:before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+background:
+linear-gradient(
+120deg,
+transparent,
+rgba(212,175,55,.08),
+transparent
+);
+
+z-index:-1;
+
 }
 
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.85));
-    z-index:-1;
-}
 
-/* LANGUAGE BUTTON */
+
+/* LANGUAGE */
+
 .lang{
-    position:fixed;
-    top:20px;
-    right:20px;
-    display:flex;
-    gap:8px;
-    z-index:9999;
+
+position:fixed;
+
+right:20px;
+top:20px;
+
+z-index:1000;
+
+display:flex;
+gap:8px;
+
 }
+
 
 .lang button{
-    border:none;
-    padding:8px 12px;
-    border-radius:10px;
-    cursor:pointer;
-    background:rgba(255,255,255,.08);
-    color:#fff;
-    font-weight:600;
+
+background:#111827;
+
+border:1px solid #334155;
+
+color:white;
+
+padding:8px 14px;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-weight:600;
+
 }
+
+
 
 .lang button:hover{
-    background:#00ff99;
-    color:#000;
+
+background:#D4AF37;
+
+color:black;
+
 }
+
+
+
+/* CONTAINER */
+
 
 .container{
-    max-width:500px;
-    margin:auto;
-    padding:20px;
+
+max-width:520px;
+
+margin:auto;
+
+padding:25px;
+
 }
+
+
+
+/* HERO */
+
 
 .hero{
-    text-align:center;
-    padding-top:25px;
+
+text-align:center;
+
+padding-top:40px;
+
 }
+
+
 
 .logo{
-    width:90px;
-    height:90px;
-    margin:auto;
-    border-radius:24px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:42px;
-    background:linear-gradient(135deg,#00ff99,#00d4ff);
-    box-shadow:0 0 30px rgba(0,255,153,.4);
-    margin-bottom:20px;
+
+width:100px;
+height:100px;
+
+margin:auto;
+
+border-radius:30px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:45px;
+
+
+background:
+linear-gradient(
+135deg,
+#D4AF37,
+#FDE68A
+);
+
+
+box-shadow:
+0 0 40px rgba(212,175,55,.5);
+
 }
 
-.brand{
-    font-size:15px;
-    font-weight:600;
-    letter-spacing:3px;
-    color:#00ff99;
-    margin-bottom:12px;
+
+.company{
+
+margin-top:25px;
+
+letter-spacing:4px;
+
+font-size:13px;
+
+color:#D4AF37;
+
+font-weight:700;
+
 }
+
+
 
 .badge{
-    display:inline-block;
-    padding:8px 14px;
-    background:rgba(0,255,153,.12);
-    border:1px solid rgba(0,255,153,.20);
-    border-radius:999px;
-    font-size:13px;
-    margin-bottom:15px;
-    color:#00ff99;
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:10px 18px;
+
+border-radius:50px;
+
+background:
+rgba(212,175,55,.12);
+
+border:
+1px solid rgba(212,175,55,.3);
+
+color:#FACC15;
+
+font-size:13px;
+
 }
+
+
 
 h1{
-    font-size:36px;
-    font-weight:800;
-    margin-bottom:15px;
+
+font-size:38px;
+
+margin-top:20px;
+
+font-weight:800;
+
+line-height:1.2;
+
 }
 
-.highlight{
-    color:#00ff99;
+
+.gold{
+
+color:#D4AF37;
+
 }
+
+
 
 .subtitle{
-    color:#cbd5e1;
-    font-size:15px;
-    line-height:1.8;
-    margin-bottom:25px;
+
+margin-top:20px;
+
+font-size:15px;
+
+line-height:1.8;
+
+color:#cbd5e1;
+
 }
+
+
+
+/* CARD */
+
 
 .card{
-    background:rgba(255,255,255,.05);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:24px;
-    padding:22px;
-    margin-top:18px;
+
+margin-top:25px;
+
+padding:25px;
+
+
+background:
+
+rgba(255,255,255,.05);
+
+
+border:
+
+1px solid rgba(255,255,255,.1);
+
+
+border-radius:28px;
+
+
+backdrop-filter:blur(20px);
+
+
 }
+
 
 .card h2{
-    font-size:22px;
-    margin-bottom:15px;
-    color:#ffd700;
+
+font-size:21px;
+
+margin-bottom:20px;
+
+color:#FACC15;
+
 }
+
+
+
+/* FEATURES */
+
 
 .feature{
-    display:flex;
-    gap:12px;
-    margin-bottom:14px;
+
+display:flex;
+
+gap:15px;
+
+margin-bottom:18px;
+
 }
+
 
 .icon{
-    width:42px;
-    height:42px;
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:rgba(0,255,153,.15);
+
+min-width:45px;
+
+height:45px;
+
+border-radius:15px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+background:
+
+rgba(212,175,55,.15);
+
+font-size:22px;
+
 }
 
-.feature-text{
-    font-size:14px;
-    line-height:1.7;
-    color:#dbe2ea;
+
+
+.text{
+
+font-size:14px;
+
+color:#e2e8f0;
+
+line-height:1.7;
+
 }
 
-.requirement{
-    padding:14px;
-    border-radius:16px;
-    background:rgba(255,215,0,.08);
-    border:1px solid rgba(255,215,0,.15);
-    margin-bottom:12px;
-    font-size:14px;
+
+
+/* STATISTIC */
+
+
+.stats{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:10px;
+
+margin-top:20px;
+
 }
 
-.cta-box{
-    margin-top:20px;
-    padding:25px;
-    border-radius:24px;
-    background:linear-gradient(135deg,rgba(0,255,153,.15),rgba(0,191,255,.12));
-    text-align:center;
+
+
+.stat{
+
+padding:15px;
+
+text-align:center;
+
+border-radius:18px;
+
+background:#111827;
+
+border:1px solid #334155;
+
 }
 
-.main-btn{
-    display:block;
-    padding:18px;
-    border-radius:18px;
-    background:linear-gradient(135deg,#00ff99,#00d084);
-    color:#000;
-    font-weight:700;
-    text-decoration:none;
+
+
+.stat b{
+
+display:block;
+
+font-size:20px;
+
+color:#D4AF37;
+
 }
+
+
+
+.stat span{
+
+font-size:11px;
+
+color:#94a3b8;
+
+}
+
+
+
+/* BUTTON */
+
+
+.btn{
+
+display:block;
+
+margin-top:20px;
+
+padding:18px;
+
+border-radius:18px;
+
+
+text-align:center;
+
+text-decoration:none;
+
+
+background:
+
+linear-gradient(
+135deg,
+#D4AF37,
+#F59E0B
+);
+
+
+color:black;
+
+font-weight:800;
+
+
+transition:.3s;
+
+}
+
+
+.btn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+
+0 15px 40px rgba(212,175,55,.4);
+
+}
+
+
+
+/* DISCLAIMER */
+
+
+.disclaimer{
+
+margin-top:25px;
+
+font-size:12px;
+
+line-height:1.7;
+
+color:#94a3b8;
+
+text-align:center;
+
+}
+
+
+
+/* FOOTER */
+
 
 .footer{
-    text-align:center;
-    margin-top:30px;
-    font-size:13px;
-    color:#7f8a99;
+
+margin-top:35px;
+
+text-align:center;
+
+font-size:12px;
+
+color:#64748b;
+
 }
+
+
+
 </style>
+
 </head>
+
 
 <body>
 
-<!-- LANGUAGE -->
+
 <div class="lang">
+
 <button onclick="setLang('id')">🇮🇩 ID</button>
+
 <button onclick="setLang('en')">🇺🇸 EN</button>
+
 </div>
+
+
 
 <div class="container">
 
-<div class="hero">
-<div class="logo">🤖</div>
 
-<div class="brand" id="brand">AI TRADING SYSTEM</div>
+<section class="hero">
 
-<div class="badge" id="badge">AI POWERED XAUUSD SIGNAL</div>
 
-<h1 id="title">Signal AI For <span class="highlight">XAUUSD</span></h1>
+<div class="logo">
 
-<p class="subtitle" id="subtitle">
-Dapatkan akses ke Signal AI yang membantu trader memantau peluang market Gold (XAUUSD).
+📈
+
+</div>
+
+
+<div class="company">
+
+XAU AI INTELLIGENCE
+
+</div>
+
+
+<div class="badge">
+
+AI POWERED MARKET ANALYTICS
+
+</div>
+
+
+
+<h1>
+
+Professional AI System For
+
+<span class="gold">
+
+XAUUSD
+
+</span>
+
+</h1>
+
+
+
+<p class="subtitle">
+
+Teknologi analisa market berbasis AI
+untuk membantu trader memahami peluang
+pergerakan Gold secara real-time.
+
 </p>
-</div>
+
+
+</section>
+
+
 
 <div class="card">
-<h2 id="h2_1">📈 Mengapa Signal AI?</h2>
 
-<div class="feature"><div class="icon">⚡</div>
-<div class="feature-text" id="f1">Pemantauan market XAUUSD secara berkala.</div></div>
 
-<div class="feature"><div class="icon">🎯</div>
-<div class="feature-text" id="f2">Entry, TP, SL dikirim via Telegram.</div></div>
+<h2>
 
-<div class="feature"><div class="icon">📊</div>
-<div class="feature-text" id="f3">Analisis tren dan momentum market.</div></div>
+🏢 About Our Technology
 
-<div class="feature"><div class="icon">🔔</div>
-<div class="feature-text" id="f4">Update signal langsung di Telegram.</div></div>
+</h2>
+
+
+<p class="text">
+
+Kami mengembangkan sistem analisa market
+berbasis teknologi AI yang membantu trader
+melakukan monitoring XAUUSD dengan pendekatan
+data, momentum, dan analisa teknikal.
+
+</p>
+
+
 </div>
+
+
+
+<div class="stats">
+
+
+<div class="stat">
+
+<b>24/7</b>
+
+<span>Market Monitor</span>
+
+</div>
+
+
+<div class="stat">
+
+<b>AI</b>
+
+<span>Analysis Engine</span>
+
+</div>
+
+
+<div class="stat">
+
+<b>XAU</b>
+
+<span>Gold Market</span>
+
+</div>
+
+
+</div>
+<!-- FEATURES -->
 
 <div class="card">
-<h2 id="h2_2">📋 Syarat</h2>
 
-<div class="requirement" id="r1">Wajib punya Telegram.</div>
-<div class="requirement" id="r2">Signal dikirim via grup Telegram.</div>
-<div class="requirement" id="r3">Akun harus aktif.</div>
-<div class="requirement" id="r4">Klik tombol registrasi.</div>
+<h2>
+⚡ AI Trading Features
+</h2>
+
+
+<div class="feature">
+
+<div class="icon">
+🤖
 </div>
 
-<div class="cta-box">
-    <h3 id="cta1">🎯 Siap Bergabung?</h3>
+<div class="text">
 
-    <p id="cta2">Daftar sekarang untuk akses signal AI.</p>
+<b>AI Market Intelligence</b><br>
 
-    <a class="main-btn" id="btn"
-       href="https://t.me/AITOOLSIGNAL_BOT?start=Halo_Bot_Mau_Join_Signal_AI_dong">
-        🤖 REGISTRASI
-    </a>
+Analisa pola market dan momentum
+XAUUSD menggunakan teknologi berbasis data.
 
-    <!-- Tombol Baru -->
-    <a class="main-btn"
-       href="https://docs.google.com/spreadsheets/d/1p1jiuCcU6tUxxPEmodkwaQBmCB8u-BLOGa5J7LpETKE/edit?usp=sharing"
-       target="_blank"
-       style="margin-top:15px;background:linear-gradient(135deg,#ffd700,#ffb800);color:#000;">
-        📊 HASIL BACKTEST SIGNAL AI SETIAP HARI
-    </a>
 </div>
-    
-<!-- PROGRAM REBATE -->
+
+</div>
+
+
+
+<div class="feature">
+
+<div class="icon">
+📊
+</div>
+
+<div class="text">
+
+<b>Professional Market Analysis</b><br>
+
+Membantu trader memahami trend,
+support resistance, dan kondisi market.
+
+</div>
+
+</div>
+
+
+
+
+<div class="feature">
+
+<div class="icon">
+🎯
+</div>
+
+<div class="text">
+
+<b>Trading Signal Notification</b><br>
+
+Informasi peluang market dikirim
+melalui Telegram secara cepat.
+
+</div>
+
+</div>
+
+
+
+
+<div class="feature">
+
+<div class="icon">
+🔒
+</div>
+
+<div class="text">
+
+<b>Risk Management Approach</b><br>
+
+Mendukung trader dengan informasi
+Entry, TP, dan SL sebagai referensi.
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- HOW IT WORK -->
+
 <div class="card">
-    <h2>💰 Program Rebate 100% Trader Forex</h2>
 
-    <p style="color:#dbe2ea; line-height:1.8; margin-bottom:20px;">
-        Program Rebate 100% kepada Trader Forex.
-        <br><br>
-        Untuk informasi lebih lanjut silakan klik tombol di bawah.
-    </p>
 
-    <a class="main-btn"
-       href="https://afiiliaterebate-production.up.railway.app/"
-       target="_blank">
-        💵 INFO PROGRAM REBATE
-    </a>
+<h2>
+
+🚀 How It Works
+
+</h2>
+
+
+<div class="feature">
+
+<div class="icon">
+1
 </div>
 
-<!-- FOOTER -->
-<div class="footer" id="footer">
-    Trading Futures • AI Community
-</div>
+<div class="text">
+
+<b>AI Analysis</b><br>
+
+Sistem melakukan analisa kondisi market.
 
 </div>
 
+</div>
+
+
+
+<div class="feature">
+
+<div class="icon">
+2
+</div>
+
+<div class="text">
+
+<b>Signal Processing</b><br>
+
+Data diproses menjadi informasi market.
+
+</div>
+
+</div>
+
+
+
+<div class="feature">
+
+<div class="icon">
+3
+</div>
+
+<div class="text">
+
+<b>Telegram Delivery</b><br>
+
+Update dikirim langsung kepada member.
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<!-- JOIN SECTION -->
+
+
+<div class="card">
+
+
+<h2>
+
+🎯 Join Professional Trading Network
+
+</h2>
+
+
+
+<p class="text">
+
+Bergabung bersama komunitas trader
+dan dapatkan akses informasi market
+berbasis AI.
+
+</p>
+
+
+
+<a class="btn"
+id="telegramBtn"
+href="#">
+
+🤖 START AI ACCESS
+
+</a>
+
+
+
+<a class="btn"
+
+href="https://docs.google.com/spreadsheets/d/1p1jiuCcU6tUxxPEmodkwaQBmCB8u-BLOGa5J7LpETKE/edit?usp=sharing"
+
+target="_blank"
+
+style="
+background:linear-gradient(135deg,#334155,#64748b);
+color:white;
+">
+
+📊 VIEW DAILY BACKTEST REPORT
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+<!-- REBATE -->
+
+
+<div class="card">
+
+
+<h2>
+
+💰 Trader Rebate Program
+
+</h2>
+
+
+<p class="text">
+
+Dapatkan informasi program rebate
+untuk trader forex melalui partner
+yang tersedia.
+
+</p>
+
+
+
+<a class="btn"
+
+href="https://afiiliaterebate-production.up.railway.app/"
+
+target="_blank"
+
+>
+
+💵 OPEN REBATE INFORMATION
+
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- REQUIREMENT -->
+
+
+<div class="card">
+
+
+<h2>
+
+📋 Access Requirements
+
+</h2>
+
+
+
+<div class="feature">
+
+<div class="icon">
+✓
+</div>
+
+<div class="text">
+
+Memiliki akun Telegram aktif.
+
+</div>
+
+</div>
+
+
+
+<div class="feature">
+
+<div class="icon">
+✓
+</div>
+
+<div class="text">
+
+Bergabung melalui sistem registrasi.
+
+</div>
+
+</div>
+
+
+
+<div class="feature">
+
+<div class="icon">
+✓
+</div>
+
+<div class="text">
+
+Menggunakan informasi sebagai referensi
+analisa trading.
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<!-- DISCLAIMER -->
+
+
+<div class="disclaimer">
+
+
+<strong>
+Risk Disclaimer
+</strong>
+
+<br><br>
+
+
+Trading Forex dan Futures memiliki risiko
+tinggi. Performa sebelumnya tidak menjamin
+hasil di masa depan.
+
+AI System menyediakan informasi analisa
+market dan bukan merupakan jaminan profit.
+
+Trader bertanggung jawab atas keputusan
+trading masing-masing.
+
+
+</div>
+
+
+
+
+
+<div class="footer">
+
+
+XAU AI Intelligence © 2026
+
+<br>
+
+Professional AI Market Technology
+
+
+</div>
+
+
+
+</div>
+
+
+
+</body>
 <script>
-const t = {
-id:{
-brand:"AI TRADING SYSTEM",
-badge:"AI POWERED XAUUSD SIGNAL",
-title:'Signal AI For <span class="highlight">XAUUSD</span>',
-subtitle:"Dapatkan akses ke Signal AI untuk trading Gold (XAUUSD).",
-h2_1:"📈 Mengapa Signal AI?",
-f1:"Pemantauan market XAUUSD.",
-f2:"Entry, TP, SL via Telegram.",
-f3:"Analisis tren market.",
-f4:"Update signal cepat.",
-h2_2:"📋 Syarat",
-r1:"Wajib punya Telegram.",
-r2:"Signal via Telegram.",
-r3:"Akun aktif.",
-r4:"Klik tombol registrasi.",
-cta1:"🎯 Siap Bergabung?",
-cta2:"Jika Sudah Punya Akun telegram Daftar sekarang untuk akses signal AI.",
-btn:"🤖 REGISTRASI",
-footer:"Trading Futures • AI Community"
-},
 
-en:{
-brand:"AI TRADING SYSTEM",
-badge:"AI POWERED XAUUSD SIGNAL",
-title:'AI Signal For <span class="highlight">XAUUSD</span>',
-subtitle:"Get AI signals for Gold (XAUUSD) trading.",
-h2_1:"📈 Why AI Signal?",
-f1:"Monitor XAUUSD market.",
-f2:"Entry, TP, SL via Telegram.",
-f3:"Trend analysis.",
-f4:"Instant updates.",
-h2_2:"📋 Requirements",
-r1:"Must have Telegram.",
-r2:"Signals via Telegram group.",
-r3:"Active account.",
-r4:"Click registration button.",
-cta1:"🎯 Ready To Join?",
-cta2:"If Already Have Telegram ? Register now for AI signals.",
-btn:"🤖 REGISTER",
-footer:"Futures Trading • AI Community"
-}
-};
 
-function setLang(l){
-    localStorage.setItem("lang",l);
-
-    for(let k in t[l]){
-        let el=document.getElementById(k);
-        if(el) el.innerHTML=t[l][k];
-    }
-}
-
-setLang(localStorage.getItem("lang")||"id");
-
-/* =========================
-   REFERRAL SYSTEM
-   ========================= */
-
-const defaultLink =
+const telegramDefault = 
 "https://t.me/AITOOLSIGNAL_BOT?start=Halo_Bot_Mau_Join_Signal_AI_dong";
 
-const params = new URLSearchParams(window.location.search);
-const ref = params.get("ref");
 
-if(ref && ref.trim() !== ""){
-    document.getElementById("btn").href =
-    "https://t.me/AITOOLSIGNAL_BOT?start=ref_" +
-    encodeURIComponent(ref.trim());
-}else{
-    document.getElementById("btn").href = defaultLink;
+
+const language = {
+
+
+id:{
+
+
+company:"XAU AI INTELLIGENCE",
+
+badge:"AI POWERED MARKET ANALYTICS",
+
+
+title:
+'Professional AI System For <span class="gold">XAUUSD</span>',
+
+
+subtitle:
+"Teknologi analisa market berbasis AI untuk membantu trader memahami peluang pergerakan Gold secara real-time.",
+
+
+
+about:
+""
+
+},
+
+
+
+en:{
+
+
+company:"XAU AI INTELLIGENCE",
+
+badge:"AI POWERED MARKET ANALYTICS",
+
+
+title:
+'Professional AI System For <span class="gold">XAUUSD</span>',
+
+
+
+subtitle:
+"AI-based market analysis technology designed to help traders understand Gold market opportunities in real-time.",
+
+
+
+about:
+""
+
 }
+
+
+};
+
+
+
+
+// =====================
+// LANGUAGE SYSTEM
+// =====================
+
+
+function setLang(lang){
+
+
+localStorage.setItem(
+"preferred_language",
+lang
+);
+
+
+
+const data = language[lang];
+
+
+
+if(document.querySelector(".company")){
+
+document.querySelector(".company").innerHTML =
+data.company;
+
+}
+
+
+
+if(document.querySelector(".badge")){
+
+document.querySelector(".badge").innerHTML =
+data.badge;
+
+}
+
+
+
+document.querySelector("h1").innerHTML =
+data.title;
+
+
+
+document.querySelector(".subtitle").innerHTML =
+data.subtitle;
+
+
+
+}
+
+
+
+
+setLang(
+localStorage.getItem("preferred_language") || "id"
+);
+
+
+
+
+
+
+
+// =====================
+// REFERRAL SYSTEM
+// =====================
+
+
+
+const urlParams = 
+new URLSearchParams(
+window.location.search
+);
+
+
+
+const referral =
+urlParams.get("ref");
+
+
+
+const telegramButton =
+document.getElementById("telegramBtn");
+
+
+
+
+
+if(referral && referral.trim() !== ""){
+
+
+telegramButton.href =
+
+"https://t.me/AITOOLSIGNAL_BOT?start=ref_"
++
+encodeURIComponent(
+referral.trim()
+);
+
+
+
+}
+
+else{
+
+
+telegramButton.href =
+telegramDefault;
+
+
+}
+
+
+
+
+
+
+// =====================
+// SIMPLE PAGE ANIMATION
+// =====================
+
+
+
+const cards =
+document.querySelectorAll(".card");
+
+
+
+cards.forEach(
+(card,index)=>{
+
+
+card.style.opacity="0";
+
+
+card.style.transform=
+"translateY(30px)";
+
+
+
+setTimeout(()=>{
+
+
+card.style.transition=
+"all .6s ease";
+
+
+card.style.opacity="1";
+
+
+card.style.transform=
+"translateY(0)";
+
+
+
+},
+index*150);
+
+
+
+});
+
+
+
 </script>
