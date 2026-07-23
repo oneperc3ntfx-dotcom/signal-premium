@@ -1,1174 +1,689 @@
 <!DOCTYPE html>
 <html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XAU AI Intelligence | Professional Trading System</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DCVKX2J5CM"></script>
-
 <script>
-window.dataLayer = window.dataLayer || [];
-
-function gtag(){
-    dataLayer.push(arguments);
-}
-
-gtag('js', new Date());
-
-gtag('config', 'G-DCVKX2J5CM');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-DCVKX2J5CM');
 </script>
 
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>XAU AI Intelligence | Professional Trading System</title>
-
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="assets/favicon.png">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-body{
-  
-font-family:'Inter',sans-serif;
-
-background:#05070d;
-
-color:white;
-
-overflow-x:hidden;
-
-position:relative;
-
-}
-
-body::before{
-
-content:"";
-
-position:fixed;
-
-inset:-50%;
-
-background:
-conic-gradient(
-#ff0080,
-#00ffff,
-#00ff66,
-#ffd500,
-#ff0080
-);
-
-filter:blur(120px);
-
-opacity:.25;
-
-animation:rgbRotate 12s linear infinite;
-
-z-index:-2;
-
-}
-
-body::after{
-
-content:"";
-
-position:fixed;
-
-inset:0;
-
-background:rgba(0,0,0,.72);
-
-z-index:-1;
-
-}
-
-@keyframes rgbRotate{
-
-0%{
-transform:rotate(0deg);
-}
-
-100%{
-transform:rotate(360deg);
-}
-
-}
-
-
-
-/* LANGUAGE */
-
-.lang{
-
-position:fixed;
-
-right:20px;
-top:20px;
-
-z-index:1000;
-
-display:flex;
-gap:8px;
-
-}
-
-
-.lang button{
-
-background:#111827;
-
-border:1px solid #334155;
-
-color:white;
-
-padding:8px 14px;
-
-border-radius:12px;
-
-cursor:pointer;
-
-font-weight:600;
-
-}
-
-
-
-.lang button:hover{
-
-background:#D4AF37;
-
-color:black;
-
-}
-
-
-
-/* CONTAINER */
-
-
-.container{
-
-max-width:520px;
-
-margin:auto;
-
-padding:25px;
-
-}
-
-
-
-/* HERO */
-
-
-.hero{
-
-text-align:center;
-
-padding-top:40px;
-
-}
-
-
-
-.logo{
-
-width:100px;
-height:100px;
-
-margin:auto;
-
-border-radius:30px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:45px;
-
-
-background:
-linear-gradient(
-135deg,
-#D4AF37,
-#FDE68A
-);
-
-
-box-shadow:
-0 0 40px rgba(212,175,55,.5);
-
-}
-
-
-.company{
-
-margin-top:25px;
-
-letter-spacing:4px;
-
-font-size:13px;
-
-color:#D4AF37;
-
-font-weight:700;
-
-}
-
-
-
-.badge{
-
-display:inline-block;
-
-margin-top:20px;
-
-padding:10px 18px;
-
-border-radius:50px;
-
-background:
-rgba(212,175,55,.12);
-
-border:
-1px solid rgba(212,175,55,.3);
-
-color:#FACC15;
-
-font-size:13px;
-
-}
-
-
-
-h1{
-
-font-size:38px;
-
-margin-top:20px;
-
-font-weight:800;
-
-line-height:1.2;
-
-}
-
-
-.gold{
-
-color:#D4AF37;
-
-}
-
-
-
-.subtitle{
-
-margin-top:20px;
-
-font-size:15px;
-
-line-height:1.8;
-
-color:#cbd5e1;
-
-}
-
-
-
-/* CARD */
-
-
-.card{
-
-position:relative;
-
-margin-top:25px;
-padding:25px;
-
-background:rgba(15,23,42,.75);
-
-border-radius:28px;
-
-overflow:hidden;
-
-backdrop-filter:blur(25px);
-
-}
-
-.card::before{
-
-content:"";
-
-position:absolute;
-
-inset:-2px;
-
-background:linear-gradient(
-90deg,
-#ff0080,
-#00f7ff,
-#00ff73,
-#ffd500,
-#ff0080
-);
-
-background-size:300%;
-
-animation:borderRGB 6s linear infinite;
-
-z-index:-1;
-
-border-radius:30px;
-
-}
-
-.card::after{
-
-content:"";
-
-position:absolute;
-
-inset:2px;
-
-background:#0f172a;
-
-border-radius:26px;
-
-z-index:-1;
-
-}
-
-
-/* STATISTIC */
-
-
-.stats{
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:10px;
-
-margin-top:20px;
-
-}
-
-
-.stat{
-
-padding:15px;
-
-text-align:center;
-
-border-radius:18px;
-
-background:#111827;
-
-border:1px solid #334155;
-
-}
-
-
-
-.stat b{
-
-display:block;
-
-font-size:20px;
-
-color:#D4AF37;
-
-}
-
-
-
-.stat span{
-
-font-size:11px;
-
-color:#94a3b8;
-
-}
-
-
-
-/* BUTTON */
-
-
-.btn{
-
-display:block;
-
-margin-top:20px;
-
-padding:18px;
-
-border-radius:18px;
-
-
-text-align:center;
-
-text-decoration:none;
-
-
-background:
-
-linear-gradient(
-135deg,
-#D4AF37,
-#F59E0B
-);
-
-
-color:black;
-
-font-weight:800;
-
-
-transition:.3s;
-
-}
-
-
-.btn:hover{
-
-transform:translateY(-3px);
-
-box-shadow:
-
-0 15px 40px rgba(212,175,55,.4);
-
-}
-
-
-
-/* DISCLAIMER */
-
-
-.disclaimer{
-
-margin-top:25px;
-
-font-size:12px;
-
-line-height:1.7;
-
-color:#94a3b8;
-
-text-align:center;
-
-}
-
-
-
-/* FOOTER */
-
-
-.footer{
-
-margin-top:35px;
-
-text-align:center;
-
-font-size:12px;
-
-color:#64748b;
-
-}
-
-
-
+  :root{
+    --bg:#0a0c10;
+    --surface:#12151c;
+    --surface-2:#171c26;
+    --border:#242a37;
+    --gold:#c9a227;
+    --gold-bright:#e9c76a;
+    --text:#eef1f6;
+    --text-muted:#8e96a8;
+    --buy:#3fa796;
+    --sell:#c1494b;
+    --radius:20px;
+    --font-display:'Space Grotesk',sans-serif;
+    --font-body:'Inter',sans-serif;
+    --font-mono:'JetBrains Mono',monospace;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* subtle chart-grid texture instead of rainbow blur */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background-image:
+      linear-gradient(rgba(201,162,39,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,162,39,.05) 1px, transparent 1px);
+    background-size:34px 34px;
+  }
+  body::after{
+    content:"";
+    position:fixed;
+    top:-20%;
+    left:50%;
+    width:900px;
+    height:900px;
+    transform:translateX(-50%);
+    background:radial-gradient(circle, rgba(201,162,39,.16), transparent 65%);
+    z-index:-1;
+    pointer-events:none;
+  }
+
+  a{color:inherit;}
+
+  .lang{
+    position:fixed;
+    right:16px;
+    top:16px;
+    z-index:1000;
+    display:flex;
+    gap:8px;
+  }
+  .lang button{
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    color:var(--text);
+    padding:7px 12px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    font-size:13px;
+  }
+  .lang button:hover{ background:var(--gold); color:#0a0c10; border-color:var(--gold); }
+
+  .container{
+    max-width:560px;
+    margin:auto;
+    padding:24px 20px 40px;
+  }
+
+  /* HERO */
+  .hero{ text-align:center; padding-top:44px; }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 16px;
+    border-radius:50px;
+    background:rgba(201,162,39,.1);
+    border:1px solid rgba(201,162,39,.3);
+    color:var(--gold-bright);
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+  }
+  .eyebrow .dot{
+    width:6px; height:6px; border-radius:50%;
+    background:var(--buy);
+    box-shadow:0 0 8px var(--buy);
+    animation:pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:.35;} }
+
+  h1{
+    font-family:var(--font-display);
+    font-size:36px;
+    margin:22px 0 0;
+    font-weight:700;
+    line-height:1.25;
+    letter-spacing:-.5px;
+  }
+  .gold{ color:var(--gold-bright); }
+
+  .subtitle{
+    margin-top:16px;
+    font-size:15px;
+    line-height:1.75;
+    color:var(--text-muted);
+  }
+
+  /* TICKER — signature element */
+  .ticker-wrap{
+    margin-top:28px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    background:var(--surface);
+    overflow:hidden;
+    padding:12px 0;
+  }
+  .ticker-track{
+    display:flex;
+    width:max-content;
+    gap:28px;
+    animation:scrollTicker 22s linear infinite;
+    padding-left:28px;
+  }
+  .ticker-track:hover{ animation-play-state:paused; }
+  @keyframes scrollTicker{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+  .tick{
+    font-family:var(--font-mono);
+    font-size:13px;
+    white-space:nowrap;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .tick.buy{ color:var(--buy); }
+  .tick.sell{ color:var(--sell); }
+  .tick b{ color:var(--text); font-weight:600; margin-right:2px; }
+
+  /* CARD */
+  .card{
+    margin-top:20px;
+    padding:24px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+  }
+  .card h2{
+    font-family:var(--font-display);
+    font-size:19px;
+    margin:0 0 12px;
+    font-weight:600;
+  }
+  .card p.text{
+    margin:0;
+    font-size:14px;
+    line-height:1.75;
+    color:var(--text-muted);
+  }
+
+  /* STATS */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:16px;
+  }
+  .stat{
+    padding:14px 8px;
+    text-align:center;
+    border-radius:14px;
+    background:var(--surface-2);
+    border:1px solid var(--border);
+  }
+  .stat b{
+    display:block;
+    font-family:var(--font-mono);
+    font-size:18px;
+    color:var(--gold-bright);
+  }
+  .stat span{ font-size:10.5px; color:var(--text-muted); }
+
+  /* FEATURES GRID */
+  .feature-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+  .feature{
+    padding:16px;
+    border-radius:14px;
+    background:var(--surface-2);
+    border:1px solid var(--border);
+  }
+  .feature .icon{ font-size:20px; margin-bottom:8px; }
+  .feature b{ display:block; font-size:13.5px; margin-bottom:4px; }
+  .feature .desc{ font-size:12.5px; line-height:1.6; color:var(--text-muted); }
+
+  /* HOW IT WORKS */
+  .step{ display:flex; gap:14px; margin-bottom:16px; }
+  .step:last-child{ margin-bottom:0; }
+  .step .num{
+    flex:0 0 auto;
+    width:28px; height:28px;
+    border-radius:50%;
+    background:rgba(201,162,39,.12);
+    border:1px solid rgba(201,162,39,.35);
+    color:var(--gold-bright);
+    font-family:var(--font-mono);
+    font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .step b{ display:block; font-size:14px; margin-bottom:2px; }
+  .step .desc{ font-size:13px; color:var(--text-muted); line-height:1.6; }
+
+  /* PRICING */
+  .toggle-row{
+    display:flex;
+    gap:6px;
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:4px;
+    margin-bottom:18px;
+  }
+  .toggle-row button{
+    flex:1;
+    padding:9px 4px;
+    border-radius:9px;
+    border:none;
+    background:transparent;
+    color:var(--text-muted);
+    font-family:var(--font-mono);
+    font-size:12px;
+    cursor:pointer;
+    font-weight:600;
+  }
+  .toggle-row button.active{
+    background:var(--gold);
+    color:#0a0c10;
+  }
+
+  .plans{ display:flex; flex-direction:column; gap:14px; }
+  .plan{
+    position:relative;
+    border-radius:18px;
+    border:1px solid var(--border);
+    background:var(--surface-2);
+    padding:22px;
+  }
+  .plan.highlight{
+    border-color:rgba(201,162,39,.55);
+    background:linear-gradient(180deg, rgba(201,162,39,.08), var(--surface-2) 40%);
+  }
+  .plan-badge{
+    display:inline-block;
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+    padding:4px 10px;
+    border-radius:50px;
+    background:rgba(201,162,39,.15);
+    color:var(--gold-bright);
+    margin-bottom:10px;
+  }
+  .plan-name{ font-family:var(--font-display); font-size:18px; font-weight:600; margin:0 0 4px; }
+  .plan-tag{ font-size:12.5px; color:var(--text-muted); margin-bottom:16px; }
+  .plan-price{
+    font-family:var(--font-mono);
+    font-size:28px;
+    font-weight:700;
+    color:var(--text);
+  }
+  .plan-price small{ font-size:13px; color:var(--text-muted); font-weight:500; }
+  .plan-permonth{ font-size:12px; color:var(--gold-bright); font-family:var(--font-mono); margin-top:4px; min-height:16px; }
+  .plan-features{ list-style:none; padding:0; margin:18px 0 20px; }
+  .plan-features li{
+    font-size:13px;
+    color:var(--text-muted);
+    padding:6px 0 6px 22px;
+    position:relative;
+    line-height:1.5;
+  }
+  .plan-features li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    color:var(--buy);
+    font-weight:700;
+  }
+  .plan-cta{
+    display:block;
+    text-align:center;
+    padding:14px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:14px;
+    text-decoration:none;
+    background:var(--surface);
+    border:1px solid var(--border);
+    color:var(--text);
+  }
+  .plan.highlight .plan-cta{
+    background:linear-gradient(135deg,var(--gold),var(--gold-bright));
+    color:#0a0c10;
+    border:none;
+  }
+
+  /* BUTTON (join section) */
+  .btn{
+    display:block;
+    margin-top:14px;
+    padding:16px;
+    border-radius:14px;
+    text-align:center;
+    text-decoration:none;
+    background:linear-gradient(135deg,var(--gold),var(--gold-bright));
+    color:#0a0c10;
+    font-weight:700;
+    font-size:14.5px;
+    transition:.25s;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn.secondary{
+    background:var(--surface-2);
+    color:var(--text);
+    border:1px solid var(--border);
+  }
+
+  .req{ display:flex; gap:10px; margin-bottom:12px; font-size:13.5px; color:var(--text-muted); }
+  .req:last-child{ margin-bottom:0; }
+  .req .check{ color:var(--buy); font-weight:700; }
+
+  .disclaimer{
+    margin-top:22px;
+    font-size:11.5px;
+    line-height:1.7;
+    color:var(--text-muted);
+    text-align:center;
+  }
+
+  .footer{
+    margin-top:30px;
+    text-align:center;
+    font-size:11.5px;
+    color:#5b6272;
+  }
+
+  @media (min-width:640px){
+    .plans{ flex-direction:row; }
+    .plan{ flex:1; }
+  }
 </style>
-
 </head>
-
 
 <body>
 
-
 <div class="lang">
-
-<button onclick="setLang('id')">🇮🇩 ID</button>
-
-<button onclick="setLang('en')">🇺🇸 EN</button>
-
+  <button onclick="setLang('id')">🇮🇩 ID</button>
+  <button onclick="setLang('en')">🇺🇸 EN</button>
 </div>
-
-
 
 <div class="container">
 
+  <section class="hero">
+    <div class="eyebrow"><span class="dot"></span> AI POWERED MARKET ANALYTICS</div>
+    <h1 id="heroTitle">Professional AI Assistant For <span class="gold">XAUUSD</span></h1>
+    <p class="subtitle" id="heroSubtitle">AI Trading Assistant yang membaca peluang pergerakan XAUUSD dan mengirimkannya langsung ke Telegram Anda, real-time, 24/7.</p>
 
-<section class="hero">
+    <div class="ticker-wrap">
+      <div class="ticker-track" id="tickerTrack"></div>
+    </div>
+  </section>
 
+  <!-- ABOUT -->
+  <div class="card">
+    <h2>🏢 About Our Technology</h2>
+    <p class="text">
+      Tujuan kami bukan sekadar memberikan sinyal, tetapi menghadirkan AI Trading Assistant yang membantu
+      trader memahami alasan di balik setiap peluang market sehingga keputusan trading dapat dilakukan
+      dengan lebih percaya diri dan disiplin.
+    </p>
+    <div class="stats">
+      <div class="stat"><b>24/7</b><span>Market Monitor</span></div>
+      <div class="stat"><b>AI</b><span>Analysis Engine</span></div>
+      <div class="stat"><b>XAU</b><span>Gold Market</span></div>
+    </div>
+  </div>
 
-<div class="logo">
+  <!-- FEATURES -->
+  <div class="card">
+    <h2>⚡ AI Trading Features</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="icon">🤖</div>
+        <b>AI Market Intelligence</b>
+        <div class="desc">Analisa XAUUSD berbasis Smart Money Concept & Market Structure.</div>
+      </div>
+      <div class="feature">
+        <div class="icon">📊</div>
+        <b>Professional Analysis</b>
+        <div class="desc">Setiap sinyal dilengkapi penjelasan arah market, bukan cuma angka.</div>
+      </div>
+      <div class="feature">
+        <div class="icon">⚡</div>
+        <b>Real-Time Delivery</b>
+        <div class="desc">Update market otomatis dikirim langsung ke Telegram Anda.</div>
+      </div>
+      <div class="feature">
+        <div class="icon">🛡️</div>
+        <b>Risk Management</b>
+        <div class="desc">Setiap rekomendasi disertai pendekatan manajemen risiko.</div>
+      </div>
+    </div>
+  </div>
 
-📈
+  <!-- HOW IT WORKS -->
+  <div class="card">
+    <h2>🚀 How It Works</h2>
+    <div class="step">
+      <div class="num">1</div>
+      <div><b>Pilih Paket</b><div class="desc">Personal Assistant atau Community — sesuai kebutuhan trading Anda.</div></div>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <div><b>AI Analysis Engine</b><div class="desc">AI menganalisa XAUUSD menggunakan Smart Money Concept, Liquidity, dan Market Structure.</div></div>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <div><b>Signal Delivery</b><div class="desc">Informasi entry dikirim secara real-time ke Telegram Anda.</div></div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="card">
+    <h2>💳 Pilih Paket Anda</h2>
+    <p class="text" style="margin-bottom:18px;">Dua cara untuk mengakses AI Trading Assistant kami — pilih sesuai gaya trading Anda.</p>
+
+    <div class="toggle-row" id="durationToggle">
+      <button data-d="1" class="active">1 Bulan</button>
+      <button data-d="6">6 Bulan</button>
+      <button data-d="12">12 Bulan</button>
+      <button data-d="lifetime">Permanen</button>
+    </div>
+
+    <div class="plans">
+      <!-- PERSONAL -->
+      <div class="plan">
+        <span class="plan-badge">Privat & Eksklusif</span>
+        <div class="plan-name">AI Assistant Pribadi</div>
+        <div class="plan-tag">Fokus sinyal XAUUSD, dikirim langsung ke chat pribadi Anda.</div>
+        <div class="plan-price"><span id="priceP">Rp250.000</span></div>
+        <div class="plan-permonth" id="permonthP"></div>
+        <ul class="plan-features">
+          <li>Sinyal AI XAUUSD real-time setiap jam</li>
+          <li>Dikirim langsung ke DM Telegram pribadi</li>
+          <li>Analisa singkat di setiap sinyal</li>
+          <li>Tanpa distraksi topik lain</li>
+        </ul>
+        <a class="plan-cta" id="ctaP" href="#" target="_blank">Aktifkan AI Assistant</a>
+      </div>
+
+      <!-- COMMUNITY -->
+      <div class="plan highlight">
+        <span class="plan-badge">Paling Lengkap</span>
+        <div class="plan-name">AI Analysis Community</div>
+        <div class="plan-tag">Sinyal + edukasi + news, dalam satu grup komunitas.</div>
+        <div class="plan-price"><span id="priceC">Rp350.000</span></div>
+        <div class="plan-permonth" id="permonthC"></div>
+        <ul class="plan-features">
+          <li>Materi Technical Analysis untuk basis AI</li>
+          <li>Topik Signal XAUUSD per jam</li>
+          <li>Topik Signal BTCUSD</li>
+          <li>Topik News XAUUSD real-time (semua sumber global)</li>
+        </ul>
+        <a class="plan-cta" id="ctaC" href="#" target="_blank">Join Community</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOIN / PORTFOLIO -->
+  <div class="card">
+    <h2>🎯 Lihat Bukti Performa</h2>
+    <p class="text">Semua hasil sinyal kami dicatat secara transparan dan diperbarui setiap hari.</p>
+    <a class="btn secondary" href="https://docs.google.com/spreadsheets/d/1p1jiuCcU6tUxxPEmodkwaQBmCB8u-BLOGa5J7LpETKE/edit?usp=sharing" target="_blank" onclick="gtag('event','backtest_click');">
+      📊 Hasil Portofolio Signal AI Setiap Hari
+    </a>
+  </div>
+
+  <!-- REQUIREMENT -->
+  <div class="card">
+    <h2>📋 Access Requirements</h2>
+    <div class="req"><span class="check">✓</span> Memiliki akun Telegram aktif.</div>
+    <div class="req"><span class="check">✓</span> Bergabung melalui sistem registrasi.</div>
+    <div class="req"><span class="check">✓</span> Menggunakan informasi sebagai referensi analisa trading.</div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <strong>Risk Disclaimer</strong><br><br>
+    Trading Forex dan Futures memiliki risiko tinggi. Performa sebelumnya tidak menjamin hasil di masa depan.
+    AI System menyediakan informasi analisa market dan bukan merupakan jaminan profit.
+    Trader bertanggung jawab atas keputusan trading masing-masing.
+  </div>
+
+  <div class="footer">
+    XAU AI Intelligence © 2026<br>
+    Professional AI Market Technology
+  </div>
 
 </div>
 
-
-<div class="company">
-
-AI Trading Assistant for Professional Gold Traders
-</div>
-
-
-<div class="badge">
-
-AI POWERED MARKET ANALYTICS
-
-</div>
-
-
-
-<h1>
-
-Professional AI Assitant For
-
-<span class="gold">
-
-XAUUSD
-
-</span>
-
-</h1>
-
-
-
-<p class="subtitle">
-
-XAU AI Assistant membantu Anda membaca peluang pergerakan XAUUSD 
-
-</p>
-
-
-</section>
-
-
-
-<div class="card">
-
-
-<h2>
-
-🏢 About Our Technology
-
-</h2>
-
-
-<p class="text">
-
-    Tujuan kami bukan sekadar memberikan sinyal, tetapi menghadirkan AI Trading Assistant yang membantu
-trader memahami alasan di balik setiap peluang market sehingga keputusan trading dapat dilakukan dengan
-lebih percaya diri dan disiplin.
-
-</p>
-
-
-</div>
-
-
-
-<div class="stats">
-
-
-<div class="stat">
-
-<b>24/7</b>
-
-<span>Market Monitor</span>
-
-</div>
-
-
-<div class="stat">
-
-<b>AI</b>
-
-<span>Analysis Engine</span>
-
-</div>
-
-
-<div class="stat">
-
-<b>XAU</b>
-
-<span>Gold Market</span>
-
-</div>
-
-
-</div>
-<!-- FEATURES -->
-
-<div class="card">
-
-<h2>
-⚡ AI Trading Features
-</h2>
-
-
-<div class="feature">
-
-<div class="icon">
-🤖
-</div>
-
-<div class="text">
-
-<b>AI Market Intelligence</b><br>
-
-AI menganalisa kondisi pasar XAUUSD menggunakan kombinasi Smart Money Concept,
-
-</div>
-
-</div>
-
-
-
-<div class="feature">
-
-<div class="icon">
-📊
-</div>
-
-<div class="text">
-
-<b>Professional Market Analysis</b><br>
-
-Setiap analisa dilengkapi dengan penjelasan arah market
-    
-</div>
-
-</div>
-
-
-
-
-<div class="feature">
-
-<div class="icon">
-⚡
-</div>
-
-<div class="text">
-
-<b>Real-Time AI Assistant</b><br>
-
-AI Assistant akan mengirimkan update market secara otomatis langsung ke Telegram Anda,
-
-</div>
-
-</div>
-
-
-
-
-<div class="feature">
-
-<div class="icon">
-🛡️
-</div>
-
-<div class="text">
-
-<b>Smart Risk Management</b><br>
-
-Setiap rekomendasi disertai pendekatan manajemen risiko.
-
-</div>
-
-</div>
-
-
-</div>
-
-
-
-
-
-<!-- HOW IT WORK -->
-
-<div class="card">
-
-
-<h2>
-
-🚀 How It Works
-
-</h2>
-
-
-<div class="feature">
-
-<div class="icon">
-1
-</div>
-
-<div class="text">
-
-<b>🤖AI Assistant</b><br>
-
-Memiliki Assistant AI Untuk Analisa melalui Telegram.
-
-</div>
-
-</div>
-
-
-
-<div class="feature">
-
-<div class="icon">
-2
-</div>
-
-<div class="text">
-
-<b>🧠 AI Analysis Engine</b><br>
-
-AI menganalisa XAUUSD menggunakan Smart Money Concept, Liquidity, dan Market Structure.
-
-</div>
-
-</div>
-
-
-
-<div class="feature">
-
-<div class="icon">
-3
-</div>
-
-<div class="text">
-
-<b>📲 Personal Signal Delivery</b><br>
-
-Informasi Entry Dikirim Secara RealTime.
-
-</div>
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-<!-- JOIN SECTION -->
-
-
-<div class="card">
-
-
-<h2>
-
-🎯 Join Professional Trading Network
-
-</h2>
-
-
-
-<p class="text">
-
-Nikmati AI Assistant Pribadi anda
-Secara Ekslusive
-
-Sebelum Bergabung Pastikan Anda Sudah Memiliki Akun Telegram yang AKTIF !!
-
-</p>
-
-
-
-<a class="btn"
-   id="telegramBtn"
-   href="https://t.me/MANAGERIB_BOT?start=register"
-   target="_blank"
-   onclick="gtag('event','telegram_join_click');">
-
-🤖 AKTIFKAN AI ASSISTANT SEKARANG !!
-
-</a>
-
-
-
-<a class="btn"
-   href="https://docs.google.com/spreadsheets/d/1p1jiuCcU6tUxxPEmodkwaQBmCB8u-BLOGa5J7LpETKE/edit?usp=sharing"
-   target="_blank"
-   onclick="gtag('event','backtest_click');"
-   style="background:linear-gradient(135deg,#334155,#64748b); color:white;">
-
-   📊 HASIL PORTOFOLIO SIGNAL AI SETIAP HARI
-
-</a>
-
-
-
-</div>
-
-
-
-
-<!-- REQUIREMENT -->
-
-
-<div class="card">
-
-
-<h2>
-
-📋 Access Requirements
-
-</h2>
-
-
-
-<div class="feature">
-
-<div class="icon">
-✓
-</div>
-
-<div class="text">
-
-Memiliki akun Telegram aktif.
-
-</div>
-
-</div>
-
-
-
-<div class="feature">
-
-<div class="icon">
-✓
-</div>
-
-<div class="text">
-
-Bergabung melalui sistem registrasi.
-
-</div>
-
-</div>
-
-
-
-<div class="feature">
-
-<div class="icon">
-✓
-</div>
-
-<div class="text">
-
-Menggunakan informasi sebagai referensi
-analisa trading.
-
-</div>
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-<!-- DISCLAIMER -->
-
-
-<div class="disclaimer">
-
-
-<strong>
-Risk Disclaimer
-</strong>
-
-<br><br>
-
-
-Trading Forex dan Futures memiliki risiko
-tinggi. Performa sebelumnya tidak menjamin
-hasil di masa depan.
-
-AI System menyediakan informasi analisa
-market dan bukan merupakan jaminan profit.
-
-Trader bertanggung jawab atas keputusan
-trading masing-masing.
-
-
-</div>
-
-
-
-
-
-<div class="footer">
-
-
-XAU AI Intelligence © 2026
-
-<br>
-
-Professional AI Market Technology
-
-
-</div>
-
-
-
-</div>
-
-
-
-</body>
 <script>
+/* =====================================================
+   CONFIG — edit these values, nothing else needs to change
+   ===================================================== */
 
-
-const telegramDefault = 
-"https://t.me/Intradayxauusd_bot?start=Halo_Bot_Mau_Join_Signal_AI_dong";
-
-
-
-const language = {
-
-
-id:{
-
-
-company:"XAU AI INTELLIGENCE",
-
-badge:"AI POWERED MARKET ANALYTICS",
-
-
-title:
-'Professional AI System For <span class="gold">XAUUSD</span>',
-
-
-subtitle:
-"🤖 Nikmati AI Trading Assistant pribadi yang bekerja 24/7 untuk memantau pergerakan XAUUSD,
-  menganalisa peluang market, dan mengirimkan insight langsung ke Telegram Anda.",
-
-
-
-about:
-""
-
-},
-
-
-
-en:{
-
-
-company:"XAU AI INTELLIGENCE",
-
-badge:"AI POWERED MARKET ANALYTICS",
-
-
-title:
-'Professional AI System For <span class="gold">XAUUSD</span>',
-
-
-
-subtitle:
-"AI-based market analysis technology designed to help traders understand Gold market opportunities in real-time.",
-
-
-
-about:
-""
-
-}
-
-
+// Bot links: base = no-referral link, ref = prefix used when ?ref=xxx is in the URL
+const BOT_LINKS = {
+  personal: {
+    base: "https://t.me/Intradayxauusd_bot?start=Halo_Bot_Mau_Join_Signal_AI_dong",
+    ref:  "https://t.me/Intradayxauusd_bot?start=ref_"
+  },
+  community: {
+    base: "https://t.me/AITOOLSIGNAL_BOT?start=register",
+    ref:  "https://t.me/AITOOLSIGNAL_BOT?start=ref_"
+  }
 };
 
+// Prices in Rupiah. "lifetime" = one-time payment, unlimited access.
+const PRICING = {
+  personal:  { "1": 250000, "6": 500000, "12": 850000,  "lifetime": 1500000 },
+  community: { "1": 350000, "6": 700000, "12": 1000000, "lifetime": 2500000 }
+};
 
+const DURATION_LABEL = { "1": "/ bulan", "6": "/ 6 bulan", "12": "/ 12 bulan", "lifetime": "sekali bayar" };
+const DURATION_MONTHS = { "1": 1, "6": 6, "12": 12 };
 
+/* ===================================================== */
 
-// =====================
-// LANGUAGE SYSTEM
-// =====================
-
-
-function setLang(lang){
-
-
-localStorage.setItem(
-"preferred_language",
-lang
-);
-
-
-
-const data = language[lang];
-
-
-
-if(document.querySelector(".company")){
-
-document.querySelector(".company").innerHTML =
-data.company;
-
+function formatRupiah(n){
+  return "Rp" + n.toLocaleString("id-ID");
 }
 
+function renderPricing(duration){
+  const p = PRICING.personal[duration];
+  const c = PRICING.community[duration];
 
+  document.getElementById("priceP").textContent = formatRupiah(p) + (duration!=="lifetime" ? "" : "");
+  document.getElementById("priceC").textContent = formatRupiah(c) + (duration!=="lifetime" ? "" : "");
 
-if(document.querySelector(".badge")){
-
-document.querySelector(".badge").innerHTML =
-data.badge;
-
+  if(duration === "lifetime"){
+    document.getElementById("permonthP").textContent = "Akses selamanya, sekali bayar";
+    document.getElementById("permonthC").textContent = "Akses selamanya, sekali bayar";
+  } else {
+    const months = DURATION_MONTHS[duration];
+    const perMonthP = Math.round(p / months);
+    const perMonthC = Math.round(c / months);
+    document.getElementById("permonthP").textContent = "≈ " + formatRupiah(perMonthP) + "/bulan";
+    document.getElementById("permonthC").textContent = "≈ " + formatRupiah(perMonthC) + "/bulan";
+  }
 }
 
-
-
-document.querySelector("h1").innerHTML =
-data.title;
-
-
-
-document.querySelector(".subtitle").innerHTML =
-data.subtitle;
-
-
-
-}
-
-
-
-
-setLang(
-localStorage.getItem("preferred_language") || "id"
-);
-
-
-
-
-
-
-
-// =====================
-// REFERRAL SYSTEM
-// =====================
-
-
-
-const urlParams = 
-new URLSearchParams(
-window.location.search
-);
-
-
-
-const referral =
-urlParams.get("ref");
-
-
-
-const telegramButton =
-document.getElementById("telegramBtn");
-
-
-
-
-
-if(referral && referral.trim() !== ""){
-
-
-telegramButton.href =
-
-"https://t.me/Intradayxauusd_bot?start=ref_"
-+
-encodeURIComponent(
-referral.trim()
-);
-
-
-
-}
-
-else{
-
-
-telegramButton.href =
-telegramDefault;
-
-
-}
-
-
-
-
-
-
-// =====================
-// SIMPLE PAGE ANIMATION
-// =====================
-
-
-
-const cards =
-document.querySelectorAll(".card");
-
-
-
-cards.forEach(
-(card,index)=>{
-
-
-card.style.opacity="0";
-
-
-card.style.transform=
-"translateY(30px)";
-
-
-
-setTimeout(()=>{
-
-
-card.style.transition=
-"all .6s ease";
-
-
-card.style.opacity="1";
-
-
-card.style.transform=
-"translateY(0)";
-
-
-
-},
-index*150);
-
-
-
+document.getElementById("durationToggle").addEventListener("click", (e)=>{
+  const btn = e.target.closest("button");
+  if(!btn) return;
+  document.querySelectorAll("#durationToggle button").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  renderPricing(btn.dataset.d);
 });
 
+renderPricing("1");
 
+/* =====================
+   REFERRAL SYSTEM (applies to both CTA buttons)
+   ===================== */
+const urlParams = new URLSearchParams(window.location.search);
+const referral = urlParams.get("ref");
 
+function buildLink(kind){
+  const cfg = BOT_LINKS[kind];
+  if(referral && referral.trim() !== ""){
+    return cfg.ref + encodeURIComponent(referral.trim());
+  }
+  return cfg.base;
+}
+
+document.getElementById("ctaP").href = buildLink("personal");
+document.getElementById("ctaC").href = buildLink("community");
+document.getElementById("ctaP").addEventListener("click", ()=>gtag('event','telegram_join_click_personal'));
+document.getElementById("ctaC").addEventListener("click", ()=>gtag('event','telegram_join_click_community'));
+
+/* =====================
+   TICKER TAPE (signature element)
+   ===================== */
+const tickerData = [
+  {dir:"buy",  label:"XAUUSD", price:"2378.40", note:"BUY · SMC breakout"},
+  {dir:"sell", label:"XAUUSD", price:"2381.10", note:"SELL · liquidity grab"},
+  {dir:"buy",  label:"XAUUSD", price:"2374.85", note:"BUY · structure shift"},
+  {dir:"sell", label:"XAUUSD", price:"2386.20", note:"SELL · resistance rejection"},
+  {dir:"buy",  label:"XAUUSD", price:"2369.90", note:"BUY · demand zone"},
+];
+function renderTicker(){
+  const track = document.getElementById("tickerTrack");
+  const items = [...tickerData, ...tickerData]; // duplicate for seamless loop
+  track.innerHTML = items.map(t => `
+    <div class="tick ${t.dir}">
+      <b>${t.label}</b> ${t.price} ${t.dir === "buy" ? "▲" : "▼"} <span>${t.note}</span>
+    </div>
+  `).join("");
+}
+renderTicker();
+
+/* =====================
+   LANGUAGE (hero only)
+   ===================== */
+const language = {
+  id: {
+    title: 'Professional AI Assistant For <span class="gold">XAUUSD</span>',
+    subtitle: "AI Trading Assistant yang membaca peluang pergerakan XAUUSD dan mengirimkannya langsung ke Telegram Anda, real-time, 24/7."
+  },
+  en: {
+    title: 'Professional AI Assistant For <span class="gold">XAUUSD</span>',
+    subtitle: "AI-based market analysis that reads XAUUSD opportunities and sends them straight to your Telegram, in real time, 24/7."
+  }
+};
+
+function setLang(lang){
+  localStorage.setItem("preferred_language", lang);
+  const data = language[lang];
+  document.getElementById("heroTitle").innerHTML = data.title;
+  document.getElementById("heroSubtitle").textContent = data.subtitle;
+}
+setLang(localStorage.getItem("preferred_language") || "id");
+
+/* =====================
+   PAGE-LOAD FADE
+   ===================== */
+document.querySelectorAll(".card").forEach((card, i)=>{
+  card.style.opacity = "0";
+  card.style.transform = "translateY(24px)";
+  setTimeout(()=>{
+    card.style.transition = "all .6s ease";
+    card.style.opacity = "1";
+    card.style.transform = "translateY(0)";
+  }, i*120);
+});
 </script>
+
+</body>
+</html>
