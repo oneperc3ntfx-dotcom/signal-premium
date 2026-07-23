@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XAU AI Intelligence | Professional Trading System</title>
-<link rel="icon" type="image/png" href="assets/favicon.png">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DCVKX2J5CM"></script>
@@ -47,7 +46,6 @@
     position:relative;
   }
 
-  /* subtle chart-grid texture instead of rainbow blur */
   body::before{
     content:"";
     position:fixed;
@@ -92,6 +90,14 @@
     font-size:13px;
   }
   .lang button:hover{ background:var(--gold); color:#0a0c10; border-color:var(--gold); }
+  .lang button.active{ background:var(--gold); color:#0a0c10; border-color:var(--gold); }
+
+  #bgCanvas{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    opacity:.6;
+  }
 
   .container{
     max-width:560px;
@@ -99,7 +105,6 @@
     padding:24px 20px 40px;
   }
 
-  /* HERO */
   .hero{ text-align:center; padding-top:44px; }
 
   .eyebrow{
@@ -141,7 +146,6 @@
     color:var(--text-muted);
   }
 
-  /* TICKER — signature element */
   .ticker-wrap{
     margin-top:28px;
     border:1px solid var(--border);
@@ -174,7 +178,6 @@
   .tick.sell{ color:var(--sell); }
   .tick b{ color:var(--text); font-weight:600; margin-right:2px; }
 
-  /* CARD */
   .card{
     margin-top:20px;
     padding:24px;
@@ -195,7 +198,6 @@
     color:var(--text-muted);
   }
 
-  /* STATS */
   .stats{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -217,7 +219,6 @@
   }
   .stat span{ font-size:10.5px; color:var(--text-muted); }
 
-  /* FEATURES GRID */
   .feature-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -233,7 +234,6 @@
   .feature b{ display:block; font-size:13.5px; margin-bottom:4px; }
   .feature .desc{ font-size:12.5px; line-height:1.6; color:var(--text-muted); }
 
-  /* HOW IT WORKS */
   .step{ display:flex; gap:14px; margin-bottom:16px; }
   .step:last-child{ margin-bottom:0; }
   .step .num{
@@ -250,7 +250,6 @@
   .step b{ display:block; font-size:14px; margin-bottom:2px; }
   .step .desc{ font-size:13px; color:var(--text-muted); line-height:1.6; }
 
-  /* PRICING */
   .toggle-row{
     display:flex;
     gap:6px;
@@ -289,6 +288,26 @@
     border-color:rgba(201,162,39,.55);
     background:linear-gradient(180deg, rgba(201,162,39,.08), var(--surface-2) 40%);
   }
+  .plan-icon{
+    width:100%;
+    height:132px;
+    margin-bottom:14px;
+    border-radius:14px;
+    background:var(--surface);
+    border:1px solid var(--border);
+  }
+  .plan-icon svg{ width:100%; height:100%; display:block; }
+
+  @keyframes flowDot{
+    0%{ offset-distance:0%; opacity:0; }
+    12%{ opacity:1; }
+    85%{ opacity:1; }
+    100%{ offset-distance:100%; opacity:0; }
+  }
+  @keyframes eyeBlink{ 0%,100%{ opacity:1; } 50%{ opacity:.5; } }
+  .flow-dot{ animation:flowDot 2s linear infinite; }
+  .bot-eye{ animation:eyeBlink 2.6s ease-in-out infinite; }
+
   .plan-badge{
     display:inline-block;
     font-family:var(--font-mono);
@@ -334,17 +353,11 @@
     font-weight:700;
     font-size:14px;
     text-decoration:none;
-    background:var(--surface);
-    border:1px solid var(--border);
-    color:var(--text);
-  }
-  .plan.highlight .plan-cta{
     background:linear-gradient(135deg,var(--gold),var(--gold-bright));
     color:#0a0c10;
     border:none;
   }
 
-  /* BUTTON (join section) */
   .btn{
     display:block;
     margin-top:14px;
@@ -393,9 +406,12 @@
 
 <body>
 
-<div class="lang">
-  <button onclick="setLang('id')">🇮🇩 ID</button>
-  <button onclick="setLang('en')">🇺🇸 EN</button>
+<canvas id="bgCanvas"></canvas>
+
+<div class="lang" id="langToggle">
+  <button data-lang="id" class="active">ID</button>
+  <button data-lang="en">EN</button>
+  <button data-lang="zh">中文</button>
 </div>
 
 <div class="container">
@@ -410,150 +426,216 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <div class="card">
-    <h2>🏢 About Our Technology</h2>
-    <p class="text">
+    <h2 id="aboutTitle">🏢 Tentang Teknologi Kami</h2>
+    <p class="text" id="aboutText">
       Tujuan kami bukan sekadar memberikan sinyal, tetapi menghadirkan AI Trading Assistant yang membantu
       trader memahami alasan di balik setiap peluang market sehingga keputusan trading dapat dilakukan
       dengan lebih percaya diri dan disiplin.
     </p>
     <div class="stats">
-      <div class="stat"><b>24/7</b><span>Market Monitor</span></div>
-      <div class="stat"><b>AI</b><span>Analysis Engine</span></div>
-      <div class="stat"><b>XAU</b><span>Gold Market</span></div>
+      <div class="stat"><b>24/7</b><span id="statMonitor">Pemantauan Pasar</span></div>
+      <div class="stat"><b>AI</b><span id="statEngine">Mesin Analisa</span></div>
+      <div class="stat"><b>XAU</b><span id="statMarket">Pasar Emas</span></div>
     </div>
   </div>
 
-  <!-- FEATURES -->
   <div class="card">
-    <h2>⚡ AI Trading Features</h2>
+    <h2 id="featuresTitle">⚡ Fitur AI Trading</h2>
     <div class="feature-grid">
       <div class="feature">
         <div class="icon">🤖</div>
-        <b>AI Market Intelligence</b>
-        <div class="desc">Analisa XAUUSD berbasis Smart Money Concept & Market Structure.</div>
+        <b id="feat1Title">Kecerdasan Pasar AI</b>
+        <div class="desc" id="feat1Desc">Analisa XAUUSD berbasis Smart Money Concept & Market Structure.</div>
       </div>
       <div class="feature">
         <div class="icon">📊</div>
-        <b>Professional Analysis</b>
-        <div class="desc">Setiap sinyal dilengkapi penjelasan arah market, bukan cuma angka.</div>
+        <b id="feat2Title">Analisa Profesional</b>
+        <div class="desc" id="feat2Desc">Setiap sinyal dilengkapi penjelasan arah market, bukan cuma angka.</div>
       </div>
       <div class="feature">
         <div class="icon">⚡</div>
-        <b>Real-Time Delivery</b>
-        <div class="desc">Update market otomatis dikirim langsung ke Telegram Anda.</div>
+        <b id="feat3Title">Pengiriman Real-Time</b>
+        <div class="desc" id="feat3Desc">Update market otomatis dikirim langsung ke Telegram Anda.</div>
       </div>
       <div class="feature">
         <div class="icon">🛡️</div>
-        <b>Risk Management</b>
-        <div class="desc">Setiap rekomendasi disertai pendekatan manajemen risiko.</div>
+        <b id="feat4Title">Manajemen Risiko</b>
+        <div class="desc" id="feat4Desc">Setiap rekomendasi disertai pendekatan manajemen risiko.</div>
       </div>
     </div>
   </div>
 
-  <!-- HOW IT WORKS -->
   <div class="card">
-    <h2>🚀 How It Works</h2>
+    <h2 id="howTitle">🚀 Cara Kerja</h2>
     <div class="step">
       <div class="num">1</div>
-      <div><b>Pilih Paket</b><div class="desc">Personal Assistant atau Community — sesuai kebutuhan trading Anda.</div></div>
+      <div><b id="step1Title">Pilih Paket</b><div class="desc" id="step1Desc">Personal Assistant atau Community — sesuai kebutuhan trading Anda.</div></div>
     </div>
     <div class="step">
       <div class="num">2</div>
-      <div><b>AI Analysis Engine</b><div class="desc">AI menganalisa XAUUSD menggunakan Smart Money Concept, Liquidity, dan Market Structure.</div></div>
+      <div><b id="step2Title">Mesin Analisa AI</b><div class="desc" id="step2Desc">AI menganalisa XAUUSD menggunakan Smart Money Concept, Liquidity, dan Market Structure.</div></div>
     </div>
     <div class="step">
       <div class="num">3</div>
-      <div><b>Signal Delivery</b><div class="desc">Informasi entry dikirim secara real-time ke Telegram Anda.</div></div>
+      <div><b id="step3Title">Pengiriman Sinyal</b><div class="desc" id="step3Desc">Informasi entry dikirim secara real-time ke Telegram Anda.</div></div>
     </div>
   </div>
 
-  <!-- PRICING -->
   <div class="card">
-    <h2>💳 Pilih Paket Anda</h2>
-    <p class="text" style="margin-bottom:18px;">Dua cara untuk mengakses AI Trading Assistant kami — pilih sesuai gaya trading Anda.</p>
+    <h2 id="pricingTitle">💳 Pilih Paket Anda</h2>
+    <p class="text" id="pricingIntro" style="margin-bottom:18px;">Dua cara untuk mengakses AI Trading Assistant kami — pilih sesuai gaya trading Anda.</p>
 
     <div class="toggle-row" id="durationToggle">
-      <button data-d="1" class="active">1 Bulan</button>
-      <button data-d="6">6 Bulan</button>
-      <button data-d="12">12 Bulan</button>
-      <button data-d="lifetime">Permanen</button>
+      <button data-d="1" class="active" id="durBtn1">1 Bulan</button>
+      <button data-d="6" id="durBtn6">6 Bulan</button>
+      <button data-d="12" id="durBtn12">12 Bulan</button>
+      <button data-d="lifetime" id="durBtnLife">Permanen</button>
     </div>
 
     <div class="plans">
-      <!-- PERSONAL -->
       <div class="plan">
-        <span class="plan-badge">Privat & Eksklusif</span>
-        <div class="plan-name">AI Assistant Pribadi</div>
-        <div class="plan-tag">Fokus sinyal XAUUSD, dikirim langsung ke chat pribadi Anda.</div>
+        <div class="plan-icon">
+          <svg viewBox="0 0 260 140" role="img" aria-label="Satu AI mengirim sinyal XAU langsung ke satu pengguna">
+            <defs>
+              <linearGradient id="gPersonal" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="var(--gold-bright)"/>
+                <stop offset="100%" stop-color="var(--gold)"/>
+              </linearGradient>
+            </defs>
+            <rect x="102" y="4" width="56" height="16" rx="8" fill="var(--surface-2)" stroke="var(--gold)" stroke-width="1"/>
+            <text x="130" y="15.5" text-anchor="middle" font-family="var(--font-mono)" font-size="10.5" font-weight="700" fill="var(--gold-bright)">XAU</text>
+            <line x1="130" y1="20" x2="130" y2="26" stroke="var(--gold)" stroke-width="1.5"/>
+            <rect x="106" y="26" width="48" height="34" rx="10" fill="url(#gPersonal)"/>
+            <circle class="bot-eye" cx="120" cy="43" r="3" fill="var(--surface)"/>
+            <circle class="bot-eye" cx="140" cy="43" r="3" fill="var(--surface)"/>
+            <line x1="130" y1="60" x2="130" y2="100" stroke="var(--gold)" stroke-width="1" opacity="0.3"/>
+            <circle class="flow-dot" r="4" fill="var(--gold-bright)" style="offset-path:path('M130 60 L130 100')"/>
+            <circle cx="130" cy="108" r="10" fill="var(--text)"/>
+            <rect x="112" y="120" width="36" height="18" rx="9" fill="var(--text-muted)"/>
+          </svg>
+        </div>
+        <span class="plan-badge" id="planBadgeP">Privat & Eksklusif</span>
+        <div class="plan-name" id="planNameP">AI Assistant Pribadi</div>
+        <div class="plan-tag" id="planTagP">Satu AI, satu fokus: XAUUSD real-time langsung ke chat pribadi Anda — tanpa antre, tanpa distraksi.</div>
         <div class="plan-price"><span id="priceP">Rp250.000</span></div>
         <div class="plan-permonth" id="permonthP"></div>
         <ul class="plan-features">
-          <li>Sinyal AI XAUUSD real-time setiap jam</li>
-          <li>Dikirim langsung ke DM Telegram pribadi</li>
-          <li>Analisa singkat di setiap sinyal</li>
-          <li>Tanpa distraksi topik lain</li>
+          <li id="planFeatP1">Sinyal AI XAUUSD real-time setiap jam</li>
+          <li id="planFeatP2">Dikirim langsung ke DM Telegram pribadi Anda</li>
+          <li id="planFeatP3">Analisa singkat di setiap sinyal</li>
+          <li id="planFeatP4">Tanpa topik lain, murni fokus XAUUSD</li>
         </ul>
-        <a class="plan-cta" id="ctaP" href="#" target="_blank">Aktifkan AI Assistant</a>
+        <a class="plan-cta" id="ctaP" href="#" target="_blank">Aktifkan AI Assistant Saya</a>
       </div>
 
-      <!-- COMMUNITY -->
       <div class="plan highlight">
-        <span class="plan-badge">Paling Lengkap</span>
-        <div class="plan-name">AI Analysis Community</div>
-        <div class="plan-tag">Sinyal + edukasi + news, dalam satu grup komunitas.</div>
+        <div class="plan-icon">
+          <svg viewBox="0 0 260 140" role="img" aria-label="Empat AI — materi, XAU, BTC, news — mengirim sinyal ke satu komunitas">
+            <defs>
+              <linearGradient id="gCommunity" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="var(--gold-bright)"/>
+                <stop offset="100%" stop-color="var(--gold)"/>
+              </linearGradient>
+            </defs>
+
+            <g>
+              <rect x="8" y="2" width="54" height="14" rx="7" fill="var(--surface-2)" stroke="var(--gold)" stroke-width="1"/>
+              <text x="35" y="12" text-anchor="middle" font-family="var(--font-mono)" font-size="8.5" font-weight="700" fill="var(--gold-bright)">MATERI</text>
+              <rect x="18" y="18" width="34" height="26" rx="7" fill="url(#gCommunity)"/>
+              <circle class="bot-eye" cx="28" cy="31" r="2.2" fill="var(--surface)"/>
+              <circle class="bot-eye" cx="42" cy="31" r="2.2" fill="var(--surface)"/>
+            </g>
+
+            <g>
+              <rect x="78" y="2" width="42" height="14" rx="7" fill="var(--surface-2)" stroke="var(--gold)" stroke-width="1"/>
+              <text x="99" y="12" text-anchor="middle" font-family="var(--font-mono)" font-size="9" font-weight="700" fill="var(--gold-bright)">XAU</text>
+              <rect x="82" y="18" width="34" height="26" rx="7" fill="url(#gCommunity)"/>
+              <circle class="bot-eye" cx="92" cy="31" r="2.2" fill="var(--surface)"/>
+              <circle class="bot-eye" cx="106" cy="31" r="2.2" fill="var(--surface)"/>
+            </g>
+
+            <g>
+              <rect x="142" y="2" width="42" height="14" rx="7" fill="var(--surface-2)" stroke="var(--gold)" stroke-width="1"/>
+              <text x="163" y="12" text-anchor="middle" font-family="var(--font-mono)" font-size="9" font-weight="700" fill="var(--gold-bright)">BTC</text>
+              <rect x="146" y="18" width="34" height="26" rx="7" fill="url(#gCommunity)"/>
+              <circle class="bot-eye" cx="156" cy="31" r="2.2" fill="var(--surface)"/>
+              <circle class="bot-eye" cx="170" cy="31" r="2.2" fill="var(--surface)"/>
+            </g>
+
+            <g>
+              <rect x="200" y="2" width="50" height="14" rx="7" fill="var(--surface-2)" stroke="var(--gold)" stroke-width="1"/>
+              <text x="225" y="12" text-anchor="middle" font-family="var(--font-mono)" font-size="8.5" font-weight="700" fill="var(--gold-bright)">NEWS</text>
+              <rect x="208" y="18" width="34" height="26" rx="7" fill="url(#gCommunity)"/>
+              <circle class="bot-eye" cx="218" cy="31" r="2.2" fill="var(--surface)"/>
+              <circle class="bot-eye" cx="232" cy="31" r="2.2" fill="var(--surface)"/>
+            </g>
+
+            <line x1="35" y1="44" x2="122" y2="96" stroke="var(--gold)" stroke-width="0.8" opacity="0.25"/>
+            <line x1="99" y1="44" x2="127" y2="92" stroke="var(--gold)" stroke-width="0.8" opacity="0.25"/>
+            <line x1="163" y1="44" x2="133" y2="92" stroke="var(--gold)" stroke-width="0.8" opacity="0.25"/>
+            <line x1="225" y1="44" x2="138" y2="96" stroke="var(--gold)" stroke-width="0.8" opacity="0.25"/>
+
+            <circle class="flow-dot" r="3.2" fill="var(--gold-bright)" style="offset-path:path('M35 44 L122 96'); animation-delay:0s"/>
+            <circle class="flow-dot" r="3.2" fill="var(--gold-bright)" style="offset-path:path('M99 44 L127 92'); animation-delay:.5s"/>
+            <circle class="flow-dot" r="3.2" fill="var(--gold-bright)" style="offset-path:path('M163 44 L133 92'); animation-delay:1s"/>
+            <circle class="flow-dot" r="3.2" fill="var(--gold-bright)" style="offset-path:path('M225 44 L138 96'); animation-delay:1.5s"/>
+
+            <circle cx="118" cy="104" r="10" fill="var(--text-muted)"/>
+            <circle cx="135" cy="98" r="12" fill="var(--text)"/>
+            <circle cx="152" cy="104" r="10" fill="var(--text-muted)"/>
+            <rect x="110" y="116" width="52" height="16" rx="8" fill="var(--text-muted)"/>
+            <text x="135" y="136" text-anchor="middle" font-family="var(--font-mono)" font-size="9" font-weight="700" fill="var(--gold-bright)" letter-spacing="1">GRUP</text>
+          </svg>
+        </div>
+        <span class="plan-badge" id="planBadgeC">4 AI Dalam 1 Komunitas</span>
+        <div class="plan-name" id="planNameC">AI Analysis Community</div>
+        <div class="plan-tag" id="planTagC">4 AI khusus — materi, sinyal XAU, sinyal BTC, dan news real-time — bekerja sekaligus untuk komunitas Anda.</div>
         <div class="plan-price"><span id="priceC">Rp350.000</span></div>
         <div class="plan-permonth" id="permonthC"></div>
         <ul class="plan-features">
-          <li>Materi Technical Analysis untuk basis AI</li>
-          <li>Topik Signal XAUUSD per jam</li>
-          <li>Topik Signal BTCUSD</li>
-          <li>Topik News XAUUSD real-time (semua sumber global)</li>
+          <li id="planFeatC1">AI Materi — dasar Technical Analysis untuk basis sinyal</li>
+          <li id="planFeatC2">AI Signal XAUUSD — update setiap jam</li>
+          <li id="planFeatC3">AI Signal BTCUSD — peluang di luar gold</li>
+          <li id="planFeatC4">AI News XAUUSD — real-time dari seluruh sumber global</li>
         </ul>
-        <a class="plan-cta" id="ctaC" href="#" target="_blank">Join Community</a>
+        <a class="plan-cta" id="ctaC" href="#" target="_blank">Gabung Komunitas Sekarang</a>
       </div>
     </div>
   </div>
 
-  <!-- JOIN / PORTFOLIO -->
   <div class="card">
-    <h2>🎯 Lihat Bukti Performa</h2>
-    <p class="text">Semua hasil sinyal kami dicatat secara transparan dan diperbarui setiap hari.</p>
-    <a class="btn secondary" href="https://docs.google.com/spreadsheets/d/1p1jiuCcU6tUxxPEmodkwaQBmCB8u-BLOGa5J7LpETKE/edit?usp=sharing" target="_blank" onclick="gtag('event','backtest_click');">
+    <h2 id="portfolioTitle">🎯 Lihat Bukti Performa</h2>
+    <p class="text" id="portfolioText">Semua hasil sinyal kami dicatat secara transparan dan diperbarui setiap hari.</p>
+    <a class="btn secondary" id="portfolioBtn" href="https://docs.google.com/spreadsheets/d/1p1jiuCcU6tUxxPEmodkwaQBmCB8u-BLOGa5J7LpETKE/edit?usp=sharing" target="_blank" onclick="gtag('event','backtest_click');">
       📊 Hasil Portofolio Signal AI Setiap Hari
     </a>
   </div>
 
-  <!-- REQUIREMENT -->
   <div class="card">
-    <h2>📋 Access Requirements</h2>
-    <div class="req"><span class="check">✓</span> Memiliki akun Telegram aktif.</div>
-    <div class="req"><span class="check">✓</span> Bergabung melalui sistem registrasi.</div>
-    <div class="req"><span class="check">✓</span> Menggunakan informasi sebagai referensi analisa trading.</div>
+    <h2 id="reqTitle">📋 Syarat Akses</h2>
+    <div class="req"><span class="check">✓</span> <span id="req1">Memiliki akun Telegram aktif.</span></div>
+    <div class="req"><span class="check">✓</span> <span id="req2">Bergabung melalui sistem registrasi.</span></div>
+    <div class="req"><span class="check">✓</span> <span id="req3">Menggunakan informasi sebagai referensi analisa trading.</span></div>
   </div>
 
-  <!-- DISCLAIMER -->
   <div class="disclaimer">
-    <strong>Risk Disclaimer</strong><br><br>
-    Trading Forex dan Futures memiliki risiko tinggi. Performa sebelumnya tidak menjamin hasil di masa depan.
+    <strong id="disclaimerTitle">Risk Disclaimer</strong><br><br>
+    <span id="disclaimerText">Trading Forex dan Futures memiliki risiko tinggi. Performa sebelumnya tidak menjamin hasil di masa depan.
     AI System menyediakan informasi analisa market dan bukan merupakan jaminan profit.
-    Trader bertanggung jawab atas keputusan trading masing-masing.
+    Trader bertanggung jawab atas keputusan trading masing-masing.</span>
   </div>
 
   <div class="footer">
     XAU AI Intelligence © 2026<br>
-    Professional AI Market Technology
+    <span id="footerText">Teknologi Pasar AI Profesional</span>
   </div>
 
 </div>
 
 <script>
-/* =====================================================
-   CONFIG — edit these values, nothing else needs to change
-   ===================================================== */
+let preferredLanguage = "id";
 
-// Bot links: base = no-referral link, ref = prefix used when ?ref=xxx is in the URL
 const BOT_LINKS = {
   personal: {
     base: "https://t.me/Intradayxauusd_bot?start=Halo_Bot_Mau_Join_Signal_AI_dong",
@@ -565,37 +647,39 @@ const BOT_LINKS = {
   }
 };
 
-// Prices in Rupiah. "lifetime" = one-time payment, unlimited access.
 const PRICING = {
   personal:  { "1": 250000, "6": 500000, "12": 850000,  "lifetime": 1500000 },
   community: { "1": 350000, "6": 700000, "12": 1000000, "lifetime": 2500000 }
 };
 
-const DURATION_LABEL = { "1": "/ bulan", "6": "/ 6 bulan", "12": "/ 12 bulan", "lifetime": "sekali bayar" };
 const DURATION_MONTHS = { "1": 1, "6": 6, "12": 12 };
+const LIFETIME_TEXT = { id: "Akses selamanya, sekali bayar", en: "Lifetime access, one-time payment", zh: "永久访问，一次性付款" };
+const PERMONTH_SUFFIX = { id: "/bulan", en: "/mo", zh: "/月" };
 
-/* ===================================================== */
+let currentDuration = "1";
 
 function formatRupiah(n){
   return "Rp" + n.toLocaleString("id-ID");
 }
 
 function renderPricing(duration){
+  currentDuration = duration;
   const p = PRICING.personal[duration];
   const c = PRICING.community[duration];
 
-  document.getElementById("priceP").textContent = formatRupiah(p) + (duration!=="lifetime" ? "" : "");
-  document.getElementById("priceC").textContent = formatRupiah(c) + (duration!=="lifetime" ? "" : "");
+  document.getElementById("priceP").textContent = formatRupiah(p);
+  document.getElementById("priceC").textContent = formatRupiah(c);
 
   if(duration === "lifetime"){
-    document.getElementById("permonthP").textContent = "Akses selamanya, sekali bayar";
-    document.getElementById("permonthC").textContent = "Akses selamanya, sekali bayar";
+    document.getElementById("permonthP").textContent = LIFETIME_TEXT[preferredLanguage];
+    document.getElementById("permonthC").textContent = LIFETIME_TEXT[preferredLanguage];
   } else {
     const months = DURATION_MONTHS[duration];
     const perMonthP = Math.round(p / months);
     const perMonthC = Math.round(c / months);
-    document.getElementById("permonthP").textContent = "≈ " + formatRupiah(perMonthP) + "/bulan";
-    document.getElementById("permonthC").textContent = "≈ " + formatRupiah(perMonthC) + "/bulan";
+    const suffix = PERMONTH_SUFFIX[preferredLanguage];
+    document.getElementById("permonthP").textContent = "≈ " + formatRupiah(perMonthP) + suffix;
+    document.getElementById("permonthC").textContent = "≈ " + formatRupiah(perMonthC) + suffix;
   }
 }
 
@@ -609,9 +693,6 @@ document.getElementById("durationToggle").addEventListener("click", (e)=>{
 
 renderPricing("1");
 
-/* =====================
-   REFERRAL SYSTEM (applies to both CTA buttons)
-   ===================== */
 const urlParams = new URLSearchParams(window.location.search);
 const referral = urlParams.get("ref");
 
@@ -628,9 +709,6 @@ document.getElementById("ctaC").href = buildLink("community");
 document.getElementById("ctaP").addEventListener("click", ()=>gtag('event','telegram_join_click_personal'));
 document.getElementById("ctaC").addEventListener("click", ()=>gtag('event','telegram_join_click_community'));
 
-/* =====================
-   TICKER TAPE (signature element)
-   ===================== */
 const tickerData = [
   {dir:"buy",  label:"XAUUSD", price:"2378.40", note:"BUY · SMC breakout"},
   {dir:"sell", label:"XAUUSD", price:"2381.10", note:"SELL · liquidity grab"},
@@ -640,7 +718,7 @@ const tickerData = [
 ];
 function renderTicker(){
   const track = document.getElementById("tickerTrack");
-  const items = [...tickerData, ...tickerData]; // duplicate for seamless loop
+  const items = [...tickerData, ...tickerData];
   track.innerHTML = items.map(t => `
     <div class="tick ${t.dir}">
       <b>${t.label}</b> ${t.price} ${t.dir === "buy" ? "▲" : "▼"} <span>${t.note}</span>
@@ -649,10 +727,10 @@ function renderTicker(){
 }
 renderTicker();
 
-/* =====================
-   LANGUAGE (hero only)
-   ===================== */
-const language = {
+// Language preference kept in memory for this session (localStorage is not
+// available inside the artifact sandbox)
+// hero (uses innerHTML because of the <span class="gold">)
+const heroText = {
   id: {
     title: 'Professional AI Assistant For <span class="gold">XAUUSD</span>',
     subtitle: "AI Trading Assistant yang membaca peluang pergerakan XAUUSD dan mengirimkannya langsung ke Telegram Anda, real-time, 24/7."
@@ -660,20 +738,111 @@ const language = {
   en: {
     title: 'Professional AI Assistant For <span class="gold">XAUUSD</span>',
     subtitle: "AI-based market analysis that reads XAUUSD opportunities and sends them straight to your Telegram, in real time, 24/7."
+  },
+  zh: {
+    title: 'XAUUSD 专业 <span class="gold">AI</span> 交易助手',
+    subtitle: "AI 交易助手实时读取 XAUUSD 走势机会，并直接发送到您的 Telegram，全天候 24/7 运行。"
   }
 };
 
-function setLang(lang){
-  localStorage.setItem("preferred_language", lang);
-  const data = language[lang];
-  document.getElementById("heroTitle").innerHTML = data.title;
-  document.getElementById("heroSubtitle").textContent = data.subtitle;
-}
-setLang(localStorage.getItem("preferred_language") || "id");
+// every other translatable element on the page (plain textContent)
+const i18n = {
+  aboutTitle:      { id: "🏢 Tentang Teknologi Kami", en: "🏢 About Our Technology", zh: "🏢 关于我们的技术" },
+  aboutText:       { id: "Tujuan kami bukan sekadar memberikan sinyal, tetapi menghadirkan AI Trading Assistant yang membantu trader memahami alasan di balik setiap peluang market sehingga keputusan trading dapat dilakukan dengan lebih percaya diri dan disiplin.",
+                     en: "Our goal isn't just to hand you signals — it's an AI Trading Assistant that helps you understand the reasoning behind every market opportunity, so you can trade with more confidence and discipline.",
+                     zh: "我们的目标不仅仅是提供信号，而是打造一个 AI 交易助手，帮助交易者理解每次市场机会背后的原因，从而更自信、更有纪律地做出交易决策。" },
+  statMonitor:     { id: "Pemantauan Pasar", en: "Market Monitor", zh: "市场监控" },
+  statEngine:      { id: "Mesin Analisa", en: "Analysis Engine", zh: "分析引擎" },
+  statMarket:      { id: "Pasar Emas", en: "Gold Market", zh: "黄金市场" },
 
-/* =====================
-   PAGE-LOAD FADE
-   ===================== */
+  featuresTitle:   { id: "⚡ Fitur AI Trading", en: "⚡ AI Trading Features", zh: "⚡ AI 交易功能" },
+  feat1Title:      { id: "Kecerdasan Pasar AI", en: "AI Market Intelligence", zh: "AI 市场智能" },
+  feat1Desc:       { id: "Analisa XAUUSD berbasis Smart Money Concept & Market Structure.", en: "XAUUSD analysis based on Smart Money Concept & Market Structure.", zh: "基于聪明钱理论（SMC）与市场结构的 XAUUSD 分析。" },
+  feat2Title:      { id: "Analisa Profesional", en: "Professional Analysis", zh: "专业分析" },
+  feat2Desc:       { id: "Setiap sinyal dilengkapi penjelasan arah market, bukan cuma angka.", en: "Every signal comes with an explanation of market direction, not just numbers.", zh: "每个信号都附有市场方向说明，而不仅仅是数字。" },
+  feat3Title:      { id: "Pengiriman Real-Time", en: "Real-Time Delivery", zh: "实时推送" },
+  feat3Desc:       { id: "Update market otomatis dikirim langsung ke Telegram Anda.", en: "Market updates are sent automatically straight to your Telegram.", zh: "市场更新自动直接发送到您的 Telegram。" },
+  feat4Title:      { id: "Manajemen Risiko", en: "Risk Management", zh: "风险管理" },
+  feat4Desc:       { id: "Setiap rekomendasi disertai pendekatan manajemen risiko.", en: "Every recommendation comes with a risk management approach.", zh: "每项建议都附带风险管理方案。" },
+
+  howTitle:        { id: "🚀 Cara Kerja", en: "🚀 How It Works", zh: "🚀 使用方法" },
+  step1Title:      { id: "Pilih Paket", en: "Choose a Plan", zh: "选择套餐" },
+  step1Desc:       { id: "Personal Assistant atau Community — sesuai kebutuhan trading Anda.", en: "Personal Assistant or Community — whichever fits your trading needs.", zh: "个人助手或社群版 — 根据您的交易需求选择。" },
+  step2Title:      { id: "Mesin Analisa AI", en: "AI Analysis Engine", zh: "AI 分析引擎" },
+  step2Desc:       { id: "AI menganalisa XAUUSD menggunakan Smart Money Concept, Liquidity, dan Market Structure.", en: "The AI analyzes XAUUSD using Smart Money Concept, Liquidity, and Market Structure.", zh: "AI 使用聪明钱理论、流动性和市场结构分析 XAUUSD。" },
+  step3Title:      { id: "Pengiriman Sinyal", en: "Signal Delivery", zh: "信号推送" },
+  step3Desc:       { id: "Informasi entry dikirim secara real-time ke Telegram Anda.", en: "Entry information is delivered to your Telegram in real time.", zh: "入场信息实时发送到您的 Telegram。" },
+
+  pricingTitle:    { id: "💳 Pilih Paket Anda", en: "💳 Choose Your Plan", zh: "💳 选择您的套餐" },
+  pricingIntro:    { id: "Dua cara untuk mengakses AI Trading Assistant kami — pilih sesuai gaya trading Anda.", en: "Two ways to access our AI Trading Assistant — pick whichever suits your trading style.", zh: "两种方式访问我们的 AI 交易助手 — 根据您的交易风格选择。" },
+  durBtn1:         { id: "1 Bulan", en: "1 Month", zh: "1 个月" },
+  durBtn6:         { id: "6 Bulan", en: "6 Months", zh: "6 个月" },
+  durBtn12:        { id: "12 Bulan", en: "12 Months", zh: "12 个月" },
+  durBtnLife:      { id: "Permanen", en: "Lifetime", zh: "永久" },
+
+  planBadgeP:      { id: "Privat & Eksklusif", en: "Private & Exclusive", zh: "私享专属" },
+  planNameP:       { id: "AI Assistant Pribadi", en: "Personal AI Assistant", zh: "私人 AI 助手" },
+  planTagP:        { id: "Satu AI, satu fokus: XAUUSD real-time langsung ke chat pribadi Anda — tanpa antre, tanpa distraksi.", en: "One AI, one focus: real-time XAUUSD straight to your private chat — no queue, no distractions.", zh: "一个 AI，专注一件事：XAUUSD 实时信号直接发送到您的私人聊天 — 无需排队，无干扰。" },
+  planFeatP1:      { id: "Sinyal AI XAUUSD real-time setiap jam", en: "Real-time AI XAUUSD signals every hour", zh: "每小时实时 AI XAUUSD 信号" },
+  planFeatP2:      { id: "Dikirim langsung ke DM Telegram pribadi Anda", en: "Delivered straight to your private Telegram DM", zh: "直接发送到您的 Telegram 私信" },
+  planFeatP3:      { id: "Analisa singkat di setiap sinyal", en: "Brief analysis included with every signal", zh: "每个信号附带简要分析" },
+  planFeatP4:      { id: "Tanpa topik lain, murni fokus XAUUSD", en: "No other topics — pure XAUUSD focus", zh: "无其他话题，专注 XAUUSD" },
+  ctaP:            { id: "Aktifkan AI Assistant Saya", en: "Activate My AI Assistant", zh: "激活我的 AI 助手" },
+
+  planBadgeC:      { id: "4 AI Dalam 1 Komunitas", en: "4 AIs In 1 Community", zh: "1 个社群内 4 个 AI" },
+  planNameC:       { id: "AI Analysis Community", en: "AI Analysis Community", zh: "AI 分析社群" },
+  planTagC:        { id: "4 AI khusus — materi, sinyal XAU, sinyal BTC, dan news real-time — bekerja sekaligus untuk komunitas Anda.", en: "4 dedicated AIs — materials, XAU signals, BTC signals, and real-time news — all working together for your community.", zh: "4 个专属 AI — 教学资料、XAU 信号、BTC 信号和实时新闻 — 同时为您的社群工作。" },
+  planFeatC1:      { id: "AI Materi — dasar Technical Analysis untuk basis sinyal", en: "AI Materials — Technical Analysis fundamentals behind the signals", zh: "AI 教学资料 — 信号背后的技术分析基础" },
+  planFeatC2:      { id: "AI Signal XAUUSD — update setiap jam", en: "AI XAUUSD Signal — hourly updates", zh: "AI XAUUSD 信号 — 每小时更新" },
+  planFeatC3:      { id: "AI Signal BTCUSD — peluang di luar gold", en: "AI BTCUSD Signal — opportunities beyond gold", zh: "AI BTCUSD 信号 — 黄金以外的机会" },
+  planFeatC4:      { id: "AI News XAUUSD — real-time dari seluruh sumber global", en: "AI News XAUUSD — real-time from global sources", zh: "AI XAUUSD 新闻 — 来自全球来源的实时资讯" },
+  ctaC:            { id: "Gabung Komunitas Sekarang", en: "Join the Community Now", zh: "立即加入社群" },
+
+  portfolioTitle:  { id: "🎯 Lihat Bukti Performa", en: "🎯 See Our Track Record", zh: "🎯 查看业绩记录" },
+  portfolioText:   { id: "Semua hasil sinyal kami dicatat secara transparan dan diperbarui setiap hari.", en: "All our signal results are recorded transparently and updated daily.", zh: "我们所有的信号结果都透明记录并每日更新。" },
+  portfolioBtn:    { id: "📊 Hasil Portofolio Signal AI Setiap Hari", en: "📊 Daily AI Signal Portfolio Results", zh: "📊 每日 AI 信号投资组合结果" },
+
+  reqTitle:        { id: "📋 Syarat Akses", en: "📋 Access Requirements", zh: "📋 访问要求" },
+  req1:            { id: "Memiliki akun Telegram aktif.", en: "Have an active Telegram account.", zh: "拥有一个有效的 Telegram 账户。" },
+  req2:            { id: "Bergabung melalui sistem registrasi.", en: "Join through the registration system.", zh: "通过注册系统加入。" },
+  req3:            { id: "Menggunakan informasi sebagai referensi analisa trading.", en: "Use the information as a trading analysis reference.", zh: "将信息用作交易分析参考。" },
+
+  disclaimerTitle: { id: "Risk Disclaimer", en: "Risk Disclaimer", zh: "风险提示" },
+  disclaimerText:  { id: "Trading Forex dan Futures memiliki risiko tinggi. Performa sebelumnya tidak menjamin hasil di masa depan. AI System menyediakan informasi analisa market dan bukan merupakan jaminan profit. Trader bertanggung jawab atas keputusan trading masing-masing.",
+                     en: "Forex and Futures trading carries high risk. Past performance does not guarantee future results. The AI System provides market analysis information and is not a guarantee of profit. Traders are responsible for their own trading decisions.",
+                     zh: "外汇和期货交易风险较高。过往表现不代表未来结果。AI 系统提供市场分析信息，并不保证盈利。交易者需对自己的交易决策负责。" },
+
+  footerText:      { id: "Teknologi Pasar AI Profesional", en: "Professional AI Market Technology", zh: "专业 AI 市场技术" }
+};
+
+function setLang(lang){
+  preferredLanguage = lang;
+
+  const hero = heroText[lang];
+  document.getElementById("heroTitle").innerHTML = hero.title;
+  document.getElementById("heroSubtitle").textContent = hero.subtitle;
+
+  Object.keys(i18n).forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.textContent = i18n[id][lang];
+  });
+
+  // pricing labels (lifetime text / per-month suffix) depend on language too
+  renderPricing(currentDuration);
+
+  document.querySelectorAll("#langToggle button").forEach(b=>{
+    b.classList.toggle("active", b.dataset.lang === lang);
+  });
+}
+
+document.getElementById("langToggle").addEventListener("click", (e)=>{
+  const btn = e.target.closest("button");
+  if(!btn) return;
+  setLang(btn.dataset.lang);
+});
+
+setLang(preferredLanguage);
+
 document.querySelectorAll(".card").forEach((card, i)=>{
   card.style.opacity = "0";
   card.style.transform = "translateY(24px)";
@@ -683,6 +852,90 @@ document.querySelectorAll(".card").forEach((card, i)=>{
     card.style.transform = "translateY(0)";
   }, i*120);
 });
+
+/* =====================
+   ANIMATED TECH BACKGROUND
+   AI network nodes (drifting, connecting lines) + a slow
+   scrolling "market chart" line near the top of the page.
+   ===================== */
+(function(){
+  const canvas = document.getElementById("bgCanvas");
+  const ctx = canvas.getContext("2d");
+  let w, h;
+
+  function resize(){
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  // AI network nodes
+  const NODE_COUNT = Math.min(50, Math.floor((window.innerWidth * window.innerHeight) / 22000));
+  const nodes = Array.from({length: NODE_COUNT}, () => ({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    vx: (Math.random() - 0.5) * 0.22,
+    vy: (Math.random() - 0.5) * 0.22,
+    r: Math.random() * 1.6 + 0.6
+  }));
+
+  // scrolling market-chart line (candlestick-ish silhouette near top)
+  const CHART_SPACING = 42;
+  const chartValues = Array.from({length: 40}, () => Math.random());
+  let chartOffset = 0;
+
+  function draw(){
+    ctx.clearRect(0, 0, w, h);
+
+    // connecting lines first (so nodes sit on top)
+    for(let i = 0; i < nodes.length; i++){
+      for(let j = i + 1; j < nodes.length; j++){
+        const a = nodes[i], b = nodes[j];
+        const dist = Math.hypot(a.x - b.x, a.y - b.y);
+        if(dist < 130){
+          ctx.strokeStyle = `rgba(201,162,39,${(1 - dist / 130) * 0.16})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // nodes
+    ctx.fillStyle = "rgba(233,199,106,0.55)";
+    for(const n of nodes){
+      n.x += n.vx;
+      n.y += n.vy;
+      if(n.x < 0 || n.x > w) n.vx *= -1;
+      if(n.y < 0 || n.y > h) n.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // scrolling chart line near the top of the viewport
+    chartOffset += 0.5;
+    const baseY = 120;
+    const amp = 70;
+    ctx.strokeStyle = "rgba(233,199,106,0.22)";
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    let started = false;
+    for(let i = -1; i < Math.ceil(w / CHART_SPACING) + 1; i++){
+      const idx = ((i + Math.floor(chartOffset / CHART_SPACING)) % chartValues.length + chartValues.length) % chartValues.length;
+      const x = i * CHART_SPACING - (chartOffset % CHART_SPACING);
+      const y = baseY - chartValues[idx] * amp;
+      if(!started){ ctx.moveTo(x, y); started = true; } else { ctx.lineTo(x, y); }
+    }
+    ctx.stroke();
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
 </script>
 
 </body>
